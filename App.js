@@ -1,9 +1,14 @@
 import base from './src/modules/base_module';
+import { DoctorService } from './src/services/doctor/doctor_service';
+import { UserService } from './src/services/user/user_service';
 
 export default function App() {
+  const userService = new UserService();
+  userService.create();
+
   return (
     <base.View style={styles.container}>
-      <base.Text>Open up App.js to start working on your app!</base.Text>
+      <base.Text>Best</base.Text>
       <base.TouchableOpacity>
       </base.TouchableOpacity>
     </base.View>
