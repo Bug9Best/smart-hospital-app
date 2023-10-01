@@ -1,25 +1,17 @@
-import base from './src/modules/base_module';
-import { DoctorService } from './src/services/doctor/doctor_service';
-import { UserService } from './src/services/user/user_service';
+import base from "./src/modules/base_module";
+import Home from "./src/pages/Home";
+import React from "react";
+import { Text } from "react-native";
 
 export default function App() {
-  const userService = new UserService();
-  userService.create();
-
-  return (
-    <base.View style={styles.container}>
-      <base.Text>Best</base.Text>
-      <base.TouchableOpacity>
-      </base.TouchableOpacity>
-    </base.View>
-  );
+  return <Home />;
 }
 
 const styles = base.StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "white",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
