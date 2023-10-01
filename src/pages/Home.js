@@ -7,6 +7,8 @@ const Home = () => {
 
   return (
     <View style={styles.box}>
+       
+        
       <View style={styles.rectangle}>
 
 
@@ -69,20 +71,42 @@ const Home = () => {
             </Text>
           </View>
         </View>
-          
-      </View>
       
+      
+      </View>
+     
+     
+        
+      <Text style={{ fontSize: 15, fontWeight: 'bold', marginBottom: 10, marginRight: 270, color: '#FF8A48' }}>
+        รายการนัดหมาย
+      </Text>
+
       <View style={styles.smallRectangle}>
         <Text>
-          <Ionicons name="md-checkmark-circle" size={32} color="green" />
         </Text>
       </View>
+
+
+      <Text style={{ fontSize: 15, fontWeight: 'bold', marginBottom: 10, marginRight: 300, color: '#FF8A48' }}>
+        คิวของคุณ
+      </Text>
+
       <View style={styles.smallRectangle}>
         <Text>
-          <Ionicons name="md-checkmark-circle" size={32} color="green" />
         </Text>
       </View>
+
+
+      <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }}>
+  <Text style={{ fontSize: 15, fontWeight: 'bold', marginBottom: 20, color: '#FF8A48', marginLeft: 340 }}></Text>
+  <Ionicons name="add-circle-sharp" size={70} color="#FF8A48" />
+</View>
+
+
     </View>
+
+
+
   );
 };
 
@@ -114,7 +138,7 @@ const styles = StyleSheet.create({
   },
   smallRectangle: {
     backgroundColor: "white",
-    marginBottom: 40,
+    marginBottom: 60,
     borderWidth: 1,
     borderColor: "#7d869e40",
     borderRadius: 12,
@@ -128,6 +152,7 @@ const styles = StyleSheet.create({
     height: 98,
     width: 400,
   },
+
 });
 
 export default Home;
