@@ -4,7 +4,7 @@ import { View, StyleSheet, Text, Image } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
 
-const Home = () => {
+const Event = () => {
 
   return (
     <base.SafeAreaView style={styles.box}>
@@ -79,7 +79,6 @@ const Home = () => {
               <Ionicons name="call" size={32} color="#FF8A48" />
             </Text>
             <Text style={{alignSelf: 'center', color: '#FF8A48'}}> 
-              ติดต่อเรา
             </Text>
           </View>
         </View>
@@ -208,4 +207,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Home;
+export default Event;
