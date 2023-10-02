@@ -1,21 +1,15 @@
-import base from './src/modules/base_module';
+import base from "./src/modules/base_module";
+import Signin from "./src/pages/SignIn";
 
 export default function App() {
-
-  return (
-    <base.View style={styles.container}>
-      
-      <base.TouchableOpacity>
-      </base.TouchableOpacity>
-    </base.View>
-  );
+  return <Signin />;
 }
 
 const styles = base.StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'red',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "red",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
