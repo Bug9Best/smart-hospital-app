@@ -1,8 +1,8 @@
 import base from "./src/modules/base_module";
-import Signin from "./src/pages/SignIn";
+import RootNav from "./src/navigation/Rootnav";
 
 export default function App() {
-  return <Signin />;
+  return <RootNav />;
 }
 
 const styles = base.StyleSheet.create({
