@@ -79,7 +79,7 @@ const Home = () => {
               <Ionicons name="call" size={32} color="#FF8A48" />
             </Text>
             <Text style={{alignSelf: 'center', color: '#FF8A48'}}> 
-              ติดต่อเรา
+            ติดต่อเรา
             </Text>
           </View>
         </View>
