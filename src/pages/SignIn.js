@@ -80,7 +80,7 @@ export default function Signin({navigation}) {
                 style={styles.Realinput}
                 placeholder="useless placeholder"
               />
-              <base.TouchableOpacity onPress={()=>{navigation.navigate('Home', {text: "text"})}}>
+              <base.TouchableOpacity >
                 <base.View
                   style={{
                     paddingHorizontal: 145,
@@ -115,7 +115,7 @@ export default function Signin({navigation}) {
                 marginTop: 20,
               }}
             >
-              <base.TouchableOpacity>
+              <base.TouchableOpacity onPress={()=>{navigation.navigate('Home', {text: "text"})}}>
                 <base.View
                   style={{
                     paddingHorizontal: 112,
@@ -128,7 +128,7 @@ export default function Signin({navigation}) {
                   <base.Text style={{color: "white"}}>ลงทะเบียนเข้าใช้งาน</base.Text>
                 </base.View>
               </base.TouchableOpacity>
-              <base.TouchableOpacity>
+              <base.TouchableOpacity onPress={()=>{navigation.navigate('Newsignup', {text: "text"})}}>
                 <base.View
                   style={{
                     paddingHorizontal: 110,

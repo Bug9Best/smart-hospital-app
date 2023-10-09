@@ -1,16 +1,36 @@
 import base from "../modules/base_module";
 
-export default function Home({ route }) {
+export default function Signupjing({ route }) {
   console.log(route);
   return (
     <base.View style={styles.container}>
       <base.View style={styles.box}>
-        <base.Text>หมายเลขผู้ป่วย(HN) *</base.Text>
+        <base.Text>หมายเลขบัตรประชาชน *</base.Text>
         <base.TextInput
           style={styles.Realinput}
           placeholder="useless placeholder"
         />
-        <base.Text style={{ marginTop: 10 }}>หมายเลขบัตรประชาชน *</base.Text>
+        <base.Text style={{ marginTop: 10 }}>คำนำหน้า *</base.Text>
+        <base.TextInput
+          style={styles.Realinput}
+          placeholder="useless placeholder"
+        />
+        <base.Text style={{ marginTop: 10 }}>ชื่อจริง *</base.Text>
+        <base.TextInput
+          style={styles.Realinput}
+          placeholder="useless placeholder"
+        />
+        <base.Text style={{ marginTop: 10 }}>ชื่อกลาง *</base.Text>
+        <base.TextInput
+          style={styles.Realinput}
+          placeholder="useless placeholder"
+        />
+        <base.Text style={{ marginTop: 10 }}>นามสกุล *</base.Text>
+        <base.TextInput
+          style={styles.Realinput}
+          placeholder="useless placeholder"
+        />
+        <base.Text style={{ marginTop: 10 }}>วันเดือนปีเกิด *</base.Text>
         <base.TextInput
           style={styles.Realinput}
           placeholder="useless placeholder"
@@ -22,7 +42,7 @@ export default function Home({ route }) {
             style={{
                 paddingHorizontal: 125,
                 paddingVertical: 15,
-                marginTop: 400,
+                marginTop: 50,
                 backgroundColor: "#FF8A48",
                 borderRadius: 10,
             }}
@@ -45,7 +65,7 @@ const styles = base.StyleSheet.create({
   box: {
     backgroundColor: "white",
     width: "95%",
-    height: "30%",
+    height: "80%",
     marginTop: 15,
     borderRadius: 10,
     padding: 10,
