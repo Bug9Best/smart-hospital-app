@@ -5,7 +5,7 @@ import React from "react";
 import { Text } from "react-native";
 
 export default function App() {
-  return <Event />;
+  return <Home />;
 }
 
 const styles = base.StyleSheet.create({
