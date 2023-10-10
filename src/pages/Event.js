@@ -20,15 +20,7 @@ const Event1 = () => {
               "rgba(248, 172, 130, 0)",
             ]}
           />
-          <Text style={[styles.text, styles.textClr]}>
-            คลินิก สจล. เตรียมให้บริการจองคิวออนไลน์
-          </Text>
-          <Text style={[styles.sep2023, styles.textPosition2]}>1 Sep 2023</Text>
-          <Image
-            style={[styles.newImage1, styles.newIconLayout]}
-            contentFit="cover"
-            source={require("../../assets/image/Cat.jpeg")}
-          />
+         
         </View>
         <View style={[styles.cardEvent1, styles.cardLayout]}>
           <View style={[styles.cardEventChild, styles.cardPosition]} />
