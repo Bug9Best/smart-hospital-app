@@ -42,7 +42,7 @@ const Event1 = () => {
           <Image
             style={[styles.newImage1, styles.newIconLayout]}
             contentFit="cover"
-            source={require("../../assets/image/Cat.jpeg")}
+            source={require("../../assets/image/drivethru.jpg")}
           />
         </View>
         <View style={[styles.cardEvent2, styles.cardLayout]}>
@@ -65,7 +65,7 @@ const Event1 = () => {
           <Image
             style={[styles.newImage12, styles.newIconLayout]}
             contentFit="cover"
-            source={require("../../assets/image/Cat.jpeg")}
+            source={require("../../assets/image/donation.webp")}
           />
         </View>
         <View style={[styles.cardEvent3, styles.cardLayout]}>
@@ -88,7 +88,7 @@ const Event1 = () => {
           <Image
             style={[styles.newImage12, styles.newIconLayout]}
             contentFit="cover"
-            source={require("../../assets/image/Cat.jpeg")}
+            source={require("../../assets/image/Blood1.jpg")}
           />
         </View>
       </View>
