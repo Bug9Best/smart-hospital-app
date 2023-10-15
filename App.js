@@ -4,9 +4,10 @@ import Event from "./src/pages/Event";
 import History from "./src/pages/History";
 import React from "react";
 import { Text } from "react-native";
+import Profile from "./src/pages/Profile";
 
 export default function App() {
-  return <History />;
+  return <Profile />;
 }
 
 const styles = base.StyleSheet.create({
