@@ -9,6 +9,8 @@ import Doctorscheduled from '../pages/Doctor-schelude';
 import Formdownload from '../pages/Form-dowload';
 import Staff from '../pages/Staff';
 import Druginfo from '../pages/Druginfo';
+import Aboutus from '../pages/Aboutus';
+import Contactus from '../pages/Contactus';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,7 +19,7 @@ const RootNav = () => {
         <NavigationContainer>
             <Stack.Navigator>
                 {/* <Stack.Screen name="auth" component={AuthNav}/> */}
-                <Stack.Screen name="auth" component={Druginfo}/>
+                <Stack.Screen name="auth" component={Contactus}/>
                 {/* <Stack.Screen name="nav" component={AppNav}/> */}
             </Stack.Navigator>
         </NavigationContainer>

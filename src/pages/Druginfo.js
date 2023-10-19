@@ -38,7 +38,8 @@ export default function Druginfo({ navigation }){
                 backgroundColor: "white",
                 borderRadius: 10,
                 padding: 10,
-                marginTop: 10,}}>
+                marginTop: 10,
+                }}>
                     <base.View style={{flexDirection: 'row'}}>
                         
                         <base.Image source={item.image} style={{width: 75, height: 75, borderRadius: 100, marginTop: 15}} />

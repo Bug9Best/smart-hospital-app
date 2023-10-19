@@ -60,6 +60,7 @@ const styles = base.StyleSheet.create({
     marginTop: 15,
     borderRadius: 10,
     padding: 15,
+    
   },
   Realinput: {
     borderWidth: "2px",
