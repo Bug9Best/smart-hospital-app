@@ -73,7 +73,7 @@ const Home = () => {
        
        <base.SafeAreaView style={styles.DisplayProfile}>
   <Image
-    source={require('../../assets/image/Cat.jpeg')}
+    source={require('../assets/image/Cat.jpeg')}
     style={styles.profileImage}
   />
   <Text style={{marginTop: -50, marginLeft: -120, fontWeight: 'bold'}}>ยินดีต้อนรับ</Text>

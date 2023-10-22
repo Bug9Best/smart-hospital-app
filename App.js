@@ -1,8 +1,8 @@
 import base from "./src/modules/base_module";
 import RootNav from "./src/navigation/Rootnav";
-
+import Home from "./src/pages/Home";
 export default function App() {
-  return <RootNav />;
+  return <Home />;
 }
 
 const styles = base.StyleSheet.create({
