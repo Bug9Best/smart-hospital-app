@@ -4,6 +4,8 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 
 export default function Notification({ navigation }) {
   return (
+    <base.ScrollView>
+
     <base.View style={styles.container}>
     <base.TouchableOpacity
         style={{
@@ -57,6 +59,8 @@ export default function Notification({ navigation }) {
         
       </base.TouchableOpacity>
       </base.View>
+      </base.ScrollView>
+
   );
 }
 
