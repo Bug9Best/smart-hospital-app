@@ -1,10 +1,10 @@
 import base from '../modules/base_module'
 
+
 export default function Doctorscheduled({ navigation }){
     return(
     <base.View style={styles.container}>
         <base.ScrollView>
-        
         <base.View style={styles.box}>
          <base.Text style={{color: "#FF8A48" ,fontSize: 15, fontWeight: 800}}>
             ข้อตกลงและเงื่อนไข
@@ -48,7 +48,7 @@ const styles = base.StyleSheet.create({
   box: {
     backgroundColor: "white",
     width: "95%",
-    height: "35%",
+    height: "50%",
     marginTop: 15,
     borderRadius: 10,
     padding: 15,
@@ -57,7 +57,7 @@ const styles = base.StyleSheet.create({
     backgroundColor: "white",
     width: "95%",
     height: "70%",
-    marginTop: 15,
+    marginTop: 50,
     borderRadius: 10,
     padding: 15,
   },

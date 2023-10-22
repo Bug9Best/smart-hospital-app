@@ -66,28 +66,31 @@ import { View, StyleSheet, Text, Image } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
 
-const Home = () => {
+const Home = ({navigation}) => {
 
   return (
     <base.SafeAreaView style={styles.box}>
        
-       <base.SafeAreaView style={styles.DisplayProfile}>
-  <Image
-    source={require('../../assets/image/Cat.jpeg')}
-    style={styles.profileImage}
-  />
-  <Text style={{marginTop: -50, marginLeft: -120, fontWeight: 'bold'}}>ยินดีต้อนรับ</Text>
-  <Text style={{marginTop: 7, marginLeft: -40, fontWeight: 'light'}}>Nantanon Jinkunthong</Text>
-  <Text style={{alignSelf: 'center', color: '#FF8A48', marginLeft: 330, marginTop: - 35 }}> 
-              <Ionicons name="notifications" size={32} color="#FF8A48" />
-            </Text>
-</base.SafeAreaView>
+       <base.View style={styles.DisplayProfile}>
+          <Image
+            source={require('../assets/image/Cat.jpeg')}
+            style={styles.profileImage}
+          />
+          <Text style={{marginTop: -50, marginLeft: -120, fontWeight: 'bold'}}>ยินดีต้อนรับ</Text>
+          <Text style={{marginTop: 7, marginLeft: -40, fontWeight: 'light'}}>Nantanon Jinkunthong</Text>
+          <Text style={{alignSelf: 'center', color: '#FF8A48', marginLeft: 330, marginTop: - 35 }}> 
+          <base.TouchableOpacity onPress={()=>{navigation.navigate('Notification', {text: "text"})}}>
+          <Ionicons  name="notifications" size={32} color="#FF8A48" />
+          </base.TouchableOpacity>
+          </Text>
+        </base.View>
         
       <View style={styles.rectangle}>
 
 
         {/* แถวบน */}
         <View style={{flexDirection: 'row', gap: 20, justifyContent: 'space-around'}}>
+        <base.TouchableOpacity onPress={()=>{navigation.navigate('Doctorscheduled', {text: "text"})}}>
           <View style={{}}>
             <Text style={{alignSelf: 'center', color: '#FF8A48'}}> 
               <Ionicons name="calendar" size={32} color="#FF8A48" />
@@ -96,7 +99,8 @@ const Home = () => {
               ตารางเวรแพทย์
             </Text>
           </View>
-
+          </base.TouchableOpacity>
+          <base.TouchableOpacity onPress={()=>{navigation.navigate('Formdownload', {text: "text"})}}>
           <View>
             <Text style={{alignSelf: 'center', color: '#FF8A48'}}> 
               <Ionicons name="document" size={32} color="#FF8A48" />
@@ -105,7 +109,8 @@ const Home = () => {
               แบบฟอร์ม
             </Text>
           </View>
-
+          </base.TouchableOpacity>
+          <base.TouchableOpacity onPress={()=>{navigation.navigate('Staff', {text: "text"})}}>
           <View>
             <Text style={{alignSelf: 'center', color: '#FF8A48'}}> 
               <Ionicons name="people" size={32} color="#FF8A48" />
@@ -114,6 +119,8 @@ const Home = () => {
               บุคลากร
             </Text>
           </View>
+          </base.TouchableOpacity>
+          <base.TouchableOpacity onPress={()=>{navigation.navigate('Druginfo', {text: "text"})}}>
 
           <View>
             <Text style={{alignSelf: 'center', color: '#FF8A48'}}> 
@@ -123,10 +130,13 @@ const Home = () => {
               ความรู้เรื่องยา
             </Text>
           </View>
+          </base.TouchableOpacity>
+
         </View>
 
         {/* แถวล่าง */}
         <View style={{flexDirection: 'row', gap: 20}}>
+        <base.TouchableOpacity onPress={()=>{navigation.navigate('Aboutus', {text: "text"})}}>
           <View style={{marginTop: 20, marginLeft:15 }}>
             <Text style={{alignSelf: 'center', color: '#FF8A48'}}> 
               <Ionicons name="business" size={32} color="#FF8A48" />
@@ -135,7 +145,9 @@ const Home = () => {
               เกี่ยวกับเรา
             </Text>
           </View>
+          </base.TouchableOpacity>
 
+          <base.TouchableOpacity onPress={()=>{navigation.navigate('Contactus', {text: "text"})}}>
           <View style={{marginTop: 20, marginLeft:22}}>
             <Text style={{alignSelf: 'center', color: '#FF8A48'}}> 
               <Ionicons name="call" size={32} color="#FF8A48" />
@@ -144,6 +156,7 @@ const Home = () => {
             ติดต่อเรา
             </Text>
           </View>
+          </base.TouchableOpacity>
         </View>
       
       

@@ -1,42 +1,22 @@
 import base from "../modules/base_module";
 
-export default function Signupjing({ navigation }) {
+export default function Register({ navigation }) {
   return (
     <base.View style={styles.container}>
       <base.View style={styles.box}>
-        <base.Text>หมายเลขบัตรประชาชน *</base.Text>
+        <base.Text>หมายเลข HN *</base.Text>
         <base.TextInput
           style={styles.Realinput}
           placeholder="useless placeholder"
         />
-        <base.Text style={{ marginTop: 10 }}>คำนำหน้า *</base.Text>
-        <base.TextInput
-          style={styles.Realinput}
-          placeholder="useless placeholder"
-        />
-        <base.Text style={{ marginTop: 10 }}>ชื่อจริง *</base.Text>
-        <base.TextInput
-          style={styles.Realinput}
-          placeholder="useless placeholder"
-        />
-        <base.Text style={{ marginTop: 10 }}>ชื่อกลาง *</base.Text>
-        <base.TextInput
-          style={styles.Realinput}
-          placeholder="useless placeholder"
-        />
-        <base.Text style={{ marginTop: 10 }}>นามสกุล *</base.Text>
-        <base.TextInput
-          style={styles.Realinput}
-          placeholder="useless placeholder"
-        />
-        <base.Text style={{ marginTop: 10 }}>วันเดือนปีเกิด *</base.Text>
+        <base.Text style={{ marginTop: 10 }}>หมายเลขบัตรประชาชน *</base.Text>
         <base.TextInput
           style={styles.Realinput}
           placeholder="useless placeholder"
         />
       </base.View>
       <base.View>
-        <base.TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+      <base.TouchableOpacity onPress={()=>{navigation.navigate('SignIn', {text: "text"})}}>
           <base.View
             style={{
                 paddingHorizontal: 125,
@@ -66,7 +46,7 @@ const styles = base.StyleSheet.create({
     width: "95%",
     height: "80%",
     marginTop: 15,
-    borderRadius: 10,
+    borderR1dius: 10,
     padding: 10,
   },
   Realinput: {

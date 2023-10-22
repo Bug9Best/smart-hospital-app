@@ -1,6 +1,6 @@
 import base from "../modules/base_module";
 
-export default function Signupjing({ navigation }) {
+export default function Forgetpassword({ navigation }) {
   return (
     <base.View style={styles.container}>
       <base.View style={styles.box}>
@@ -15,21 +15,6 @@ export default function Signupjing({ navigation }) {
           placeholder="useless placeholder"
         />
         <base.Text style={{ marginTop: 10 }}>ชื่อจริง *</base.Text>
-        <base.TextInput
-          style={styles.Realinput}
-          placeholder="useless placeholder"
-        />
-        <base.Text style={{ marginTop: 10 }}>ชื่อกลาง *</base.Text>
-        <base.TextInput
-          style={styles.Realinput}
-          placeholder="useless placeholder"
-        />
-        <base.Text style={{ marginTop: 10 }}>นามสกุล *</base.Text>
-        <base.TextInput
-          style={styles.Realinput}
-          placeholder="useless placeholder"
-        />
-        <base.Text style={{ marginTop: 10 }}>วันเดือนปีเกิด *</base.Text>
         <base.TextInput
           style={styles.Realinput}
           placeholder="useless placeholder"

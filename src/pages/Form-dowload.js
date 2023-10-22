@@ -1,4 +1,6 @@
 import base from "../modules/base_module";
+import Ionicons from "@expo/vector-icons/Ionicons";
+
 
 export default function Formdownload({ navigation }) {
   return (
@@ -8,7 +10,7 @@ export default function Formdownload({ navigation }) {
           แบบฟอร์ม
         </base.Text>
       </base.View>
-      <base.View
+      <base.TouchableOpacity
         style={{
           width: "100%",
           backgroundColor: "white",
@@ -16,24 +18,15 @@ export default function Formdownload({ navigation }) {
           padding: 10,
         }}
       >
-        <base.Text style={{ marginTop: 10, fontWeight: 600 }}>
-          downloading...
-        </base.Text>
-      </base.View>
-      <base.View
-        style={{
-          width: "100%",
-          backgroundColor: "white",
-          borderRadius: 10,
-          padding: 10,
-          marginTop: 10,
-        }}
-      >
-        <base.Text style={{ marginTop: 10, fontWeight: 600 }}>
-          downloading...
-        </base.Text>
-      </base.View>
-      <base.View
+        <base.View style={{display: 'flex', flexDirection: 'row'}}>
+          <Ionicons style={{marginRight: 3}} name="document" size={18} color="#FF8A48" />
+          <base.Text style={{fontWeight: 600, }}>
+
+          แบบคำร้องลงทะเบียนบัตรทอง
+          </base.Text>
+        </base.View>
+      </base.TouchableOpacity>
+      <base.TouchableOpacity
         style={{
           width: "100%",
           backgroundColor: "white",
@@ -42,11 +35,14 @@ export default function Formdownload({ navigation }) {
           marginTop: 10,
         }}
       >
-        <base.Text style={{ marginTop: 10, fontWeight: 600 }}>
-          downloading...
-        </base.Text>
-      </base.View>
-      <base.View
+        <base.View style={{display: 'flex', flexDirection: 'row'}}>
+        <Ionicons style={{marginRight: 3}} name="document" size={18} color="#FF8A48" />
+          <base.Text style={{ fontWeight: 600 }}>
+          แบบขอความอนุเคราะห์ยาและเวชภัณฑ์ทางการแพทย์
+          </base.Text>
+        </base.View>
+      </base.TouchableOpacity>
+      <base.TouchableOpacity
         style={{
           width: "100%",
           backgroundColor: "white",
@@ -55,28 +51,35 @@ export default function Formdownload({ navigation }) {
           marginTop: 10,
         }}
       >
-        <base.Text style={{ marginTop: 10, fontWeight: 600 }}>
-          downloading...
-        </base.Text>
-      </base.View>
+      <base.View style={{display: 'flex', flexDirection: 'row'}}>
+          <Ionicons style={{marginRight: 3}} name="document" size={18} color="#FF8A48" />
+          <base.Text style={{fontWeight: 600, }}>
+          สื่อการสอน CPR & FIRST AID (THAI VERSION)
+          </base.Text>
+        </base.View>
+      </base.TouchableOpacity>
+      <base.TouchableOpacity
+        style={{
+          width: "100%",
+          backgroundColor: "white",
+          borderRadius: 10,
+          padding: 10,
+          marginTop: 10,
+        }}
+      >
+               <base.View style={{display: 'flex', flexDirection: 'row'}}>
+          <Ionicons style={{marginRight: 3}} name="document" size={18} color="#FF8A48" />
+          <base.Text style={{fontWeight: 600, }}>
+          ระเบียบสถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง ว่าด้วยการบริหารคลินิกเวชกรรม สจล. (KMITL CLINIC) พ.ศ. 2560
+          </base.Text>
+        </base.View>
+      </base.TouchableOpacity>
       <base.View style={{ marginTop: 5, padding: 5 }}>
         <base.Text style={{ color: "#FF8A48", fontSize: 20, fontWeight: 800 }}>
           แบบฟอร์ม
         </base.Text>
       </base.View>
-      <base.View
-        style={{
-          width: "100%",
-          backgroundColor: "white",
-          borderRadius: 10,
-          padding: 10,
-        }}
-      >
-        <base.Text style={{ marginTop: 10, fontWeight: 600 }}>
-          downloading...
-        </base.Text>
-      </base.View>
-      <base.View
+      <base.TouchableOpacity
         style={{
           width: "100%",
           backgroundColor: "white",
@@ -85,11 +88,14 @@ export default function Formdownload({ navigation }) {
           marginTop: 10,
         }}
       >
-        <base.Text style={{ marginTop: 10, fontWeight: 600 }}>
-          downloading...
-        </base.Text>
-      </base.View>
-      <base.View
+        <base.View style={{display: 'flex', flexDirection: 'row'}}>
+          <Ionicons style={{marginRight: 3}} name="document" size={18} color="#FF8A48" />
+          <base.Text style={{fontWeight: 600, }}>
+          ระเบียบสถาบัน ว่าด้วยการบริหารคลินิกเวชกรรม สจล.  (KMITL clinic) พ.ศ. 2560
+          </base.Text>
+        </base.View>
+      </base.TouchableOpacity>
+      <base.TouchableOpacity
         style={{
           width: "100%",
           backgroundColor: "white",
@@ -98,11 +104,14 @@ export default function Formdownload({ navigation }) {
           marginTop: 10,
         }}
       >
-        <base.Text style={{ marginTop: 10, fontWeight: 600 }}>
-          downloading...
-        </base.Text>
-      </base.View>
-      <base.View
+        <base.View style={{display: 'flex', flexDirection: 'row'}}>
+          <Ionicons style={{marginRight: 3}} name="document" size={18} color="#FF8A48" />
+          <base.Text style={{fontWeight: 600, }}>
+          ประกาศอัตราค่ารักษาพยาบาล
+          </base.Text>
+        </base.View>
+      </base.TouchableOpacity>
+      <base.TouchableOpacity
         style={{
           width: "100%",
           backgroundColor: "white",
@@ -111,10 +120,29 @@ export default function Formdownload({ navigation }) {
           marginTop: 10,
         }}
       >
-        <base.Text style={{ marginTop: 10, fontWeight: 600 }}>
-          downloading...
-        </base.Text>
-      </base.View>
+        <base.View style={{display: 'flex', flexDirection: 'row'}}>
+          <Ionicons style={{marginRight: 3}} name="document" size={18} color="#FF8A48" />
+          <base.Text style={{fontWeight: 600, }}>
+          กำหนดสิทธิการรักษาพยาบาล
+          </base.Text>
+        </base.View>
+      </base.TouchableOpacity>
+      <base.TouchableOpacity
+        style={{
+          width: "100%",
+          backgroundColor: "white",
+          borderRadius: 10,
+          padding: 10,
+          marginTop: 10,
+        }}
+      >
+        <base.View style={{display: 'flex', flexDirection: 'row'}}>
+          <Ionicons style={{marginRight: 3}} name="document" size={18} color="#FF8A48" />
+          <base.Text style={{fontWeight: 600, }}>
+          อัตราค่ารักษาพยาบาลคลินิกเวชกรรม สจล. พ.ศ.2562
+          </base.Text>
+        </base.View>
+      </base.TouchableOpacity>
     </base.View>
   );
 }
