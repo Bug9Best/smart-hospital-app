@@ -1,17 +1,19 @@
 import React from "react";
 import base from "../modules/base_module";
-import { View, StyleSheet, Text, Image, Pressable } from "react-native";
+import { View, StyleSheet, Text, Image, Pressable, ScrollView, } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
 const Home = () => {
   return (
     <base.SafeAreaView style={styles.box}>
+      
       <View style={styles.header}>
         <Text style={styles.titleText}>ข้อมูลบัญชี</Text>
       </View>
+      <ScrollView>
       <View style={styles.DisplayProfile}>
         <Image
-          source={require('../../assets/image/Cat.jpeg')}
+          source={require('../assets/image/Cat.jpeg')}
           style={styles.profileImage}
         />
         <Text style={{ marginTop: -90, marginLeft: 100, fontWeight: 'bold', color: '#FF8A48', fontSize: 17 }}>ชื่อ : นายนันทนนท์ จินขุนทอง</Text>
@@ -20,7 +22,7 @@ const Home = () => {
       </View>
 
       <View>
-        <Text style={{ fontSize: 18, fontWeight: 'bold', marginRight: 300, color: '#FF8A48', marginVertical: 15 }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold', marginLeft: 20, color: '#FF8A48', marginVertical: 15 }}>
           การตั้งค่า
         </Text>
 
@@ -110,8 +112,9 @@ const Home = () => {
         <Pressable style={styles.logoutButton} >
           <Text style={styles.logoutButtonText}>ออกจากระบบ</Text>
         </Pressable>
+      
       </View>
-        
+      </ScrollView>
     </base.SafeAreaView>
   );
 }
@@ -121,7 +124,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#F0F0F0",
     alignItems: "center",
-    // justifyContent: "center",
+     justifyContent: "center",
   },
   header: {
     backgroundColor: "#F0F0F0",
@@ -141,7 +144,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 4,
     height: 150,
-    width: 400,
+    width: 380,
     alignItems: "center",
   },
   profileImage: {
@@ -176,7 +179,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     alignItems: "center",
     flexDirection: "row",
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    marginHorizontal: 10,
   },
   addressButtonText: {
     color: "black",
@@ -184,6 +188,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginLeft: 10,
   },
+  
 });
 
 export default Home;

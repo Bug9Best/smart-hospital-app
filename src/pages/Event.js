@@ -5,8 +5,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 const Event1 = () => {
   return (
     <SafeAreaView style={styles.container}>
+              <Text style={styles.title}>ข่าวสาร/กิจกรรม</Text>
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
-        <Text style={styles.title}>ข่าวสาร/กิจกรรม</Text>
         {renderEventCard(
           "คลีนิก สจล. เตรียมให้บริการแบบ Drive thru",
           "15 Sep 2023",
