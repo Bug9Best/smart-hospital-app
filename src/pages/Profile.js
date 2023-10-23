@@ -3,15 +3,16 @@ import base from "../modules/base_module";
 import { View, StyleSheet, Text, Image, Pressable } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-const Home = () => {
+const Profile = ({navigation}) => {
   return (
+    <base.ScrollView>
     <base.SafeAreaView style={styles.box}>
       <View style={styles.header}>
         <Text style={styles.titleText}>ข้อมูลบัญชี</Text>
       </View>
       <View style={styles.DisplayProfile}>
         <Image
-          source={require('../../assets/image/Cat.jpeg')}
+          source={require('../assets/image/Cat.jpeg')}
           style={styles.profileImage}
         />
         <Text style={{ marginTop: -90, marginLeft: 100, fontWeight: 'bold', color: '#FF8A48', fontSize: 17 }}>ชื่อ : นายนันทนนท์ จินขุนทอง</Text>
@@ -107,12 +108,15 @@ const Home = () => {
           </View>
         </Pressable>
                 
-        <Pressable style={styles.logoutButton} >
+        <base.TouchableOpacity style={styles.logoutButton} onPress={()=>{navigation.navigate('SignIn')}}>
+          <View>
           <Text style={styles.logoutButtonText}>ออกจากระบบ</Text>
-        </Pressable>
+          </View>
+        </base.TouchableOpacity>
       </View>
-        
     </base.SafeAreaView>
+    </base.ScrollView>
+
   );
 }
 
@@ -186,4 +190,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default Profile;

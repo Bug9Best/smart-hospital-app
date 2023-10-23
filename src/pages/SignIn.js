@@ -80,7 +80,7 @@ export default function Signin({navigation}) {
                 style={styles.Realinput}
                 placeholder="useless placeholder"
               />
-              <base.TouchableOpacity >
+              <base.TouchableOpacity onPress={()=>{navigation.navigate('Appnav', {text: "text"})}}>
                 <base.View
                   style={{
                     paddingHorizontal: 145,
@@ -93,7 +93,7 @@ export default function Signin({navigation}) {
                   <base.Text style={{color: "white"}}>เข้าสู่ระบบ</base.Text>
                 </base.View>
               </base.TouchableOpacity>
-              <base.TouchableOpacity>
+              <base.TouchableOpacity onPress={()=>{navigation.navigate('Forgetpassword', {text: "text"})}}>
                 <base.View
                   style={{
                     paddingHorizontal: 140,
@@ -115,7 +115,7 @@ export default function Signin({navigation}) {
                 marginTop: 20,
               }}
             >
-              <base.TouchableOpacity onPress={()=>{navigation.navigate('Home', {text: "text"})}}>
+              <base.TouchableOpacity onPress={()=>{navigation.navigate('Register', {text: "text"})}}>
                 <base.View
                   style={{
                     paddingHorizontal: 112,

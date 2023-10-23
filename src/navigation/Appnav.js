@@ -1,20 +1,67 @@
-// import { NavigationContainer } from '@react-navigation/native'
-// import { createNativeStackNavigator } from "@react-navigation/native-stack";
-// import Signin from '../pages/SignIn';
-// import Signup from '../pages/SignUp';
-// import Home from '../pages/Home';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Signin from "../pages/SignIn";
+import Home from "../pages/Home";
+import History from "../pages/History";
+import Event from "../pages/Event";
+import Profile from "../pages/Profile";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Doctorscheduled from "../pages/Doctor-schelude";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
-// const Stack = createNativeStackNavigator();
 
-// const AppNav = () => {
-//     return(
-//         <NavigationContainer>
-//             <Stack.Navigator>
-//                 <Stack.Screen name="SignIn" component={Signin}/>
-//                 <Stack.Screen name="Home" component={Home}/>
-//             </Stack.Navigator>
-//         </NavigationContainer>
-//     );
-// }
+const Stack = createBottomTabNavigator();
+const Tab = createNativeStackNavigator();
 
-// export default AppNav;
+const Appnav = () => {
+  return (
+    <Stack.Navigator screenOptions={{ tabBarActiveTintColor: "orange" }}>
+        
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({color, size}) => {
+            return <Ionicons name="home" size={32} color="#FF8A48" />
+          }
+        }}
+      />
+
+
+
+      <Stack.Screen
+        name="History"
+        component={History}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({color, size}) => {
+            return <Ionicons name="documents" size={32} color="#FF8A48" />
+          }
+        }}
+      />
+      <Stack.Screen
+        name="Event"
+        component={Event}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({color, size}) => {
+            return <Ionicons name="calendar" size={32} color="#FF8A48" />
+          }
+        }}
+      />
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({color, size}) => {
+            return <Ionicons name="person" size={32} color="#FF8A48" />
+          }
+        }}
+      />
+    </Stack.Navigator>
+
+  );
+};
+
+export default Appnav;
