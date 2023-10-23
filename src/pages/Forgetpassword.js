@@ -7,17 +7,17 @@ export default function Forgetpassword({ navigation }) {
         <base.Text>หมายเลขบัตรประชาชน *</base.Text>
         <base.TextInput
           style={styles.Realinput}
-          placeholder="useless placeholder"
+          placeholder="13 หลัก"
         />
         <base.Text style={{ marginTop: 10 }}>คำนำหน้า *</base.Text>
         <base.TextInput
           style={styles.Realinput}
-          placeholder="useless placeholder"
+          placeholder="นาย"
         />
         <base.Text style={{ marginTop: 10 }}>ชื่อจริง *</base.Text>
         <base.TextInput
           style={styles.Realinput}
-          placeholder="useless placeholder"
+          placeholder="ex. แสนดี ยอดเยี่ยม"
         />
       </base.View>
       <base.View>

@@ -7,32 +7,32 @@ export default function Signupjing({ navigation }) {
         <base.Text>หมายเลขบัตรประชาชน *</base.Text>
         <base.TextInput
           style={styles.Realinput}
-          placeholder="useless placeholder"
+          placeholder="13 หลัก"
         />
         <base.Text style={{ marginTop: 10 }}>คำนำหน้า *</base.Text>
         <base.TextInput
           style={styles.Realinput}
-          placeholder="useless placeholder"
+          placeholder="ex. นาย"
         />
         <base.Text style={{ marginTop: 10 }}>ชื่อจริง *</base.Text>
         <base.TextInput
           style={styles.Realinput}
-          placeholder="useless placeholder"
+          placeholder="ex.แสนดี"
         />
         <base.Text style={{ marginTop: 10 }}>ชื่อกลาง *</base.Text>
         <base.TextInput
           style={styles.Realinput}
-          placeholder="useless placeholder"
+          placeholder="ex. ยอดมาก"
         />
         <base.Text style={{ marginTop: 10 }}>นามสกุล *</base.Text>
         <base.TextInput
           style={styles.Realinput}
-          placeholder="useless placeholder"
+          placeholder="ยอดงาม"
         />
         <base.Text style={{ marginTop: 10 }}>วันเดือนปีเกิด *</base.Text>
         <base.TextInput
           style={styles.Realinput}
-          placeholder="useless placeholder"
+          placeholder="16 /09 /02"
         />
       </base.View>
       <base.View>
@@ -46,7 +46,7 @@ export default function Signupjing({ navigation }) {
                 borderRadius: 10,
             }}
           >
-            <base.Text style={{fontSize: 20, color: "white", fontWeight: 800}}>
+            <base.Text style={{color: "white"}}>
             ดำเนินการต่อ
             </base.Text>
           </base.View>
@@ -67,15 +67,14 @@ const styles = base.StyleSheet.create({
     height: "80%",
     marginTop: 15,
     borderRadius: 10,
-    padding: 10,
+    padding: 16,
   },
   Realinput: {
-    borderWidth: "2px",
+    borderWidth: "0.2px",
     borderRadius: 10,
     height: 50,
-    borderWidth: 0.5,
     width: "90%",
     marginTop: 10,
-    padding: 10,
+    padding: 16,
   },
 });

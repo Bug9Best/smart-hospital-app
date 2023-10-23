@@ -26,7 +26,7 @@ export default function Register({ navigation }) {
                 borderRadius: 10,
             }}
           >
-            <base.Text style={{fontSize: 20, color: "white", fontWeight: 800}}>
+            <base.Text style={{color: "white", }}>
             ดำเนินการต่อ
             </base.Text>
           </base.View>
@@ -47,15 +47,14 @@ const styles = base.StyleSheet.create({
     height: "80%",
     marginTop: 15,
     borderR1dius: 10,
-    padding: 10,
+    padding: 16,
   },
   Realinput: {
-    borderWidth: "2px",
+    borderWidth: "0.2px",
     borderRadius: 10,
     height: 50,
-    borderWidth: 0.5,
     width: "90%",
     marginTop: 10,
-    padding: 10,
+    padding: 16,
   },
 });
