@@ -91,7 +91,7 @@ export default function Formdownload({ navigation }) {
         <base.View style={{display: 'flex', flexDirection: 'row'}}>
           <Ionicons style={{marginRight: 3}} name="document" size={18} color="#FF8A48" />
           <base.Text style={{fontWeight: 600, }}>
-          ระเบียบสถาบัน ว่าด้วยการบริหารคลินิกเวชกรรม สจล.  (KMITL clinic) พ.ศ. 2560
+          ระเบียบสถาบัน ว่าด้วยการบริหารคลินิกเวชกรรม สจล. (KMITL clinic) พ.ศ. 2560
           </base.Text>
         </base.View>
       </base.TouchableOpacity>

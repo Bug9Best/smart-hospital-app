@@ -4,30 +4,30 @@ import { StyleSheet, View, Text, Image, SafeAreaView, ScrollView } from "react-n
 import { LinearGradient } from 'expo-linear-gradient';
 
 const Event1 = () => {
+  
   return (
-
     <SafeAreaView style={styles.container}>
-    <base.ScrollView>
-      
-      <View style={styles.eventCards}>
-        <Text style={styles.title}>ข่าวสาร/กิจกรรม</Text>
-        {renderEventCard(
-          "คลีนิก สจล. เตรียมให้บริการแบบ Drive thru",
-          "15 Sep 2023",
-          require("../assets/image/drivethru.jpg")
-        )}
-        {renderEventCard(
-          "รับบริจาคเพื่อผู้ป่วย ฝีดาดลิง",
-          "15 Sep 2023",
-          require("../assets/image/donation.webp")
-        )}
-        {renderEventCard(
-          "สจล. เปิดบ้านรับบริจาคเลือดเพื่อการกุศล",
-          "16 Sep 2023",
-          require("../assets/image/Blood1.jpg")
-        )}
-      </View>
-          </base.ScrollView>
+      <base.ScrollView>
+
+        <View style={styles.eventCards}>
+          <Text style={styles.title}>ข่าวสาร/กิจกรรม</Text>
+          {renderEventCard(
+            "คลีนิก สจล. เตรียมให้บริการแบบ Drive thru",
+            "15 Sep 2023",
+            require("../assets/image/drivethru.jpg")
+          )}
+          {renderEventCard(
+            "รับบริจาคเพื่อผู้ป่วย ฝีดาดลิง",
+            "15 Sep 2023",
+            require("../assets/image/donation.webp")
+          )}
+          {renderEventCard(
+            "สจล. เปิดบ้านรับบริจาคเลือดเพื่อการกุศล",
+            "16 Sep 2023",
+            require("../assets/image/Blood1.jpg")
+          )}
+        </View>
+      </base.ScrollView>
 
     </SafeAreaView>
 
@@ -35,7 +35,7 @@ const Event1 = () => {
 };
 
 const renderEventCard = (title, date, imageSource) => (
-  
+
   <View style={styles.eventCard}>
     <LinearGradient colors={["#FF8A48", "#FF8A48", "#FF8A48", "#FF8A48", "#EDCDBB"]} style={styles.linearGradient}>
       <Image source={imageSource} style={styles.eventImage} />

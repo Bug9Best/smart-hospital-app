@@ -1,42 +1,38 @@
+import { environment } from '../../environment/environment'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 class BaseService {
-  baseUrl = '/api';
+  baseUrl = environment.BaseURL;
   path = '_blank';
 
   constructor(path) {
     this.path = path;
   }
 
-  create(item) {
-    return this.axios.post(this.baseUrl + this.path, item)
-    .then((response) => {
-      this.item = response.data;
-      this.item$.next(this.item);
-      return response.data;
-    })
-    .catch((error) => {
-      console.error('Error creating item:', error);
-      throw error;
-    })
-    .finally(() => {
-      this.loading = false;
-      this.loading$.next(this.loading);
-    });
-    // return this.client.post(this.baseUrl, item)
-    //   .then((response) => {
-    //     this.item = response.data;
-    //     this.item$.next(this.item);
-    //     return response.data;
-    //   })
-    //   .catch((error) => {
-    //     console.error('Error creating item:', error);
-    //     throw error;
-    //   });
+  get BaseURL() {
+    return this.baseUrl + this.path;
+  }
+
+  create(data) {
+    return this.axios.post(this.BaseURL, data)
+      .then((response) => {
+        this.item = response.data;
+        this.item$.next(this.item);
+        return response.data;
+      })
+      .catch((error) => {
+        console.error('Error creating item:', error);
+        throw error;
+      })
+      .finally(() => {
+        this.loading = false;
+        this.loading$.next(this.loading);
+      });
   }
 
   get(options) {
+    return console.log(this.BaseURL);
     return this.client.get(this.baseUrl, {
       params: this.options('get', options)
     })
