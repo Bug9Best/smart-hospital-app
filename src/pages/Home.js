@@ -61,109 +61,107 @@
 //   },
 // });
 import React from "react";
-import base from "../modules/base_module" 
+import base from "../modules/base_module"
 import { View, StyleSheet, Text, Image } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
 
-const Home = ({navigation}) => {
+const Home = ({ navigation }) => {
 
   return (
     <base.SafeAreaView style={styles.box}>
-       
-       <base.View style={styles.DisplayProfile}>
-          <Image
-            source={require('../assets/image/Cat.jpeg')}
-            style={styles.profileImage}
-          />
-          <Text style={{marginTop: -50, marginLeft: -120, fontWeight: 'bold'}}>ยินดีต้อนรับ</Text>
-          <Text style={{marginTop: 7, marginLeft: -40, fontWeight: 'light'}}>Nantanon Jinkunthong</Text>
-          <Text style={{alignSelf: 'center', color: '#FF8A48', marginLeft: 330, marginTop: - 35 }}> 
-          <base.TouchableOpacity onPress={()=>{navigation.navigate('Notification', {text: "text"})}}>
-          <Ionicons  name="notifications" size={32} color="#FF8A48" />
-          </base.TouchableOpacity>
-          </Text>
-        </base.View>
-        
+
+      <base.SafeAreaView style={styles.DisplayProfile}>
+        <Image
+          source={require('../assets/image/Cat.jpeg')}
+          style={styles.profileImage}
+        />
+        <Text style={{ marginTop: -50, marginLeft: -120, fontWeight: 'bold' }}>ยินดีต้อนรับ</Text>
+        <Text style={{ marginTop: 7, marginLeft: -40, fontWeight: 'light' }}>Nantanon Jinkunthong</Text>
+        <Text style={{ alignSelf: 'center', color: '#FF8A48', marginLeft: 330, marginTop: - 35 }}>
+          <Ionicons name="notifications" size={32} color="#FF8A48" />
+        </Text>
+      </base.SafeAreaView>
+
       <View style={styles.rectangle}>
 
 
         {/* แถวบน */}
-        <View style={{flexDirection: 'row', gap: 20, justifyContent: 'space-around'}}>
-        <base.TouchableOpacity onPress={()=>{navigation.navigate('Doctorscheduled', {text: "text"})}}>
-          <View style={{}}>
-            <Text style={{alignSelf: 'center', color: '#FF8A48'}}> 
-              <Ionicons name="calendar" size={32} color="#FF8A48" />
-            </Text>
-            <Text style={{alignSelf: 'center', color: '#FF8A48'}}> 
-              ตารางเวรแพทย์
-            </Text>
-          </View>
+        <View style={{ flexDirection: 'row', gap: 20, justifyContent: 'space-around' }}>
+          <base.TouchableOpacity onPress={() => { navigation.navigate('Doctorscheduled', { text: "text" }) }}>
+            <View style={{}}>
+              <Text style={{ alignSelf: 'center', color: '#FF8A48' }}>
+                <Ionicons name="calendar" size={32} color="#FF8A48" />
+              </Text>
+              <Text style={{ alignSelf: 'center', color: '#FF8A48' }}>
+                ตารางเวรแพทย์
+              </Text>
+            </View>
           </base.TouchableOpacity>
-          <base.TouchableOpacity onPress={()=>{navigation.navigate('Formdownload', {text: "text"})}}>
-          <View>
-            <Text style={{alignSelf: 'center', color: '#FF8A48'}}> 
-              <Ionicons name="document" size={32} color="#FF8A48" />
-            </Text>
-            <Text style={{alignSelf: 'center', color: '#FF8A48'}}> 
-              แบบฟอร์ม
-            </Text>
-          </View>
+          <base.TouchableOpacity onPress={() => { navigation.navigate('Formdownload', { text: "text" }) }}>
+            <View>
+              <Text style={{ alignSelf: 'center', color: '#FF8A48' }}>
+                <Ionicons name="document" size={32} color="#FF8A48" />
+              </Text>
+              <Text style={{ alignSelf: 'center', color: '#FF8A48' }}>
+                แบบฟอร์ม
+              </Text>
+            </View>
           </base.TouchableOpacity>
-          <base.TouchableOpacity onPress={()=>{navigation.navigate('Staff', {text: "text"})}}>
-          <View>
-            <Text style={{alignSelf: 'center', color: '#FF8A48'}}> 
-              <Ionicons name="people" size={32} color="#FF8A48" />
-            </Text>
-            <Text style={{alignSelf: 'center', color: '#FF8A48'}}> 
-              บุคลากร
-            </Text>
-          </View>
+          <base.TouchableOpacity onPress={() => { navigation.navigate('Staff', { text: "text" }) }}>
+            <View>
+              <Text style={{ alignSelf: 'center', color: '#FF8A48' }}>
+                <Ionicons name="people" size={32} color="#FF8A48" />
+              </Text>
+              <Text style={{ alignSelf: 'center', color: '#FF8A48' }}>
+                บุคลากร
+              </Text>
+            </View>
           </base.TouchableOpacity>
-          <base.TouchableOpacity onPress={()=>{navigation.navigate('Druginfo', {text: "text"})}}>
+          <base.TouchableOpacity onPress={() => { navigation.navigate('Druginfo', { text: "text" }) }}>
 
-          <View>
-            <Text style={{alignSelf: 'center', color: '#FF8A48'}}> 
-              <Ionicons name="alert-circle" size={32} color="#FF8A48" />
-            </Text>
-            <Text style={{alignSelf: 'center', color: '#FF8A48'}}> 
-              ความรู้เรื่องยา
-            </Text>
-          </View>
+            <View>
+              <Text style={{ alignSelf: 'center', color: '#FF8A48' }}>
+                <Ionicons name="alert-circle" size={32} color="#FF8A48" />
+              </Text>
+              <Text style={{ alignSelf: 'center', color: '#FF8A48' }}>
+                ความรู้เรื่องยา
+              </Text>
+            </View>
           </base.TouchableOpacity>
 
         </View>
 
         {/* แถวล่าง */}
-        <View style={{flexDirection: 'row', gap: 20}}>
-        <base.TouchableOpacity onPress={()=>{navigation.navigate('Aboutus', {text: "text"})}}>
-          <View style={{marginTop: 20, marginLeft:15 }}>
-            <Text style={{alignSelf: 'center', color: '#FF8A48'}}> 
-              <Ionicons name="business" size={32} color="#FF8A48" />
-            </Text>
-            <Text style={{alignSelf: 'center', color: '#FF8A48'}}> 
-              เกี่ยวกับเรา
-            </Text>
-          </View>
+        <View style={{ flexDirection: 'row', gap: 20 }}>
+          <base.TouchableOpacity onPress={() => { navigation.navigate('Aboutus', { text: "text" }) }}>
+            <View style={{ marginTop: 20, marginLeft: 15 }}>
+              <Text style={{ alignSelf: 'center', color: '#FF8A48' }}>
+                <Ionicons name="business" size={32} color="#FF8A48" />
+              </Text>
+              <Text style={{ alignSelf: 'center', color: '#FF8A48' }}>
+                เกี่ยวกับเรา
+              </Text>
+            </View>
           </base.TouchableOpacity>
 
-          <base.TouchableOpacity onPress={()=>{navigation.navigate('Contactus', {text: "text"})}}>
-          <View style={{marginTop: 20, marginLeft:22}}>
-            <Text style={{alignSelf: 'center', color: '#FF8A48'}}> 
-              <Ionicons name="call" size={32} color="#FF8A48" />
-            </Text>
-            <Text style={{alignSelf: 'center', color: '#FF8A48'}}> 
-            ติดต่อเรา
-            </Text>
-          </View>
+          <base.TouchableOpacity onPress={() => { navigation.navigate('Contactus', { text: "text" }) }}>
+            <View style={{ marginTop: 20, marginLeft: 22 }}>
+              <Text style={{ alignSelf: 'center', color: '#FF8A48' }}>
+                <Ionicons name="call" size={32} color="#FF8A48" />
+              </Text>
+              <Text style={{ alignSelf: 'center', color: '#FF8A48' }}>
+                ติดต่อเรา
+              </Text>
+            </View>
           </base.TouchableOpacity>
         </View>
-      
-      
+
+
       </View>
-     
-     
-        
+
+
+
       <Text style={{ fontSize: 15, fontWeight: 'bold', marginBottom: 10, marginRight: 270, color: '#FF8A48' }}>
         รายการนัดหมาย
       </Text>
@@ -185,9 +183,9 @@ const Home = ({navigation}) => {
 
 
       <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }}>
-  <Text style={{ fontSize: 15, fontWeight: 'bold', marginBottom: 20, color: '#FF8A48', marginLeft: 340 }}></Text>
-  <Ionicons name="add-circle-sharp" size={70} color="#FF8A48" />
-</View>
+        <Text style={{ fontSize: 15, fontWeight: 'bold', marginBottom: 20, color: '#FF8A48', marginLeft: 340 }}></Text>
+        <Ionicons name="add-circle-sharp" size={70} color="#FF8A48" />
+      </View>
 
 
     </base.SafeAreaView>
@@ -269,16 +267,16 @@ const styles = StyleSheet.create({
     fontSize: 15, // ขนาดตัวอักษรของข้อความ "ยินดีต้อนรับ"
     fontWeight: "bold", // รูปแบบตัวอักษรของข้อความ
     color: "#333", // สีข้อความ
-    marginTop:  -40,
-    marginLeft:  50,  // ระยะห่างด้านบนระหว่างรูปโปรไฟล์และข้อความ
+    marginTop: -40,
+    marginLeft: 50,  // ระยะห่างด้านบนระหว่างรูปโปรไฟล์และข้อความ
   },
 
   welcomeText2: {
     fontSize: 15, // ขนาดตัวอักษรของข้อความ "ยินดีต้อนรับ"
     fontWeight: "bold", // รูปแบบตัวอักษรของข้อความ
     color: "#333", // สีข้อความ
-    marginTop:  -35,
-    marginLeft:  -130,  // ระยะห่างด้านบนระหว่างรูปโปรไฟล์และข้อความ
+    marginTop: -35,
+    marginLeft: -130,  // ระยะห่างด้านบนระหว่างรูปโปรไฟล์และข้อความ
   },
 
 });
