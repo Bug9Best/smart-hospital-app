@@ -2,12 +2,15 @@ import React from "react";
 import { StyleSheet, View, Text, Image, SafeAreaView, ScrollView } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
 
+
+
 const Event1 = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+              <Text style={styles.title}>ข่าวสาร/กิจกรรม</Text>
+          
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
-        <Text style={styles.title}>ข่าวสาร/กิจกรรม</Text>
         {renderEventCard(
           "คลีนิก สจล. เตรียมให้บริการแบบ Drive thru",
           "15 Sep 2023",
@@ -62,7 +65,10 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 10,
     overflow: "hidden",
+    paddingTop: 5,
+    padding: 16
   },
+
   linearGradient: {
     flex: 1,
     borderRadius: 10,
@@ -78,11 +84,11 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
   },
   eventTitle: {
-    padding: 10,
+    padding: 16,
     fontSize: 16,
   },
   eventDate: {
-    padding: 10,
+    padding: 16,
     fontSize: 12,
     color: "#3F3D3C",
   },

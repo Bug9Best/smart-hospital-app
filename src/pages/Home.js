@@ -70,19 +70,19 @@ const Home = ({ navigation }) => {
 
   return (
     <base.SafeAreaView style={styles.box}>
-
-      <base.SafeAreaView style={styles.DisplayProfile}>
-        <Image
-          source={require('../assets/image/Cat.jpeg')}
-          style={styles.profileImage}
-        />
-        <Text style={{ marginTop: -50, marginLeft: -120, fontWeight: 'bold' }}>ยินดีต้อนรับ</Text>
-        <Text style={{ marginTop: 7, marginLeft: -40, fontWeight: 'light' }}>Nantanon Jinkunthong</Text>
-        <Text style={{ alignSelf: 'center', color: '#FF8A48', marginLeft: 330, marginTop: - 35 }}>
-          <Ionicons name="notifications" size={32} color="#FF8A48" />
-        </Text>
-      </base.SafeAreaView>
-
+       
+       <View style={styles.DisplayProfile}>
+  <Image
+    source={require('../assets/image/Cat.jpeg')}
+    style={styles.profileImage}
+  />
+  <Text style={{marginTop: -30, marginLeft: -250, fontWeight: 'bold'}}>ยินดีต้อนรับ</Text>
+  <Text style={{marginTop: 20, marginLeft: -70, fontWeight: 'light'}}>Nantanon Jinkunthong</Text>
+  <Text style={{alignSelf: 'center', color: '#FF8A48', marginLeft: 330, marginTop: - 35 }}> 
+              <Ionicons name="notifications" size={32} color="#FF8A48" />
+            </Text>
+</View>
+        
       <View style={styles.rectangle}>
 
 
@@ -159,10 +159,10 @@ const Home = ({ navigation }) => {
 
 
       </View>
-
-
-
-      <Text style={{ fontSize: 15, fontWeight: 'bold', marginBottom: 10, marginRight: 270, color: '#FF8A48' }}>
+     
+     
+        
+      <Text style={{ fontSize: 15, fontWeight: 'bold', marginBottom: 10, marginRight: 230, color: '#FF8A48' }}>
         รายการนัดหมาย
       </Text>
 
@@ -172,7 +172,7 @@ const Home = ({ navigation }) => {
       </View>
 
 
-      <Text style={{ fontSize: 15, fontWeight: 'bold', marginBottom: 10, marginRight: 300, color: '#FF8A48' }}>
+      <Text style={{ fontSize: 15, fontWeight: 'bold', marginBottom: 10, marginRight: 270, color: '#FF8A48' }}>
         คิวของคุณ
       </Text>
 
@@ -203,6 +203,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   rectangle: {
+    marginHorizontal  : 15,
     justifyContent: "center",
     flexDirection: "space-between",
     backgroundColor: "white",
@@ -218,7 +219,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 4,
     height: 200,
-    width: 395,
+    // width: 395,
     padding: 20
   },
   smallRectangle: {
@@ -235,11 +236,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 4,
     height: 98,
-    width: 400,
+    width: "90%",
   },
   DisplayProfile: {
     backgroundColor: "white",
-    marginBottom: 40,
+    marginBottom: 20, // Increase the margin to add space at the bottom
     borderWidth: 1,
     borderColor: "#7d869e40",
     borderRadius: 12,
@@ -250,17 +251,19 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 1,
     shadowRadius: 4,
-    height: 90,
-    width: 400,
-    alignItems: "center", // จัดกลางแนวนอน
+    height: 80,
+    width: "90%", // Use a percentage to make it responsive
+    alignItems: "center", // Center horizontally
+    flexDirection: "row", // Align the image and text in a row
   },
 
   profileImage: {
     width: 60, // ปรับขนาดรูปตามที่คุณต้องการ
     height: 60, // ปรับขนาดรูปตามที่คุณต้องการ
     borderRadius: 30, // ทำให้รูปโปรไฟล์เป็นวงกลม
-    marginTop: 10, // ระยะห่างด้านบน
+    marginTop: 1, // ระยะห่างด้านบน
     marginRight: 300,
+    marginHorizontal: 15, // ระยะห่างด้านซ้ายและขวา
   },
 
   welcomeText1: {

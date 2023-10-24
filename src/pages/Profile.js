@@ -1,120 +1,123 @@
 import React from "react";
 import base from "../modules/base_module";
-import { View, StyleSheet, Text, Image, Pressable } from "react-native";
+import { View, StyleSheet, Text, Image, Pressable, ScrollView, } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-const Profile = ({navigation}) => {
+const Profile = ({ navigation }) => {
   return (
     <base.ScrollView>
-    <base.SafeAreaView style={styles.box}>
-      <View style={styles.header}>
-        <Text style={styles.titleText}>ข้อมูลบัญชี</Text>
-      </View>
-      <View style={styles.DisplayProfile}>
-        <Image
-          source={require('../assets/image/Cat.jpeg')}
-          style={styles.profileImage}
-        />
-        <Text style={{ marginTop: -90, marginLeft: 100, fontWeight: 'bold', color: '#FF8A48', fontSize: 17 }}>ชื่อ : นายนันทนนท์ จินขุนทอง</Text>
-        <Text style={{ marginTop: 10, marginLeft: 10, fontWeight: 'bold', color: 'black', fontSize: 17 }}>HN : 5915159</Text>
-        <Text style={{ marginTop: 10, marginLeft: -33, fontWeight: 'bold', color: 'black', fontSize: 17 }}>อายุ 21 ปี</Text>
-      </View>
+      <base.SafeAreaView style={styles.box}>
 
-      <View>
-        <Text style={{ fontSize: 18, fontWeight: 'bold', marginRight: 300, color: '#FF8A48', marginVertical: 15 }}>
-          การตั้งค่า
-        </Text>
-
-        {/* Add the "ที่อยู่" button */}
-        <Pressable style={styles.addressButton}>
-          <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
-            <Ionicons name="map-outline" size={32}  />
-            <Text style={styles.addressButtonText}>ที่อยู่</Text>
+        <View style={styles.header}>
+          <Text style={styles.titleText}>ข้อมูลบัญชี</Text>
+        </View>
+        <ScrollView>
+          <View style={styles.DisplayProfile}>
+            <Image
+              source={require('../assets/image/Cat.jpeg')}
+              style={styles.profileImage}
+            />
+            <Text style={{ marginTop: -90, marginLeft: 100, fontWeight: 'bold', color: '#FF8A48', fontSize: 17 }}>ชื่อ : นายนันทนนท์ จินขุนทอง</Text>
+            <Text style={{ marginTop: 10, marginLeft: 10, fontWeight: 'bold', color: 'black', fontSize: 17 }}>HN : 5915159</Text>
+            <Text style={{ marginTop: 10, marginLeft: -33, fontWeight: 'bold', color: 'black', fontSize: 17 }}>อายุ 21 ปี</Text>
           </View>
+
           <View>
-          <Ionicons name="chevron-forward-outline" size={32}  />
-          </View>
-        </Pressable>
+            <Text style={{ fontSize: 18, fontWeight: 'bold', marginLeft: 20, color: '#FF8A48', marginVertical: 15 }}>
+              การตั้งค่า
+            </Text>
 
-        <Pressable style={styles.addressButton}>
-          <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
-            <Ionicons name="phone-portrait-outline" size={32}  />
-            <Text style={styles.addressButtonText}>เบอร์โทรศัพท์</Text>
-          </View>
-          <View>
-          <Ionicons name="chevron-forward-outline" size={32}  />
-          </View>
-        </Pressable>
+            {/* Add the "ที่อยู่" button */}
+            <Pressable style={styles.addressButton}>
+              <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
+                <Ionicons name="map-outline" size={32} />
+                <Text style={styles.addressButtonText}>ที่อยู่</Text>
+              </View>
+              <View>
+                <Ionicons name="chevron-forward-outline" size={32} />
+              </View>
+            </Pressable>
 
-        <Pressable style={styles.addressButton}>
-          <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
-            <Ionicons name="notifications-outline" size={32}  />
-            <Text style={styles.addressButtonText}>การแจ้งเตือน</Text>
-          </View>
-          <View>
-          <Ionicons name="chevron-forward-outline" size={32}  />
-          </View>
-        </Pressable>
+            <Pressable style={styles.addressButton}>
+              <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
+                <Ionicons name="phone-portrait-outline" size={32} />
+                <Text style={styles.addressButtonText}>เบอร์โทรศัพท์</Text>
+              </View>
+              <View>
+                <Ionicons name="chevron-forward-outline" size={32} />
+              </View>
+            </Pressable>
 
-
-        <Pressable style={styles.addressButton}>
-          <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
-            <Ionicons name="language-outline" size={32}  />
-            <Text style={styles.addressButtonText}>ภาษา</Text>
-          </View>
-          <View>
-          <Ionicons name="chevron-forward-outline" size={32}  />
-          </View>
-        </Pressable>
-
-        <Pressable style={styles.addressButton}>
-          <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
-            <Ionicons name="lock-closed-outline" size={32}  />
-            <Text style={styles.addressButtonText}>เปลี่ยนรหัสผ่าน</Text>
-          </View>
-          <View>
-          <Ionicons name="chevron-forward-outline" size={32}  />
-          </View>
-        </Pressable>
+            <Pressable style={styles.addressButton}>
+              <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
+                <Ionicons name="notifications-outline" size={32} />
+                <Text style={styles.addressButtonText}>การแจ้งเตือน</Text>
+              </View>
+              <View>
+                <Ionicons name="chevron-forward-outline" size={32} />
+              </View>
+            </Pressable>
 
 
-        <Pressable style={styles.addressButton}>
-          <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
-            <Ionicons name="document-text-outline" size={32}  />
-            <Text style={styles.addressButtonText}>ข้อกำหนดและเงื่อนไข</Text>
-          </View>
-          <View>
-          <Ionicons name="chevron-forward-outline" size={32}  />
-          </View>
-        </Pressable>
+            <Pressable style={styles.addressButton}>
+              <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
+                <Ionicons name="language-outline" size={32} />
+                <Text style={styles.addressButtonText}>ภาษา</Text>
+              </View>
+              <View>
+                <Ionicons name="chevron-forward-outline" size={32} />
+              </View>
+            </Pressable>
 
-        <Pressable style={styles.addressButton}>
-          <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
-            <Ionicons name="document-text-outline" size={32}  />
-            <Text style={styles.addressButtonText}>นโยบายความเป็ยส่วนตัว</Text>
-          </View>
-          <View>
-          <Ionicons name="chevron-forward-outline" size={32}  />
-          </View>
-        </Pressable>
+            <Pressable style={styles.addressButton}>
+              <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
+                <Ionicons name="lock-closed-outline" size={32} />
+                <Text style={styles.addressButtonText}>เปลี่ยนรหัสผ่าน</Text>
+              </View>
+              <View>
+                <Ionicons name="chevron-forward-outline" size={32} />
+              </View>
+            </Pressable>
 
-        <Pressable style={styles.addressButton}>
-          <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
-            <Ionicons name="trash-outline" size={32}  />
-            <Text style={styles.addressButtonText}>ลบบัญชีผู้ใช้</Text>
-          </View>
-          <View>
-          <Ionicons name="chevron-forward-outline" size={32}  />
-          </View>
-        </Pressable>
-                
-        <base.TouchableOpacity style={styles.logoutButton} onPress={()=>{navigation.navigate('SignIn')}}>
-          <View>
-          <Text style={styles.logoutButtonText}>ออกจากระบบ</Text>
-          </View>
-        </base.TouchableOpacity>
-      </View>
-    </base.SafeAreaView>
+
+            <Pressable style={styles.addressButton}>
+              <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
+                <Ionicons name="document-text-outline" size={32} />
+                <Text style={styles.addressButtonText}>ข้อกำหนดและเงื่อนไข</Text>
+              </View>
+              <View>
+                <Ionicons name="chevron-forward-outline" size={32} />
+              </View>
+            </Pressable>
+
+            <Pressable style={styles.addressButton}>
+              <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
+                <Ionicons name="document-text-outline" size={32} />
+                <Text style={styles.addressButtonText}>นโยบายความเป็ยส่วนตัว</Text>
+              </View>
+              <View>
+                <Ionicons name="chevron-forward-outline" size={32} />
+              </View>
+            </Pressable>
+
+            <Pressable style={styles.addressButton}>
+              <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
+                <Ionicons name="trash-outline" size={32} />
+                <Text style={styles.addressButtonText}>ลบบัญชีผู้ใช้</Text>
+              </View>
+              <View>
+                <Ionicons name="chevron-forward-outline" size={32} />
+              </View>
+            </Pressable>
+
+            <base.TouchableOpacity style={styles.logoutButton} onPress={() => { navigation.navigate('SignIn') }}>
+              <View>
+                <Text style={styles.logoutButtonText}>ออกจากระบบ</Text>
+
+              </View>
+            </base.TouchableOpacity>
+        </ScrollView>
+      </base.SafeAreaView>
     </base.ScrollView>
 
   );
@@ -125,7 +128,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#F0F0F0",
     alignItems: "center",
-    // justifyContent: "center",
+    justifyContent: "center",
   },
   header: {
     backgroundColor: "#F0F0F0",
@@ -145,7 +148,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 4,
     height: 150,
-    width: 400,
+    width: 380,
     alignItems: "center",
   },
   profileImage: {
@@ -176,11 +179,12 @@ const styles = StyleSheet.create({
   addressButton: {
     backgroundColor: "white",
     marginTop: 13, // Adjust the marginTop as needed
-    padding: 7,
+    padding: 16,
     borderRadius: 5,
     alignItems: "center",
     flexDirection: "row",
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    marginHorizontal: 10,
   },
   addressButtonText: {
     color: "black",
@@ -188,6 +192,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginLeft: 10,
   },
+
 });
 
 export default Profile;
