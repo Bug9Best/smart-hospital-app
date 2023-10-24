@@ -5,8 +5,9 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 
 const Profile = ({navigation}) => {
   return (
-    <base.ScrollView>
     <base.SafeAreaView style={styles.box}>
+          <base.ScrollView>
+
       <View style={styles.header}>
         <Text style={styles.titleText}>ข้อมูลบัญชี</Text>
       </View>
@@ -26,7 +27,7 @@ const Profile = ({navigation}) => {
         </Text>
 
         {/* Add the "ที่อยู่" button */}
-        <Pressable style={styles.addressButton}>
+        <base.TouchableOpacity style={styles.addressButton} onPress={()=>{navigation.navigate('AddressInfo', {text: "text"})}}>
           <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
             <Ionicons name="map-outline" size={32}  />
             <Text style={styles.addressButtonText}>ที่อยู่</Text>
@@ -34,9 +35,9 @@ const Profile = ({navigation}) => {
           <View>
           <Ionicons name="chevron-forward-outline" size={32}  />
           </View>
-        </Pressable>
+        </base.TouchableOpacity>
 
-        <Pressable style={styles.addressButton}>
+        <base.TouchableOpacity style={styles.addressButton} onPress={()=>{navigation.navigate('PhoneInfo', {text: "text"})}}>
           <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
             <Ionicons name="phone-portrait-outline" size={32}  />
             <Text style={styles.addressButtonText}>เบอร์โทรศัพท์</Text>
@@ -44,9 +45,9 @@ const Profile = ({navigation}) => {
           <View>
           <Ionicons name="chevron-forward-outline" size={32}  />
           </View>
-        </Pressable>
+        </base.TouchableOpacity>
 
-        <Pressable style={styles.addressButton}>
+        <base.TouchableOpacity style={styles.addressButton} onPress={()=>{navigation.navigate('Notification', {text: "text"})}}>
           <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
             <Ionicons name="notifications-outline" size={32}  />
             <Text style={styles.addressButtonText}>การแจ้งเตือน</Text>
@@ -54,10 +55,10 @@ const Profile = ({navigation}) => {
           <View>
           <Ionicons name="chevron-forward-outline" size={32}  />
           </View>
-        </Pressable>
+        </base.TouchableOpacity>
 
 
-        <Pressable style={styles.addressButton}>
+        <base.TouchableOpacity style={styles.addressButton}>
           <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
             <Ionicons name="language-outline" size={32}  />
             <Text style={styles.addressButtonText}>ภาษา</Text>
@@ -65,9 +66,9 @@ const Profile = ({navigation}) => {
           <View>
           <Ionicons name="chevron-forward-outline" size={32}  />
           </View>
-        </Pressable>
+        </base.TouchableOpacity>
 
-        <Pressable style={styles.addressButton}>
+        <base.TouchableOpacity style={styles.addressButton} onPress={()=>{navigation.navigate('Changepassword', {text: "text"})}}>
           <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
             <Ionicons name="lock-closed-outline" size={32}  />
             <Text style={styles.addressButtonText}>เปลี่ยนรหัสผ่าน</Text>
@@ -75,10 +76,10 @@ const Profile = ({navigation}) => {
           <View>
           <Ionicons name="chevron-forward-outline" size={32}  />
           </View>
-        </Pressable>
+        </base.TouchableOpacity>
 
 
-        <Pressable style={styles.addressButton}>
+        <base.TouchableOpacity style={styles.addressButton} onPress={()=>{navigation.navigate('Policy', {text: "text"})}}>
           <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
             <Ionicons name="document-text-outline" size={32}  />
             <Text style={styles.addressButtonText}>ข้อกำหนดและเงื่อนไข</Text>
@@ -86,19 +87,19 @@ const Profile = ({navigation}) => {
           <View>
           <Ionicons name="chevron-forward-outline" size={32}  />
           </View>
-        </Pressable>
+        </base.TouchableOpacity>
 
-        <Pressable style={styles.addressButton}>
+        <base.TouchableOpacity style={styles.addressButton} onPress={()=>{navigation.navigate('Privacy', {text: "text"})}}>
           <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
             <Ionicons name="document-text-outline" size={32}  />
-            <Text style={styles.addressButtonText}>นโยบายความเป็ยส่วนตัว</Text>
+            <Text style={styles.addressButtonText}>นโยบายความเป็นส่วนตัว</Text>
           </View>
           <View>
           <Ionicons name="chevron-forward-outline" size={32}  />
           </View>
-        </Pressable>
+        </base.TouchableOpacity>
 
-        <Pressable style={styles.addressButton}>
+        <base.TouchableOpacity style={styles.addressButton}>
           <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
             <Ionicons name="trash-outline" size={32}  />
             <Text style={styles.addressButtonText}>ลบบัญชีผู้ใช้</Text>
@@ -106,16 +107,18 @@ const Profile = ({navigation}) => {
           <View>
           <Ionicons name="chevron-forward-outline" size={32}  />
           </View>
-        </Pressable>
-                
-        <base.TouchableOpacity style={styles.logoutButton} onPress={()=>{navigation.navigate('SignIn')}}>
-          <View>
-          <Text style={styles.logoutButtonText}>ออกจากระบบ</Text>
-          </View>
         </base.TouchableOpacity>
+        <View>
+
+        <base.TouchableOpacity style={styles.logoutButton} onPress={()=>{navigation.navigate('SignIn')}}>
+          <Text style={styles.logoutButtonText}>ออกจากระบบ</Text>
+        </base.TouchableOpacity>
+        </View>
+
       </View>
+      </base.ScrollView>
+
     </base.SafeAreaView>
-    </base.ScrollView>
 
   );
 }
@@ -158,7 +161,7 @@ const styles = StyleSheet.create({
   logoutButton: {
     backgroundColor: "#FF8A48",
     marginTop: 20, // Adjust the marginTop as needed
-    padding: 10,
+    padding: 16,
     borderRadius: 5,
     alignItems: "center",
   },
