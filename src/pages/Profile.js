@@ -11,7 +11,7 @@ const Profile = ({ navigation }) => {
         <View style={styles.header}>
           <Text style={styles.titleText}>ข้อมูลบัญชี</Text>
         </View>
-        <ScrollView>
+        <base.ScrollView>
           <View style={styles.DisplayProfile}>
             <Image
               source={require('../assets/image/Cat.jpeg')}
@@ -115,9 +115,10 @@ const Profile = ({ navigation }) => {
                 <Text style={styles.logoutButtonText}>ออกจากระบบ</Text>
               </View>
             </base.TouchableOpacity>
-        </ScrollView>
-      </base.SafeAreaView>
-    </base.ScrollView>
+          </View>
+        </base.ScrollView>
+      </base.SafeAreaView >
+    </base.ScrollView >
 
   );
 }
