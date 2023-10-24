@@ -1,26 +1,39 @@
+import React, { useState, Component, useEffect } from 'react';
 import base from '../modules/base_module'
 import Ionicons from "@expo/vector-icons/Ionicons";
-
-
-const fakedrug = [
-  {
-    id: '1',
-    title: 'Haerin1',
-    image: require("../assets/image/Haerin.png")
-  },
-  {
-    id: '2',
-    title: 'Haerin2',
-    image: require("../assets/image/Haerin.png")
-  },
-  {
-    id: '3',
-    title: 'Haerin3',
-    image: require("../assets/image/Haerin.png")
-  },
-];
+import BaseURL from '../services/base/base_service';
+import axios from 'axios';
 
 export default function Druginfo({ navigation }) {
+  const [firstRender, setFirstRender] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [drug, setDrug] = useState();
+
+  var drugService = new BaseURL("drug");
+
+  const getDrug = async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get(drugService.BaseURL);
+      if (response.status === 200) {
+        setDrug(response.data);
+        setIsLoading(false);
+      } else {
+        throw new Error("An error has occurred");
+      }
+    } catch (error) {
+      alert("An error has occurred");
+      setIsLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    if (!firstRender) {
+      getDrug();
+      setFirstRender(true);
+    }
+  }, [drug, firstRender])
+
   return (
     <base.View style={styles.container}>
       <base.ScrollView>
@@ -31,7 +44,7 @@ export default function Druginfo({ navigation }) {
           </base.TextInput>
         </base.View>
         <base.FlatList
-          data={fakedrug}
+          data={drug}
           renderItem={({ item }) => {
             return <base.View style={{
               width: "100%",
@@ -42,7 +55,6 @@ export default function Druginfo({ navigation }) {
             }}>
               <base.View style={{ flexDirection: 'row' }}>
 
-                <base.Image source={item.image} style={{ width: 75, height: 75, borderRadius: 100, marginTop: 15 }} />
                 <base.View style={{ padding: 20 }}>
                   <base.Text style={{ fontSize: 20, fontWeight: 400 }}>{item.title}</base.Text>
                   <base.Text style={{ marginTop: 10, fontSize: 20 }}>{item.title}</base.Text>

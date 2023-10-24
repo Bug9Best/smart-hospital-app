@@ -1,37 +1,19 @@
 var HTTPService = require('react-native-http').HTTPService;
 import { environment } from '../../environment/environment'
+import axios from "axios";
 
-class BaseService extends HTTPService {
+class BaseURL {
   baseUrl = environment.BaseURL;
-  path = '_blank';
+  pathUrl = '_blank';
 
   constructor(path) {
-    this.path = path;
+    this.pathUrl = path;
   }
 
   get BaseURL() {
-    return this.baseUrl + this.path;
+    return this.baseUrl + this.pathUrl;
   }
 
-  get(_options) {
-    return this.get(this.BaseURL);
-  }
-
-  show(id) {
-    return this.get(this.BaseURL + '/' + id.toString());
-  }
-
-  create(data) {
-    return this.post(this.BaseURL, data);
-  }
-
-  update(data) {
-    return this.put(this.BaseURL + '/' + data.id.toString(), data);
-  }
-
-  delete(id) {
-    return this.delete(this.BaseURL + '/' + id.toString());
-  }
 }
 
-export default BaseService;
+export default BaseURL;
