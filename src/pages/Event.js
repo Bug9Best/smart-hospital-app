@@ -2,10 +2,13 @@ import React from "react";
 import { StyleSheet, View, Text, Image, SafeAreaView, ScrollView } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
 
+
+
 const Event1 = () => {
   return (
     <SafeAreaView style={styles.container}>
               <Text style={styles.title}>ข่าวสาร/กิจกรรม</Text>
+          
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
         {renderEventCard(
           "คลีนิก สจล. เตรียมให้บริการแบบ Drive thru",
