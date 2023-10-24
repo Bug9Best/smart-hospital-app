@@ -4,15 +4,21 @@ export default function Register({ navigation }) {
   return (
     <base.View style={styles.container}>
       <base.View style={styles.box}>
-        <base.Text>หมายเลข HN *</base.Text>
+        <base.View style={{display: "flex", flexDirection: "row"}}>
+        <base.Text>หมายเลข HN</base.Text>
+        <base.Text style={{color: "red"}}>*</base.Text>
+        </base.View>
         <base.TextInput
           style={styles.Realinput}
-          placeholder="useless placeholder"
+          placeholder="เลข HN"
         />
-        <base.Text style={{ marginTop: 10 }}>หมายเลขบัตรประชาชน *</base.Text>
+        <base.View style={{display: "flex", flexDirection: "row"}}>
+        <base.Text style={{ marginTop: 10 }}>หมายเลขบัตรประชาชน</base.Text>
+        <base.Text style={{color: "red",  marginTop: 10 }}>*</base.Text>
+        </base.View>
         <base.TextInput
           style={styles.Realinput}
-          placeholder="useless placeholder"
+          placeholder="13 หลัก"
         />
       </base.View>
       <base.View>
@@ -48,6 +54,7 @@ const styles = base.StyleSheet.create({
     marginTop: 15,
     borderR1dius: 10,
     padding: 16,
+    
   },
   Realinput: {
     borderWidth: "0.2px",
