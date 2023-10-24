@@ -113,7 +113,6 @@ const Profile = ({ navigation }) => {
             <base.TouchableOpacity style={styles.logoutButton} onPress={() => { navigation.navigate('SignIn') }}>
               <View>
                 <Text style={styles.logoutButtonText}>ออกจากระบบ</Text>
-
               </View>
             </base.TouchableOpacity>
         </ScrollView>
