@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
   addressButton: {
     backgroundColor: "white",
     marginTop: 13, // Adjust the marginTop as needed
-    padding: 7,
+    padding: 16,
     borderRadius: 5,
     alignItems: "center",
     flexDirection: "row",

@@ -59,7 +59,10 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 10,
     overflow: "hidden",
+    paddingTop: 5,
+    padding: 16
   },
+
   linearGradient: {
     flex: 1,
     borderRadius: 10,
@@ -75,11 +78,11 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
   },
   eventTitle: {
-    padding: 10,
+    padding: 16,
     fontSize: 16,
   },
   eventDate: {
-    padding: 10,
+    padding: 16,
     fontSize: 12,
     color: "#3F3D3C",
   },
