@@ -29,10 +29,13 @@ const RootNav = () => {
                         headerShown: false,
                     }}
                 />
-                <Stack.Screen name="Doctorscheduled" component={Doctorscheduled} />
-                <Stack.Screen name="Formdownload" component={Formdownload} 
+                <Stack.Screen name="Doctorscheduled" component={Doctorscheduled} 
                 options={{
                     title: "ตารางแพทย์ตรวจ",
+                }}/>
+                <Stack.Screen name="Formdownload" component={Formdownload} 
+                options={{
+                    title: "แบบฟอร์ม",
                 }}/>
                 <Stack.Screen name="Staff" component={Staff} 
                 options={{

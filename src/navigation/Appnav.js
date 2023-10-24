@@ -33,7 +33,7 @@ const Appnav = () => {
         name="History"
         component={History}
         options={{
-          headerShown: false,
+          title: "ประวัติการรักษา/นัดหมาย",
           tabBarIcon: ({color, size}) => {
             return <Ionicons name="documents" size={32} color="#FF8A48" />
           }
@@ -43,7 +43,7 @@ const Appnav = () => {
         name="Event"
         component={Event}
         options={{
-          headerShown: false,
+          title: "ข่าวสาร/กิจกรรม",
           tabBarIcon: ({color, size}) => {
             return <Ionicons name="calendar" size={32} color="#FF8A48" />
           }
@@ -53,7 +53,7 @@ const Appnav = () => {
         name="Profile"
         component={Profile}
         options={{
-          headerShown: false,
+          title: "ข้อมูลบัญชี",
           tabBarIcon: ({color, size}) => {
             return <Ionicons name="person" size={32} color="#FF8A48" />
           }

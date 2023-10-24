@@ -33,12 +33,12 @@ export default function SignUp({ navigation }){
             style={{
                 paddingHorizontal: 125,
                 paddingVertical: 15,
-                marginTop: 150,
+                marginTop: 200,
                 backgroundColor: "#FF8A48",
                 borderRadius: 10,
             }}
           >
-            <base.Text style={{fontSize: 20, color: "white", fontWeight: 800}} >
+            <base.Text style={{color: "white"}} >
             ดำเนินการต่อ
             </base.Text>
           </base.View>
@@ -59,7 +59,7 @@ const styles = base.StyleSheet.create({
     height: "62%",
     marginTop: 15,
     borderRadius: 10,
-    padding: 15,
+    padding: 16,
     
   },
   Realinput: {
@@ -69,6 +69,6 @@ const styles = base.StyleSheet.create({
     borderWidth: 0.5,
     width: "90%",
     marginTop: 10,
-    padding: 10,
+    padding: 16,
   },
 });

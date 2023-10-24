@@ -12,7 +12,7 @@ export default function Notification({ navigation }) {
           width: "100%",
           backgroundColor: "white",
           borderRadius: 10,
-          padding: 10,
+          padding: 16,
         }}
       >
         <base.View style={{display: 'flex', flexDirection: 'row'}}>
@@ -28,7 +28,7 @@ export default function Notification({ navigation }) {
           width: "100%",
           backgroundColor: "white",
           borderRadius: 10,
-          padding: 10,
+          padding: 16,
           marginTop: 10
         }}
       >
@@ -45,7 +45,7 @@ export default function Notification({ navigation }) {
           width: "100%",
           backgroundColor: "white",
           borderRadius: 10,
-          padding: 10,
+          padding: 16,
           marginTop: 10
 
         }}
@@ -68,6 +68,6 @@ const styles = base.StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "start",
-    padding: 20,
+    padding: 16,
   },
 });

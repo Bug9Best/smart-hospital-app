@@ -39,7 +39,7 @@ export default function Druginfo({ navigation }) {
       <base.ScrollView>
         <base.View style={{ alignItems: 'center' }}>
           <base.TextInput style={styles.Realinput}
-            placeholder="useless placeholder" >
+            placeholder="ค้นหาความรู้เรื่องยา" >
             <Ionicons name='search-outline' />
           </base.TextInput>
         </base.View>
@@ -50,7 +50,7 @@ export default function Druginfo({ navigation }) {
               width: "100%",
               backgroundColor: "white",
               borderRadius: 10,
-              padding: 10,
+              padding: 16,
               marginTop: 10,
             }}>
               <base.View style={{ flexDirection: 'row' }}>
@@ -74,11 +74,11 @@ const styles = base.StyleSheet.create({
   Realinput: {
     flex: 1,
     borderRadius: 10,
-    height: 40,
-    borderWidth: 0.2,
+    height: "50%",
+    borderWidth: 0.1,
     width: "95%",
     marginTop: 5,
-    padding: 10,
-    backgroundColor: "white"
+    padding: 16,
+    backgroundColor: "white",
   },
 });

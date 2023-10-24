@@ -47,18 +47,19 @@ const styles = base.StyleSheet.create({
   },
   box: {
     backgroundColor: "white",
-    width: "95%",
-    height: "50%",
     marginTop: 15,
     borderRadius: 10,
-    padding: 15,
+    padding: 16,
+    marginLeft: 15,
+    marginRight: 15,
+
   },
   box2: {
     backgroundColor: "white",
-    width: "95%",
-    height: "70%",
     marginTop: 50,
     borderRadius: 10,
-    padding: 15,
+    padding: 16,
+    marginLeft: 15,
+    marginRight: 15,
   },
 });
