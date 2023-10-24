@@ -92,7 +92,7 @@ const Home = () => {
         <Pressable style={styles.addressButton}>
           <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
             <Ionicons name="document-text-outline" size={32}  />
-            <Text style={styles.addressButtonText}>นโยบายความเป็ยส่วนตัว</Text>
+            <Text style={styles.addressButtonText}>นโยบายความเป็นส่วนตัว</Text>
           </View>
           <View>
           <Ionicons name="chevron-forward-outline" size={32}  />
