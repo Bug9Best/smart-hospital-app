@@ -1,5 +1,5 @@
-import { environment } from '../../environment/environment'
 var HTTPService = require('react-native-http').HTTPService;
+import { environment } from '../../environment/environment'
 
 class BaseService extends HTTPService {
   baseUrl = environment.BaseURL;
