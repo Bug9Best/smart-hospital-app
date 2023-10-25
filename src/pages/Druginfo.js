@@ -47,17 +47,14 @@ export default function Druginfo({ navigation }) {
           onRequestClose={() => {
             Alert.alert("Modal has been closed.");
             setModalVisible(!modalVisible);
-          }}
-        >
+          }}>
           <base.View style={styles.centeredView}>
             <base.View style={styles.modalView}>
               <base.Image
                 source={{ uri: selectedDrug?.img }}
-                style={{ width: 200, height: 300, marginTop: 10 }}
-              />
+                style={{ width: 200, height: 300, marginTop: 10 }} />
               <base.Text
-                style={{ marginTop: 10, fontWeight: "bold", fontSize: 18 }}
-              >
+                style={{ marginTop: 10, fontWeight: "bold", fontSize: 18 }}>
                 {selectedDrug?.name + " " + selectedDrug?.dosage}
               </base.Text>
               <base.Text style={{ marginTop: 10, fontSize: 16 }}>
@@ -73,8 +70,7 @@ export default function Druginfo({ navigation }) {
                 }}
                 onPress={() => {
                   setModalVisible(!modalVisible);
-                }}
-              >
+                }}>
                 <base.Text
                   style={{
                     fontSize: 12,
@@ -82,8 +78,7 @@ export default function Druginfo({ navigation }) {
                     color: "white",
                     fontWeight: "bold",
                     textAlign: "center",
-                  }}
-                >
+                  }}>
                   ปิดหน้าต่างนี้
                 </base.Text>
               </base.TouchableOpacity>
@@ -93,8 +88,7 @@ export default function Druginfo({ navigation }) {
         <base.View style={{ alignItems: "center" }}>
           <base.TextInput
             style={styles.Realinput}
-            placeholder="ค้นหาความรู้เรื่องยา"
-          >
+            placeholder="ค้นหาความรู้เรื่องยา">
             <Ionicons name="search-outline" />
           </base.TextInput>
         </base.View>
@@ -107,8 +101,7 @@ export default function Druginfo({ navigation }) {
                   onPress={() => {
                     setModalVisible(true);
                     setSelectedDrug(item);
-                  }}
-                >
+                  }}>
                   <base.View
                     style={{
                       backgroundColor: "white",
@@ -117,8 +110,7 @@ export default function Druginfo({ navigation }) {
                       margin: 10,
                       marginLeft: 10,
                       marginRight: 10,
-                    }}
-                  >
+                    }}>
                     <base.View style={{ flex: 1, flexDirection: "row" }}>
                       <base.Image
                         source={{ uri: item.img }}
@@ -127,15 +119,13 @@ export default function Druginfo({ navigation }) {
                           height: 100,
                           marginTop: 10,
                           borderRadius: 10,
-                        }}
-                      />
+                        }} />
                       <base.View
                         style={{
                           flex: 1,
                           flexDirection: "column",
                           marginTop: 30,
-                        }}
-                      >
+                        }}>
                         <base.Text style={{ fontSize: 20, fontWeight: "bold" }}>
                           {item.name + " " + item.dosage}
                         </base.Text>
@@ -143,8 +133,7 @@ export default function Druginfo({ navigation }) {
                           style={{
                             marginTop: 10,
                             fontSize: 15,
-                          }}
-                        >
+                          }}>
                           {item.description}
                         </base.Text>
                       </base.View>
@@ -171,13 +160,12 @@ const styles = base.StyleSheet.create({
     marginTop: 5,
   },
   Realinput: {
-    flex: 1,
     borderRadius: 10,
-    height: "20%",
+    height: 50,
     borderWidth: 0.4,
     width: "95%",
     marginTop: 5,
-    padding: 20,
+    padding: 16,
     backgroundColor: "white",
     marginLeft: 5,
     marginRight: 5,
