@@ -62,6 +62,7 @@
 // });
 import React from "react";
 import base from "../modules/base_module";
+import { useState } from "react";
 import {
   View,
   StyleSheet,
@@ -73,9 +74,53 @@ import {
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Layer from "../Layout/lgradient";
 
-const Home = () => {
+const Home = ({ navigation }) => {
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
+    
     <base.SafeAreaView style={styles.box}>
+      <base.Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+          setModalVisible(!modalVisible);
+        }}>
+        <base.View style={styles.centeredView}>
+          <base.View style={styles.modalView}>
+            <base.Text style={styles.modalText}>Hello World!</base.Text>
+            <base.TouchableOpacity
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => setModalVisible(!modalVisible)}>
+              <base.Text style={styles.textStyle}>Hide Modal</base.Text>
+            </base.TouchableOpacity>
+            <base.TouchableOpacity
+                style={{
+                  paddingHorizontal: 100,
+                  paddingVertical: 5,
+                  marginTop: "10%",
+                  backgroundColor: "#FF8A48",
+                  borderRadius: 10,
+                }}
+                onPress={() => {
+                  setModalVisible(!modalVisible);
+                }}>
+                <base.Text
+                  style={{
+                    fontSize: 12,
+                    padding: 16,
+                    color: "white",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                  }}>
+                  ปิดหน้าต่างนี้
+                </base.Text>
+              </base.TouchableOpacity>
+          </base.View>
+        </base.View>
+      </base.Modal>
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <View style={styles.DisplayProfile}>
           <Image
@@ -111,18 +156,26 @@ const Home = () => {
               justifyContent: "space-around",
             }}
           >
-            <TouchableOpacity onPress={() => handleTopIconPress("calendar")}>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("Doctorscheduled", { text: "text" })
+              }
+            >
               <View style={{}}>
                 <Text style={{ alignSelf: "center", color: "#FF8A48" }}>
                   <Ionicons name="calendar" size={32} color="#FF8A48" />
                 </Text>
                 <Text style={{ alignSelf: "center", color: "#FF8A48" }}>
-                  ตารางเวรแพทย
+                  ตารางเวรแพทย์
                 </Text>
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => handleTopIconPress("document")}>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("Formdownload", { text: "text" })
+              }
+            >
               <View>
                 <Text style={{ alignSelf: "center", color: "#FF8A48" }}>
                   <Ionicons name="document" size={32} color="#FF8A48" />
@@ -133,7 +186,9 @@ const Home = () => {
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => handleTopIconPress("people")}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("Staff", { text: "text" })}
+            >
               <View>
                 <Text style={{ alignSelf: "center", color: "#FF8A48" }}>
                   <Ionicons name="people" size={32} color="#FF8A48" />
@@ -145,7 +200,7 @@ const Home = () => {
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => handleTopIconPress("alert-circle")}
+              onPress={() => navigation.navigate("Druginfo", { text: "text" })}
             >
               <View>
                 <Text style={{ alignSelf: "center", color: "#FF8A48" }}>
@@ -160,7 +215,9 @@ const Home = () => {
 
           {/* แถวล่าง */}
           <View style={{ flexDirection: "row", gap: 20 }}>
-            <TouchableOpacity onPress={() => handleBottomIconPress("business")}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("Aboutus", { text: "text" })}
+            >
               <View style={{ marginTop: 20, marginLeft: 15 }}>
                 <Text style={{ alignSelf: "center", color: "#FF8A48" }}>
                   <Ionicons name="business" size={32} color="#FF8A48" />
@@ -171,7 +228,9 @@ const Home = () => {
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => handleBottomIconPress("call")}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("Contactus", { text: "text" })}
+            >
               <View style={{ marginTop: 20, marginLeft: 22 }}>
                 <Text style={{ alignSelf: "center", color: "#FF8A48" }}>
                   <Ionicons name="call" size={32} color="#FF8A48" />
@@ -236,16 +295,21 @@ const Home = () => {
           ></Text>
         </View>
       </ScrollView>
-      <TouchableOpacity>
-      <View
-        style={{
-          justifyContent: "center",
-          alignItems: "flex-end",
-          marginRight: 10,
+      <TouchableOpacity
+        onPress={() => {
+          setModalVisible(true);
         }}
       >
-        <Ionicons name="add-circle-sharp" size={70} color="#FF8A48" />
-      </View>
+        <View
+          style={{
+            justifyContent: "center",
+            alignItems: "flex-end",
+            marginRight: 10,
+            marginTop: 10,
+          }}
+        >
+          <Ionicons name="add-circle-sharp" size={70} color="#FF8A48" />
+        </View>
       </TouchableOpacity>
     </base.SafeAreaView>
   );
@@ -265,6 +329,7 @@ const styles = StyleSheet.create({
   DisplayProfile: {
     backgroundColor: "white",
     marginBottom: 20,
+    marginTop: 20,
     borderWidth: 1,
     borderColor: "#7d869e40",
     borderRadius: 12,
@@ -276,7 +341,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 4,
     height: 80,
-    width: "85%",
+    width: 400,
     alignItems: "center",
     flexDirection: "row",
   },
@@ -293,7 +358,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flexDirection: "space-between",
     backgroundColor: "white",
-    marginBottom: 50,
+    marginBottom: 20,
     borderWidth: 1,
     borderColor: "#7d869e40",
     borderRadius: 12,
@@ -305,12 +370,12 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 4,
     height: 200,
-    width: 365,
+    width: 400,
     padding: 20,
   },
   smallRectangle: {
     backgroundColor: "white",
-    marginBottom: 50,
+    marginBottom: 20,
     borderWidth: 1,
     borderColor: "#7d869e40",
     borderRadius: 12,
@@ -322,7 +387,33 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 4,
     height: 98,
-    width: "78%",
+    width: 400,
+  },
+  modalView: {
+    margin: 20,
+    marginTop: "20%",
+    backgroundColor: "white",
+    borderRadius: 20,
+    width: "90%",
+    padding: 16,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 1.25,
+    shadowRadius: 100,
+    elevation: 5,
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center",
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 
