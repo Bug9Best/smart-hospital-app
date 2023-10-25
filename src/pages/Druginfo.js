@@ -5,48 +5,37 @@ import BaseURL from "../services/base/base_service";
 import axios from "axios";
 import Layer from "../Layout/lgradient";
 
-const drug = [
-  {
-    title: "Haerin1",
-  },
-  {
-    title: "Haerin1",
-  },
-  {
-    title: "Haerin1",
-  },
-];
-
 export default function Druginfo({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
-  // const [firstRender, setFirstRender] = useState(false);
-  // const [isLoading, setIsLoading] = useState(false);
-  // const [drug, setDrug] = useState();
+  const [firstRender, setFirstRender] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [drug, setDrug] = useState();
+  const [selectedDrug, setSelectedDrug] = useState({});
 
-  // var drugService = new BaseURL("drug");
+  var drugService = new BaseURL("drug");
 
-  // const getDrug = async () => {
-  //   setIsLoading(true);
-  //   try {
-  //     const response = await axios.get(drugService.BaseURL);
-  //     if (response.status === 200) {
-  //       setDrug(response.data);
-  //       setIsLoading(false);
-  //     } else {
-  //       throw new Error("An error has occurred");
-  //     }
-  //   } catch (error) {
-  //     alert("An error has occurred");
-  //     setIsLoading(false);
-  //   }
-  // }
+  const getDrug = async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get(drugService.BaseURL);
+      if (response.status === 200) {
+        setDrug(response.data);
+        setIsLoading(false);
+      } else {
+        throw new Error("An error has occurred");
+      }
+    } catch (error) {
+      alert("An error has occurred");
+      setIsLoading(false);
+    }
+  }
 
-  // useEffect(() => {
-  //   if (!firstRender) {
-  //     getDrug();
-  //     setFirstRender(true);
-  //   }
-  // }, [drug, firstRender])
+  useEffect(() => {
+    if (!firstRender) {
+      getDrug();
+      setFirstRender(true);
+    }
+  }, [drug, firstRender])
 
   return (
     <base.View style={styles.container}>
@@ -62,17 +51,14 @@ export default function Druginfo({ navigation }) {
         <base.View style={styles.centeredView}>
           <base.View style={styles.modalView}>
             <base.Image
-              source={require("../assets/image/Haerin.png")}
+              source={{ uri: selectedDrug?.img }}
               style={{ width: 200, height: 300, marginTop: 10 }}
             />
-            <base.Text style={{marginTop: 10, fontWeight: "bold", fontSize: 18}}>
-            asdasdasd
+            <base.Text style={{ marginTop: 10, fontWeight: "bold", fontSize: 18 }}>
+              {selectedDrug?.name + " " + selectedDrug?.dosage}
             </base.Text>
-            <base.Text style={{marginTop: 10,  fontSize: 16}}>
-            คลินิกเวชกรรม สจล. เดิมที เป็นหน่วยงานสุขภาพอนามัย บริหารภายใต้สังกัด
-          กองกิจการนักศึกษา สำนักงานอธิการบดี สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณ
-          ทหารลาดกระบัง ภายหลังเปลี่ยนเป็น คลินิกเวชกรรม สจล. บริหารภายใต้สังกัด
-          คณะแพทยศาสตร์ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
+            <base.Text style={{ marginTop: 10, fontSize: 16 }}>
+              {selectedDrug?.description}
             </base.Text>
             <base.TouchableOpacity
               style={{
@@ -82,7 +68,7 @@ export default function Druginfo({ navigation }) {
                 backgroundColor: "#FF8A48",
                 borderRadius: 10,
               }}
-              onPress={() => setModalVisible(!modalVisible)}
+              onPress={() => { setModalVisible(!modalVisible) }}
             >
               <base.Text
                 style={{
@@ -98,7 +84,7 @@ export default function Druginfo({ navigation }) {
             </base.TouchableOpacity>
           </base.View>
         </base.View>
-      </base.Modal>
+      </base.Modal >
       <base.ScrollView>
         <base.View style={{ alignItems: "center" }}>
           <base.TextInput
@@ -112,25 +98,27 @@ export default function Druginfo({ navigation }) {
           data={drug}
           renderItem={({ item }) => {
             return (
-              <base.TouchableOpacity onPress={() => setModalVisible(true)}>
+              <base.TouchableOpacity onPress={() => { setModalVisible(true); setSelectedDrug(item) }}>
                 <base.View
                   style={{
                     width: "100%",
                     backgroundColor: "white",
                     borderRadius: 10,
                     padding: 16,
-                    marginTop: 10,
+                    margin: 10,
                   }}
                 >
+                  <base.Image
+                    source={{ uri: item.img }}
+                    style={{ width: 200, height: 300, marginTop: 10 }}
+                  />
                   <base.View style={{ flexDirection: "row" }}>
-                    <base.View style={{ padding: 20 }}>
-                      <base.Text style={{ fontSize: 20, fontWeight: 400 }}>
-                        {item.title}
-                      </base.Text>
-                      <base.Text style={{ marginTop: 10, fontSize: 20 }}>
-                        {item.title}
-                      </base.Text>
-                    </base.View>
+                    <base.Text style={{ fontSize: 20, fontWeight: 400 }}>
+                      {item.name + " " + item.dosage}
+                    </base.Text>
+                    <base.Text style={{ marginTop: 10, fontSize: 20 }}>
+                      {item.description}
+                    </base.Text>
                   </base.View>
                 </base.View>
               </base.TouchableOpacity>
@@ -138,7 +126,7 @@ export default function Druginfo({ navigation }) {
           }}
         />
       </base.ScrollView>
-    </base.View>
+    </base.View >
   );
 }
 
