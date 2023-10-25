@@ -8,6 +8,7 @@ export default function Formdownload({ navigation }) {
   return (
     
     <base.View style={styles.container}>
+      <base.ScrollView>
       <base.View style={{ marginTop: 5, padding: 5 }}>
         <base.Text style={{ color: "#FF8A48", fontSize: 20, fontWeight: 800 }}>
           แบบฟอร์ม
@@ -155,6 +156,7 @@ export default function Formdownload({ navigation }) {
           </base.Text>
         </base.View>
       </base.TouchableOpacity>
+      </base.ScrollView>
     </base.View>
   );
 }

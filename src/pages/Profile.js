@@ -49,36 +49,6 @@ const Profile = ({ navigation }) => {
           </View>
         </base.TouchableOpacity>
 
-        <base.TouchableOpacity style={styles.addressButton} onPress={()=>{navigation.navigate('Notification', {text: "text"})}}>
-          <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
-            <Ionicons name="notifications-outline" size={32}  />
-            <Text style={styles.addressButtonText}>การแจ้งเตือน</Text>
-          </View>
-          <View>
-          <Ionicons name="chevron-forward-outline" size={32}  />
-          </View>
-        </base.TouchableOpacity>
-
-
-        <base.TouchableOpacity style={styles.addressButton}>
-          <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
-            <Ionicons name="language-outline" size={32}  />
-            <Text style={styles.addressButtonText}>ภาษา</Text>
-          </View>
-          <View>
-          <Ionicons name="chevron-forward-outline" size={32}  />
-          </View>
-        </base.TouchableOpacity>
-
-        <base.TouchableOpacity style={styles.addressButton} onPress={()=>{navigation.navigate('Changepassword', {text: "text"})}}>
-          <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
-            <Ionicons name="lock-closed-outline" size={32}  />
-            <Text style={styles.addressButtonText}>เปลี่ยนรหัสผ่าน</Text>
-          </View>
-          <View>
-          <Ionicons name="chevron-forward-outline" size={32}  />
-          </View>
-        </base.TouchableOpacity>
 
 
         <base.TouchableOpacity style={styles.addressButton} onPress={()=>{navigation.navigate('Policy', {text: "text"})}}>
@@ -162,7 +132,7 @@ const styles = StyleSheet.create({
   },
   logoutButton: {
     backgroundColor: "#FF8A48",
-    marginTop: 20, // Adjust the marginTop as needed
+    marginTop: 40, // Adjust the marginTop as needed
     padding: 16,
     borderRadius: 5,
     alignItems: "center",

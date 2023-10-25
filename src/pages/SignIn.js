@@ -87,34 +87,15 @@ export default function Signin({ navigation }) {
                 >
                   <base.View
                     style={{
-                      paddingHorizontal: 145,
+                      paddingHorizontal: 165,
                       paddingVertical: 20,
-                      margin: 20,
+                      marginTop: "10%",
                       backgroundColor: "#FF8A48",
                       borderRadius: 10,
                     }}
                   >
                     <base.Text style={{ color: "white" }}>
                       เข้าสู่ระบบ
-                    </base.Text>
-                  </base.View>
-                </base.TouchableOpacity>
-                <base.TouchableOpacity
-                  onPress={() => {
-                    navigation.navigate("Forgetpassword", { text: "text" });
-                  }}
-                >
-                  <base.View
-                    style={{
-                      paddingHorizontal: 140,
-                      paddingVertical: 20,
-                      borderRadius: 10,
-                      borderWidth: 0.5,
-                      borderColor: "#FF8A48",
-                    }}
-                  >
-                    <base.Text style={{ color: "#FF8A48" }}>
-                      ลืมรหัสผ่าน
                     </base.Text>
                   </base.View>
                 </base.TouchableOpacity>
@@ -127,9 +108,10 @@ export default function Signin({ navigation }) {
                   marginTop: 20,
                 }}
               >
+ 
                 <base.TouchableOpacity
                   onPress={() => {
-                    navigation.navigate("Register", { text: "text" });
+                    navigation.navigate("Newsignup", { text: "text" });
                   }}
                 >
                   <base.View
@@ -141,27 +123,8 @@ export default function Signin({ navigation }) {
                       borderRadius: 10,
                     }}
                   >
-                    <base.Text style={{ color: "white" }}>
+                    <base.Text style={{ color: "white"}}>
                       ลงทะเบียนเข้าใช้งาน
-                    </base.Text>
-                  </base.View>
-                </base.TouchableOpacity>
-                <base.TouchableOpacity
-                  onPress={() => {
-                    navigation.navigate("Newsignup", { text: "text" });
-                  }}
-                >
-                  <base.View
-                    style={{
-                      paddingHorizontal: 110,
-                      paddingVertical: 20,
-                      borderRadius: 10,
-                      borderWidth: 0.5,
-                      borderColor: "#FF8A48",
-                    }}
-                  >
-                    <base.Text style={{ color: "#FF8A48"}}>
-                      ลงทะเบียนผู้ป่วยใหม่
                     </base.Text>
                   </base.View>
                 </base.TouchableOpacity>
