@@ -133,6 +133,7 @@ export default function Druginfo({ navigation }) {
                         flex: 1,
                         flexDirection: "column",
                         marginTop: 30,
+                        marginLeft: 16
                       }}
                     >
                       <base.Text style={{ fontSize: 20, fontWeight: "bold" }}>
@@ -169,13 +170,12 @@ const styles = base.StyleSheet.create({
     marginTop: 5,
   },
   Realinput: {
-    flex: 1,
     borderRadius: 10,
-    height: "20%",
+    height: 50,
     borderWidth: 0.4,
     width: "95%",
     marginTop: 5,
-    padding: 20,
+    padding: 16,
     backgroundColor: "white",
     marginLeft: 5,
     marginRight: 5,
