@@ -125,6 +125,7 @@ export default function Druginfo({ navigation }) {
                           flex: 1,
                           flexDirection: "column",
                           marginTop: 30,
+                          marginLeft: 16,
                         }}>
                         <base.Text style={{ fontSize: 20, fontWeight: "bold" }}>
                           {item.name + " " + item.dosage}
