@@ -28,6 +28,7 @@ import {
     RefreshControl,
     ActivityIndicator,
     KeyboardAvoidingView,
+    Linking,
 
     Geolocation,
     Vibration,
@@ -61,6 +62,7 @@ const BaseComponent = {
     StyleSheet,
     PixelRatio,
     Dimensions,
+    Linking,
     Modal,
     StatusBar,
     SafeAreaView,
