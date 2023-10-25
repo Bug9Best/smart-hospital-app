@@ -47,8 +47,14 @@ export default function Signupjing({ navigation }) {
           <base.Text style={{ marginTop: 10 }}>วันเดือนปีเกิด</base.Text>
           <base.Text style={{ marginTop: 10, color: "red" }}>*</base.Text>
         </base.View>
-        <base.TextInput style={styles.Realinput} placeholder="16 /09 /02" />
+        <base.TextInput style={styles.Realinput} placeholder="16 /09 /02"/>
+        <base.View style={{ display: "flex", flexDirection: "row" }}>
+          <base.Text style={{ marginTop: 10 }}>ที่อยู่</base.Text>
+          <base.Text style={{ marginTop: 10, color: "red" }}>*</base.Text>
         </base.View>
+        <base.TextInput style={styles.Addressinput} placeholder="รายละเอียดพอสังเขป"  multiline= {true}/>
+        </base.View>
+        
 
       </base.View>
       <base.View>
@@ -57,7 +63,7 @@ export default function Signupjing({ navigation }) {
             style={{
               paddingHorizontal: 125,
               paddingVertical: 15,
-              marginTop: 50,
+              marginTop: 40,
               backgroundColor: "#FF8A48",
               borderRadius: 10,
             }}
@@ -78,17 +84,25 @@ const styles = base.StyleSheet.create({
   box: {
     backgroundColor: "white",
     width: "95%",
-    height: "80%",
     marginTop: 15,
     borderRadius: 10,
     padding: 16,
+    marginLeft: 15,
+    marginRight: 15,
   },
   Realinput: {
     borderWidth: 0.2,
     borderRadius: 10,
     height: 50,
-    width: "90%",
+    width: "100%",
     marginTop: 10,
     padding: 16,
+  },
+  Addressinput:  {
+    borderWidth: 0.2,
+    borderRadius: 10,
+    width: "100%",
+    marginTop: 10,
+    padding: 3,
   },
 });

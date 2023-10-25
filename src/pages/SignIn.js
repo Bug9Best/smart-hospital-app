@@ -74,10 +74,11 @@ export default function Signin({ navigation }) {
               >
                 <base.TextInput
                   style={styles.Realinput}
-                  placeholder="E-mail"
+                  placeholder="หมายเลขบัตรประชาชน"
                 />
                 <base.TextInput
                   style={styles.Realinput}
+                  secureTextEntry= "true"
                   placeholder="Password"
                 />
                 <base.TouchableOpacity
