@@ -8,120 +8,83 @@ import Layer from "../Layout/lgradient";
 const Profile = ({ navigation }) => {
   return (
     <base.SafeAreaView style={styles.box}>
-          <base.ScrollView>
-
-      <View style={styles.header}>
-      </View>
-      <View style={styles.DisplayProfile}>
-        <Image
-          source={require('../assets/image/Cat.jpeg')}
-          style={styles.profileImage}
-        />
-        <Text style={{ marginTop: -90, marginLeft: 100, fontWeight: 'bold', color: '#FF8A48', fontSize: 17 }}>ชื่อ : นายนันทนนท์ จินขุนทอง</Text>
-        <Text style={{ marginTop: 10, marginLeft: 10, fontWeight: 'bold', color: 'black', fontSize: 17 }}>HN : 5915159</Text>
-        <Text style={{ marginTop: 10, marginLeft: -33, fontWeight: 'bold', color: 'black', fontSize: 17 }}>อายุ 21 ปี</Text>
-      </View>
-
-      <View>
-        <Text style={{ fontSize: 18, fontWeight: 'bold', marginRight: 300, color: '#FF8A48', marginVertical: 15 }}>
-          การตั้งค่า
-        </Text>
-
-        {/* Add the "ที่อยู่" button */}
-        <base.TouchableOpacity style={styles.addressButton} onPress={()=>{navigation.navigate('AddressInfo', {text: "text"})}}>
-          <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
-            <Ionicons name="map-outline" size={32}  />
-            <Text style={styles.addressButtonText}>ที่อยู่</Text>
-          </View>
-
-          <View>
-          <Ionicons name="chevron-forward-outline" size={32}  />
-          </View>
-        </base.TouchableOpacity>
-
-        <base.TouchableOpacity style={styles.addressButton} onPress={()=>{navigation.navigate('PhoneInfo', {text: "text"})}}>
-          <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
-            <Ionicons name="phone-portrait-outline" size={32}  />
-            <Text style={styles.addressButtonText}>เบอร์โทรศัพท์</Text>
-          </View>
-          <View>
-          <Ionicons name="chevron-forward-outline" size={32}  />
-          </View>
-        </base.TouchableOpacity>
-
-        <base.TouchableOpacity style={styles.addressButton} onPress={()=>{navigation.navigate('Notification', {text: "text"})}}>
-          <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
-            <Ionicons name="notifications-outline" size={32}  />
-            <Text style={styles.addressButtonText}>การแจ้งเตือน</Text>
-          </View>
-          <View>
-          <Ionicons name="chevron-forward-outline" size={32}  />
-          </View>
-        </base.TouchableOpacity>
-
-
-        <base.TouchableOpacity style={styles.addressButton}>
-          <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
-            <Ionicons name="language-outline" size={32}  />
-            <Text style={styles.addressButtonText}>ภาษา</Text>
-          </View>
-          <View>
-          <Ionicons name="chevron-forward-outline" size={32}  />
-          </View>
-        </base.TouchableOpacity>
-
-        <base.TouchableOpacity style={styles.addressButton} onPress={()=>{navigation.navigate('Changepassword', {text: "text"})}}>
-          <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
-            <Ionicons name="lock-closed-outline" size={32}  />
-            <Text style={styles.addressButtonText}>เปลี่ยนรหัสผ่าน</Text>
-          </View>
-          <View>
-          <Ionicons name="chevron-forward-outline" size={32}  />
-          </View>
-        </base.TouchableOpacity>
-
-
-        <base.TouchableOpacity style={styles.addressButton} onPress={()=>{navigation.navigate('Policy', {text: "text"})}}>
-          <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
-            <Ionicons name="document-text-outline" size={32}  />
-            <Text style={styles.addressButtonText}>ข้อกำหนดและเงื่อนไข</Text>
-          </View>
-          <View>
-          <Ionicons name="chevron-forward-outline" size={32}  />
-          </View>
-        </base.TouchableOpacity>
-
-        <base.TouchableOpacity style={styles.addressButton} onPress={()=>{navigation.navigate('Privacy', {text: "text"})}}>
-          <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
-            <Ionicons name="document-text-outline" size={32}  />
-            <Text style={styles.addressButtonText}>นโยบายความเป็นส่วนตัว</Text>
-          </View>
-          <View>
-          <Ionicons name="chevron-forward-outline" size={32}  />
-          </View>
-        </base.TouchableOpacity>
-
-        <base.TouchableOpacity style={styles.addressButton}>
-          <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
-            <Ionicons name="trash-outline" size={32}  />
-            <Text style={styles.addressButtonText}>ลบบัญชีผู้ใช้</Text>
-          </View>
-          <View>
-          <Ionicons name="chevron-forward-outline" size={32}  />
-          </View>
-        </base.TouchableOpacity>
-        <View>
-
-        <base.TouchableOpacity style={styles.logoutButton} onPress={()=>{navigation.navigate('SignIn')}}>
-          <Text style={styles.logoutButtonText}>ออกจากระบบ</Text>
-        </base.TouchableOpacity>
+      <base.ScrollView>
+        <View style={styles.header}>
+        </View>
+        <View style={styles.DisplayProfile}>
+          <Image
+            source={require('../assets/image/Cat.jpeg')}
+            style={styles.profileImage}
+          />
+          <Text style={{ marginTop: -90, marginLeft: 100, fontWeight: 'bold', color: '#FF8A48', fontSize: 17 }}>ชื่อ : นายนันทนนท์ จินขุนทอง</Text>
+          <Text style={{ marginTop: 10, marginLeft: 10, fontWeight: 'bold', color: 'black', fontSize: 17 }}>HN : 5915159</Text>
+          <Text style={{ marginTop: 10, marginLeft: -33, fontWeight: 'bold', color: 'black', fontSize: 17 }}>อายุ 21 ปี</Text>
         </View>
 
-      </View>
+        <View>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', marginRight: 300, color: '#FF8A48', marginVertical: 15 }}>
+            การตั้งค่า
+          </Text>
+
+          {/* Add the "ที่อยู่" button */}
+          <base.TouchableOpacity style={styles.addressButton} onPress={() => { navigation.navigate('AddressInfo', { text: "text" }) }}>
+            <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
+              <Ionicons name="map-outline" size={32} />
+              <Text style={styles.addressButtonText}>ที่อยู่</Text>
+            </View>
+
+            <View>
+              <Ionicons name="chevron-forward-outline" size={32} />
+            </View>
+          </base.TouchableOpacity>
+
+          <base.TouchableOpacity style={styles.addressButton} onPress={() => { navigation.navigate('PhoneInfo', { text: "text" }) }}>
+            <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
+              <Ionicons name="phone-portrait-outline" size={32} />
+              <Text style={styles.addressButtonText}>เบอร์โทรศัพท์</Text>
+            </View>
+            <View>
+              <Ionicons name="chevron-forward-outline" size={32} />
+            </View>
+          </base.TouchableOpacity>
+
+          <base.TouchableOpacity style={styles.addressButton} onPress={() => { navigation.navigate('Policy', { text: "text" }) }}>
+            <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
+              <Ionicons name="document-text-outline" size={32} />
+              <Text style={styles.addressButtonText}>ข้อกำหนดและเงื่อนไข</Text>
+            </View>
+            <View>
+              <Ionicons name="chevron-forward-outline" size={32} />
+            </View>
+          </base.TouchableOpacity>
+
+          <base.TouchableOpacity style={styles.addressButton} onPress={() => { navigation.navigate('Privacy', { text: "text" }) }}>
+            <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
+              <Ionicons name="document-text-outline" size={32} />
+              <Text style={styles.addressButtonText}>นโยบายความเป็นส่วนตัว</Text>
+            </View>
+            <View>
+              <Ionicons name="chevron-forward-outline" size={32} />
+            </View>
+          </base.TouchableOpacity>
+
+          <base.TouchableOpacity style={styles.addressButton}>
+            <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
+              <Ionicons name="trash-outline" size={32} />
+              <Text style={styles.addressButtonText}>ลบบัญชีผู้ใช้</Text>
+            </View>
+            <View>
+              <Ionicons name="chevron-forward-outline" size={32} />
+            </View>
+          </base.TouchableOpacity>
+          <View>
+            <base.TouchableOpacity style={styles.logoutButton} onPress={() => { navigation.navigate('SignIn') }}>
+              <Text style={styles.logoutButtonText}>ออกจากระบบ</Text>
+            </base.TouchableOpacity>
+          </View>
+        </View>
       </base.ScrollView>
-
     </base.SafeAreaView>
-
   );
 }
 
