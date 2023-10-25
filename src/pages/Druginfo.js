@@ -38,123 +38,125 @@ export default function Druginfo({ navigation }) {
   }, [drug, firstRender]);
 
   return (
-    <base.View style={styles.container}>
-      <base.Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
-        }}
-      >
-        <base.View style={styles.centeredView}>
-          <base.View style={styles.modalView}>
-            <base.Image
-              source={{ uri: selectedDrug?.img }}
-              style={{ width: 200, height: 300, marginTop: 10 }}
-            />
-            <base.Text
-              style={{ marginTop: 10, fontWeight: "bold", fontSize: 18 }}
-            >
-              {selectedDrug?.name + " " + selectedDrug?.dosage}
-            </base.Text>
-            <base.Text style={{ marginTop: 10, fontSize: 16 }}>
-              {selectedDrug?.description}
-            </base.Text>
-            <base.TouchableOpacity
-              style={{
-                paddingHorizontal: 100,
-                paddingVertical: 5,
-                marginTop: "10%",
-                backgroundColor: "#FF8A48",
-                borderRadius: 10,
-              }}
-              onPress={() => {
-                setModalVisible(!modalVisible);
-              }}
-            >
-              <base.Text
-                style={{
-                  fontSize: 12,
-                  padding: 16,
-                  color: "white",
-                  fontWeight: "bold",
-                  textAlign: "center",
-                }}
-              >
-                ปิดหน้าต่างนี้
-              </base.Text>
-            </base.TouchableOpacity>
-          </base.View>
-        </base.View>
-      </base.Modal>
-      <base.View style={{ alignItems: "center" }}>
-        <base.TextInput
-          style={styles.Realinput}
-          placeholder="ค้นหาความรู้เรื่องยา"
+    <Layer>
+      <base.View style={styles.container}>
+        <base.Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            Alert.alert("Modal has been closed.");
+            setModalVisible(!modalVisible);
+          }}
         >
-          <Ionicons name="search-outline" />
-        </base.TextInput>
-      </base.View>
-      <base.ScrollView>
-        <base.FlatList
-          data={drug}
-          renderItem={({ item }) => {
-            return (
+          <base.View style={styles.centeredView}>
+            <base.View style={styles.modalView}>
+              <base.Image
+                source={{ uri: selectedDrug?.img }}
+                style={{ width: 200, height: 300, marginTop: 10 }}
+              />
+              <base.Text
+                style={{ marginTop: 10, fontWeight: "bold", fontSize: 18 }}
+              >
+                {selectedDrug?.name + " " + selectedDrug?.dosage}
+              </base.Text>
+              <base.Text style={{ marginTop: 10, fontSize: 16 }}>
+                {selectedDrug?.description}
+              </base.Text>
               <base.TouchableOpacity
+                style={{
+                  paddingHorizontal: 100,
+                  paddingVertical: 5,
+                  marginTop: "10%",
+                  backgroundColor: "#FF8A48",
+                  borderRadius: 10,
+                }}
                 onPress={() => {
-                  setModalVisible(true);
-                  setSelectedDrug(item);
+                  setModalVisible(!modalVisible);
                 }}
               >
-                <base.View
+                <base.Text
                   style={{
-                    backgroundColor: "white",
-                    borderRadius: 10,
+                    fontSize: 12,
                     padding: 16,
-                    margin: 10,
-                    marginLeft: 10,
-                    marginRight: 10,
+                    color: "white",
+                    fontWeight: "bold",
+                    textAlign: "center",
                   }}
                 >
-                  <base.View style={{ flex: 1, flexDirection: "row" }}>
-                    <base.Image
-                      source={{ uri: item.img }}
-                      style={{
-                        width: 120,
-                        height: 100,
-                        marginTop: 10,
-                        borderRadius: 10,
-                      }}
-                    />
-                    <base.View
-                      style={{
-                        flex: 1,
-                        flexDirection: "column",
-                        marginTop: 30,
-                      }}
-                    >
-                      <base.Text style={{ fontSize: 20, fontWeight: "bold" }}>
-                        {item.name + " " + item.dosage}
-                      </base.Text>
-                      <base.Text
+                  ปิดหน้าต่างนี้
+                </base.Text>
+              </base.TouchableOpacity>
+            </base.View>
+          </base.View>
+        </base.Modal>
+        <base.View style={{ alignItems: "center" }}>
+          <base.TextInput
+            style={styles.Realinput}
+            placeholder="ค้นหาความรู้เรื่องยา"
+          >
+            <Ionicons name="search-outline" />
+          </base.TextInput>
+        </base.View>
+        <base.ScrollView>
+          <base.FlatList
+            data={drug}
+            renderItem={({ item }) => {
+              return (
+                <base.TouchableOpacity
+                  onPress={() => {
+                    setModalVisible(true);
+                    setSelectedDrug(item);
+                  }}
+                >
+                  <base.View
+                    style={{
+                      backgroundColor: "white",
+                      borderRadius: 10,
+                      padding: 16,
+                      margin: 10,
+                      marginLeft: 10,
+                      marginRight: 10,
+                    }}
+                  >
+                    <base.View style={{ flex: 1, flexDirection: "row" }}>
+                      <base.Image
+                        source={{ uri: item.img }}
                         style={{
+                          width: 120,
+                          height: 100,
                           marginTop: 10,
-                          fontSize: 15,
+                          borderRadius: 10,
+                        }}
+                      />
+                      <base.View
+                        style={{
+                          flex: 1,
+                          flexDirection: "column",
+                          marginTop: 30,
                         }}
                       >
-                        {item.description}
-                      </base.Text>
+                        <base.Text style={{ fontSize: 20, fontWeight: "bold" }}>
+                          {item.name + " " + item.dosage}
+                        </base.Text>
+                        <base.Text
+                          style={{
+                            marginTop: 10,
+                            fontSize: 15,
+                          }}
+                        >
+                          {item.description}
+                        </base.Text>
+                      </base.View>
                     </base.View>
                   </base.View>
-                </base.View>
-              </base.TouchableOpacity>
-            );
-          }}
-        />
-      </base.ScrollView>
-    </base.View>
+                </base.TouchableOpacity>
+              );
+            }}
+          />
+        </base.ScrollView>
+      </base.View>
+    </Layer>
   );
 }
 
