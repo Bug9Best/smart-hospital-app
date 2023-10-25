@@ -9,72 +9,64 @@ const Profile = ({ navigation }) => {
   return (
     <base.SafeAreaView style={styles.box}>
       <base.ScrollView>
-        <View style={styles.header}>
-        </View>
         <View style={styles.DisplayProfile}>
           <Image
             source={require('../assets/image/Cat.jpeg')}
-            style={styles.profileImage}
-          />
-          <Text style={{ marginTop: -90, marginLeft: 100, fontWeight: 'bold', color: '#FF8A48', fontSize: 17 }}>ชื่อ : นายนันทนนท์ จินขุนทอง</Text>
-          <Text style={{ marginTop: 10, marginLeft: 10, fontWeight: 'bold', color: 'black', fontSize: 17 }}>HN : 5915159</Text>
-          <Text style={{ marginTop: 10, marginLeft: -33, fontWeight: 'bold', color: 'black', fontSize: 17 }}>อายุ 21 ปี</Text>
+            style={styles.profileImage} />
+          <Text style={{ marginTop: 10, fontWeight: 'bold', color: '#FF8A48', fontSize: 22 }}>นายนันทนนท์ จินขุนทอง</Text>
+          <Text style={{ marginTop: 10, fontWeight: 'bold', color: 'black', fontSize: 17 }}>HN : 5915159</Text>
+          <Text style={{ marginTop: 10, fontWeight: 'bold', color: 'black', fontSize: 17 }}>อายุ 21 ปี</Text>
         </View>
 
         <View>
-          <Text style={{ fontSize: 18, fontWeight: 'bold', marginRight: 300, color: '#FF8A48', marginVertical: 15 }}>
-            การตั้งค่า
-          </Text>
-
-          {/* Add the "ที่อยู่" button */}
           <base.TouchableOpacity style={styles.addressButton} onPress={() => { navigation.navigate('AddressInfo', { text: "text" }) }}>
             <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
-              <Ionicons name="map-outline" size={32} />
+              <Ionicons style={styles.icons} name="map-outline" size={24} />
               <Text style={styles.addressButtonText}>ที่อยู่</Text>
             </View>
 
             <View>
-              <Ionicons name="chevron-forward-outline" size={32} />
+              <Ionicons style={styles.icons} name="chevron-forward-outline" size={24} />
             </View>
           </base.TouchableOpacity>
 
           <base.TouchableOpacity style={styles.addressButton} onPress={() => { navigation.navigate('PhoneInfo', { text: "text" }) }}>
             <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
-              <Ionicons name="phone-portrait-outline" size={32} />
+              <Ionicons style={styles.icons} name="phone-portrait-outline" size={24} />
               <Text style={styles.addressButtonText}>เบอร์โทรศัพท์</Text>
             </View>
             <View>
-              <Ionicons name="chevron-forward-outline" size={32} />
+              <Ionicons style={styles.icons} name="chevron-forward-outline" size={24} />
             </View>
           </base.TouchableOpacity>
 
           <base.TouchableOpacity style={styles.addressButton} onPress={() => { navigation.navigate('Policy', { text: "text" }) }}>
             <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
-              <Ionicons name="document-text-outline" size={32} />
+              <Ionicons style={styles.icons} name="document-text-outline" size={24} />
               <Text style={styles.addressButtonText}>ข้อกำหนดและเงื่อนไข</Text>
             </View>
             <View>
-              <Ionicons name="chevron-forward-outline" size={32} />
+              <Ionicons style={styles.icons} name="chevron-forward-outline" size={24} />
             </View>
           </base.TouchableOpacity>
 
           <base.TouchableOpacity style={styles.addressButton} onPress={() => { navigation.navigate('Privacy', { text: "text" }) }}>
             <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
-              <Ionicons name="document-text-outline" size={32} />
+              <Ionicons style={styles.icons} name="document-text-outline" size={24} />
               <Text style={styles.addressButtonText}>นโยบายความเป็นส่วนตัว</Text>
             </View>
             <View>
-              <Ionicons name="chevron-forward-outline" size={32} />
+              <Ionicons style={styles.icons} name="chevron-forward-outline" size={24} />
             </View>
           </base.TouchableOpacity>
 
           <base.TouchableOpacity style={styles.addressButton}>
             <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
-              <Ionicons name="trash-outline" size={32} />
+              <Ionicons style={styles.icons} name="trash-outline" size={24} />
               <Text style={styles.addressButtonText}>ลบบัญชีผู้ใช้</Text>
             </View>
             <View>
-              <Ionicons name="chevron-forward-outline" size={32} />
+              <Ionicons style={styles.icons} name="chevron-forward-outline" size={24} />
             </View>
           </base.TouchableOpacity>
           <View>
@@ -91,20 +83,19 @@ const Profile = ({ navigation }) => {
 const styles = StyleSheet.create({
   box: {
     flex: 1,
-    backgroundColor: "#F0F0F0",
+    padding: 16,
+    backgroundColor: "#E0E0E0",
     alignItems: "center",
     justifyContent: "center",
   },
-  header: {
-    backgroundColor: "#F0F0F0",
-    alignItems: "center",
-  },
+
   DisplayProfile: {
-    backgroundColor: "white",
-    marginTop: 15, // 
+    flex: 1,
     borderWidth: 1,
-    borderColor: "#7d869e40",
     borderRadius: 12,
+    marginTop: 16,
+    backgroundColor: "white",
+    borderColor: "#7d869e40",
     shadowColor: "#7d869e40",
     shadowOffset: {
       width: 0,
@@ -112,8 +103,8 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 1,
     shadowRadius: 4,
-    height: 150,
     width: 380,
+    paddingBottom: 16,
     alignItems: "center",
   },
   profileImage: {
@@ -121,7 +112,6 @@ const styles = StyleSheet.create({
     height: 100,
     borderRadius: 300,
     marginTop: 20,
-    marginRight: 250,
   },
   logoutButton: {
     backgroundColor: "#FF8A48",
@@ -143,20 +133,24 @@ const styles = StyleSheet.create({
   },
   addressButton: {
     backgroundColor: "white",
+    color: "black",
     marginTop: 13, // Adjust the marginTop as needed
     padding: 16,
     borderRadius: 5,
     alignItems: "center",
     flexDirection: "row",
     justifyContent: 'space-between',
-    marginHorizontal: 10,
   },
+
   addressButtonText: {
-    color: "black",
+    color: "gray",
     fontSize: 16,
     fontWeight: "bold",
     marginLeft: 10,
   },
+  icons: {
+    color: "gray",
+  }
 
 });
 
