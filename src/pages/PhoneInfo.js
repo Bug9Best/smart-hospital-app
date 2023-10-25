@@ -1,4 +1,6 @@
 import base from "../modules/base_module";
+import Layer from "../Layout/lgradient";
+
 
 export default function PhoneInfo({ navigation }) {
   return (
@@ -55,7 +57,7 @@ const styles = base.StyleSheet.create({
     
   },
   Realinput: {
-    borderWidth: "0.2px",
+    borderWidth: "0.2%",
     borderRadius: 10,
     height: 50,
     width: "90%",

@@ -64,6 +64,8 @@ import React from "react";
 import base from "../modules/base_module"
 import { View, StyleSheet, Text, Image } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import Layer from "../Layout/lgradient";
+
 
 
 const Home = ({ navigation }) => {
@@ -146,7 +148,7 @@ const Home = ({ navigation }) => {
           </base.TouchableOpacity>
 
           <base.TouchableOpacity onPress={() => { navigation.navigate('Contactus', { text: "text" }) }}>
-            <View style={{ marginTop: 20, marginLeft: 22 }}>
+            <View style={{ marginTop: 20, marginLeft: 15 }}>
               <Text style={{ alignSelf: 'center', color: '#FF8A48' }}>
                 <Ionicons name="call" size={32} color="#FF8A48" />
               </Text>
@@ -220,7 +222,7 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     height: 200,
     // width: 395,
-    padding: 20
+    padding: 20,
   },
   smallRectangle: {
     backgroundColor: "white",
@@ -254,7 +256,9 @@ const styles = StyleSheet.create({
     height: 80,
     width: "90%", // Use a percentage to make it responsive
     alignItems: "center", // Center horizontally
-    flexDirection: "row", // Align the image and text in a row
+    flexDirection: "row",
+    marginTop: 40
+    // Align the image and text in a row
   },
 
   profileImage: {

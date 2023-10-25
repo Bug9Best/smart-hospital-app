@@ -1,12 +1,11 @@
 import * as React from "react";
 import { StyleSheet, View, Text, Pressable, SafeAreaView } from "react-native";
+import Layer from "../Layout/lgradient";
+
 
 const History1 = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.box}>
-        <Text style={styles.titleText}>ประวัติการรักษา/นัดหมาย</Text>
-      </View>
 
       <View style={styles.historyContainer}>  
         <View style={styles.historyTabContainer}>

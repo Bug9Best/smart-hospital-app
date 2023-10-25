@@ -1,4 +1,6 @@
 import base from "../modules/base_module";
+import Layer from "../Layout/lgradient";
+
 
 export default function Signupjing({ navigation }) {
   return (
@@ -82,7 +84,7 @@ const styles = base.StyleSheet.create({
     padding: 16,
   },
   Realinput: {
-    borderWidth: "0.2px",
+    borderWidth: "0.2%",
     borderRadius: 10,
     height: 50,
     width: "90%",

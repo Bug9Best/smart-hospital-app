@@ -1,4 +1,6 @@
 import base from '../modules/base_module'
+import Layer from "../Layout/lgradient";
+
 
 export default function SignUp({ navigation }){
     return(
@@ -63,7 +65,7 @@ const styles = base.StyleSheet.create({
     
   },
   Realinput: {
-    borderWidth: "2px",
+    borderWidth: "2%",
     borderRadius: 10,
     height: 50,
     borderWidth: 0.5,

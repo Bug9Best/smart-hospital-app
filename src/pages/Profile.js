@@ -2,6 +2,8 @@ import React from "react";
 import base from "../modules/base_module";
 import { View, StyleSheet, Text, Image, Pressable, ScrollView, } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import Layer from "../Layout/lgradient";
+
 
 const Profile = ({ navigation }) => {
   return (
@@ -9,7 +11,6 @@ const Profile = ({ navigation }) => {
           <base.ScrollView>
 
       <View style={styles.header}>
-        <Text style={styles.titleText}>ข้อมูลบัญชี</Text>
       </View>
       <View style={styles.DisplayProfile}>
         <Image

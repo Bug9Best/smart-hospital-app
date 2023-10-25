@@ -1,5 +1,7 @@
 import base from '../modules/base_module'
 import baseStyle from '../modules/base.style'
+import Layer from "../Layout/lgradient";
+
 import { Text, View } from 'react-native';
 
 const fakedata = [
@@ -54,28 +56,26 @@ const fakedata = [
 
 export default function Staff({ navigation }) {
   return (
-    <View className={baseStyle.textCenter}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-    // <base.View style={styles.container}>
-    //     <base.ScrollView>
-    //         <base.FlatList
-    //             data={fakedata}
-    //             numColumns={2}
-    //             horizontal={false}
-    //             renderItem={({item})=>{
-    //                 return(
-    //                     <base.View style={{margin: 40, alignItems:'center'}}>
-    //                         <base.Image source={item.image} style={{width: 145, height: 200}} />
-    //                         <base.Text style={{marginTop: 10}}>{item.title}</base.Text>
-    //                         <base.Text style={{color: "#FF8A48", marginTop: 10}}>{item.title}</base.Text>
 
-    //                     </base.View>
-    //                 )
-    //             }}
-    //         />
-    //     </base.ScrollView>
-    // </base.View>
+    <base.View style={styles.container}>
+        <base.ScrollView>
+            <base.FlatList
+                data={fakedata}
+                numColumns={2}
+                horizontal={false}
+                renderItem={({item})=>{
+                    return(
+                        <base.View style={{margin: 40, alignItems:'center'}}>
+                            <base.Image source={item.image} style={{width: 145, height: 200}} />
+                            <base.Text style={{marginTop: 10}}>{item.title}</base.Text>
+                            <base.Text style={{color: "#FF8A48", marginTop: 10}}>{item.title}</base.Text>
+
+                        </base.View>
+                    )
+                }}
+            />
+        </base.ScrollView>
+    </base.View>
   );
 }
 

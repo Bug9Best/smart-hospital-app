@@ -1,5 +1,7 @@
 import base from "../modules/base_module";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import Layer from "../Layout/lgradient";
+
 
 
 export default function Notification({ navigation }) {

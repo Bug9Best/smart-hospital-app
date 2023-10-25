@@ -1,7 +1,10 @@
 import base from "../modules/base_module";
+import Layer from "../Layout/lgradient";
+
 
 export default function Aboutus({ navigation }) {
   return (
+    
     <base.View style={styles.container}>
       <base.ScrollView>
 
