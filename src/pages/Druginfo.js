@@ -78,7 +78,7 @@ export default function Druginfo({ navigation }) {
               style={{
                 paddingHorizontal: 100,
                 paddingVertical: 5,
-                marginTop: "50%",
+                marginTop: "45%",
                 backgroundColor: "#FF8A48",
                 borderRadius: 10,
               }}
