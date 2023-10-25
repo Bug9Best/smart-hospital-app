@@ -72,7 +72,7 @@ const Home = ({ navigation }) => {
 
   return (
     <base.SafeAreaView style={styles.box}>
-       
+      <base.ScrollView>
        <View style={styles.DisplayProfile}>
   <Image
     source={require('../assets/image/Cat.jpeg')}
@@ -189,7 +189,7 @@ const Home = ({ navigation }) => {
         <Ionicons name="add-circle-sharp" size={70} color="#FF8A48" />
       </View>
 
-
+      </base.ScrollView>
     </base.SafeAreaView>
 
 
