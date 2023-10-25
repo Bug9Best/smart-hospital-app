@@ -63,7 +63,7 @@ export default function Signupjing({ navigation }) {
             style={{
               paddingHorizontal: 125,
               paddingVertical: 15,
-              marginTop: 40,
+              marginTop: 30,
               backgroundColor: "#FF8A48",
               borderRadius: 10,
             }}
@@ -102,7 +102,8 @@ const styles = base.StyleSheet.create({
     borderWidth: 0.2,
     borderRadius: 10,
     width: "100%",
+    height: 100,
     marginTop: 10,
-    padding: 3,
+    padding: 16,
   },
 });

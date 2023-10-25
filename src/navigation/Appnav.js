@@ -18,9 +18,11 @@ const Appnav = () => {
         
       <Stack.Screen
         name="Home"
+
         component={Home}
         options={{
-          headerShown: false,
+          title: "หน้าแรก",
+          tabBarLabel: "Home",
           tabBarIcon: ({color, size}) => {
             return <Ionicons name="home" size={32} color="#FF8A48" />
           }
