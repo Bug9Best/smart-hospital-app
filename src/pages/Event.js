@@ -1,58 +1,76 @@
-import React from "react";
-import { StyleSheet, View, Text, Image, SafeAreaView, ScrollView } from "react-native";
-import { LinearGradient } from 'expo-linear-gradient';
-import Layer from "../Layout/lgradient";
-
-
-
+import React, { useState, Component, useEffect } from "react";
+import base from "../modules/base_module";
+import { StyleSheet, SafeAreaView } from "react-native";
+import BaseURL from "../services/base/base_service";
+import axios from "axios";
 
 const Event1 = () => {
+  const [firstRender, setFirstRender] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [event, setEvent] = useState();
+
+  var eventService = new BaseURL("event");
+
+  const getDrug = async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get(eventService.BaseURL);
+      if (response.status === 200) {
+        setEvent(response.data);
+        setIsLoading(false);
+      } else {
+        throw new Error("An error has occurred");
+      }
+    } catch (error) {
+      alert("An error has occurred");
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (!firstRender) {
+      getDrug();
+      setFirstRender(true);
+    }
+  }, [event, firstRender]);
 
   return (
     <SafeAreaView style={styles.container}>
-          
-      <ScrollView contentContainerStyle={styles.scrollViewContent}>
-        {renderEventCard(
-          "คลีนิก สจล. เตรียมให้บริการแบบ Drive thru",
-          "15 Sep 2023",
-          require("../assets/image/drivethru.jpg")
-        )}
-        {renderEventCard(
-          "รับบริจาคเพื่อผู้ป่วย ฝีดาดลิง",
-          "15 Sep 2023",
-          require("../assets/image/donation.webp")
-        )}
-        {renderEventCard(
-          "สจล. เปิดบ้านรับบริจาคเลือดเพื่อการกุศล",
-          "16 Sep 2023",
-          require("../assets/image/Blood1.jpg")
-        )}
-      </ScrollView>
+      <base.ScrollView contentContainerStyle={styles.scrollViewContent}>
+        <base.FlatList
+          data={event}
+          renderItem={({ item }) => {
+            return (
+              renderEventCard(
+                item.title,
+                item.date,
+                item.img,
+              )
+            );
+          }}
+        />
+      </base.ScrollView>
     </SafeAreaView>
-
   );
 }
 
 const renderEventCard = (title, date, imageSource) => (
-
-  <View style={styles.eventCard}>
-    <LinearGradient colors={["#FF8A48", "#FF8A48", "#FF8A48", "#FF8A48", "#EDCDBB"]} style={styles.linearGradient}>
-      <View style={styles.centerImage}>
-        <Image source={imageSource} style={styles.eventImage} />
-      </View>
-      <Text style={styles.eventTitle}>{title}</Text>
-      <Text style={styles.eventDate}>{date}</Text>
-    </LinearGradient>
-  </View>
+  <base.View style={styles.eventCard}>
+    <base.View style={styles.centerImage}>
+      <base.Image source={{ uri: imageSource }} style={styles.eventImage} />
+    </base.View>
+    <base.Text style={styles.eventTitle}>{title}</base.Text>
+    <base.Text style={styles.eventDate}>{date}</base.Text>
+  </base.View>
 );
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f4f4f4",
+    backgroundColor: "#E0E0E0",
   },
   scrollViewContent: {
-    paddingBottom: 20, // Adjust this value as needed
+    paddingBottom: 20,
   },
   title: {
     color: "#FF8A48",
@@ -62,35 +80,33 @@ const styles = StyleSheet.create({
     marginTop: -1,
   },
   eventCard: {
-    flex: 1,
     margin: 10,
     borderRadius: 10,
     overflow: "hidden",
-    paddingTop: 5,
-    padding: 16
+    backgroundColor: "white",
   },
 
-  linearGradient: {
-    flex: 1,
-    borderRadius: 10,
-  },
   centerImage: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
+
   eventImage: {
     height: 170,
     width: 480,
     resizeMode: "cover",
   },
+
   eventTitle: {
     padding: 16,
-    fontSize: 16,
+    fontSize: 18,
+    fontWeight: "bold",
   },
   eventDate: {
-    padding: 16,
-    fontSize: 12,
+    paddingHorizontal: 16,
+    paddingBottom: 16,
+    fontSize: 14,
     color: "#3F3D3C",
   },
 });
