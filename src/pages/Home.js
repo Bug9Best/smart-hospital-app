@@ -13,26 +13,39 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import Layer from "../Layout/lgradient";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from "axios";
+import { get } from "react-native/Libraries/TurboModule/TurboModuleRegistry";
 
 
 const Home = ({ navigation }) => {
   const [user, setUser] = useState(null);
-  const [firstRender, setFirstRender] = useState(false);
+  const [listqueue, setListQueue] = useState(null);
+  const [queue, setQueue] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
   const [modalQueue, setModalQueueVisible] = useState(false);
   const [modalAppoint, setAppoint] = useState(false);
 
   var usersAPI = new BaseURL("users");
+  var queueAPI = new BaseURL("queue");
   var path = "";
 
   const getUser = async () => {
     try {
       const response = await axios.get(path);
       setUser(response.data);
+      setQueue(response.data.PatientRecord.Qeue);
     } catch (error) {
       console.error(error);
     }
   }
+
+  const getQueue = async () => {
+    try {
+      const response = await axios.get(queueAPI.BaseURL);
+      setListQueue(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const getData = async () => {
     try {
@@ -44,7 +57,19 @@ const Home = ({ navigation }) => {
   };
 
   const addQueue = async () => {
-    console.log("addQueue");
+    let data = {
+      userId: user.userId,
+      status: "WAITING",
+      date: new Date(),
+    }
+    try {
+      const response = await axios.post(queueAPI.BaseURL, data);
+      alert("จองคิวสำเร็จ");
+      getUser();
+    } catch (error) {
+      console.error(error);
+      alert("ไม่สามารถจองคิวได้");
+    }
   };
 
   const addAppoint = async () => {
@@ -52,11 +77,9 @@ const Home = ({ navigation }) => {
   };
 
   useEffect(() => {
-    if (!firstRender) {
-      getData();
-      setFirstRender(true);
-    }
-  }, [firstRender]);
+    getData();
+    getQueue();
+  }, []);
 
   return (
 
@@ -158,6 +181,16 @@ const Home = ({ navigation }) => {
         <base.View style={styles.centeredView}>
           <base.View style={styles.modalView}>
             <base.Text style={styles.modalText}>จองคิวออนไลน์</base.Text>
+            <base.Text
+              style={{
+                fontSize: 15,
+                padding: 16,
+                color: "black",
+                fontWeight: "bold",
+                textAlign: "center",
+              }}>
+              {listqueue ? `มีคิวก่อนหน้าคุณ ${listqueue.length} คิว` : "ยังไม่มีคิวก่อนหน้า คุณเป็นคิวแรก"}
+            </base.Text>
             <base.TouchableOpacity
               style={{
                 paddingHorizontal: 110,
@@ -430,7 +463,7 @@ const Home = ({ navigation }) => {
         </Text>
 
         <View style={styles.smallRectangle}>
-          <Text></Text>
+          <Text style={styles.textCard}>{queue ? `คิวของคุณคือคิวลำดับที่ ${queue[listqueue.length -1].id}` : "คุณยังไม่มีคิว"}</Text>
         </View>
 
         <View
@@ -585,6 +618,12 @@ const styles = StyleSheet.create({
     marginTop: "5%",
     padding: 16,
   },
+  textCard: {
+    textAlign: "center",
+    marginTop: 35,
+    fontSize: 20,
+    fontWeight: "bold",
+  }
 });
 
 export default Home;

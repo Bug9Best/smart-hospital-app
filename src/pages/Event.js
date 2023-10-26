@@ -28,11 +28,8 @@ const Event1 = () => {
   };
 
   useEffect(() => {
-    if (!firstRender) {
-      getDrug();
-      setFirstRender(true);
-    }
-  }, [event, firstRender]);
+    getDrug();
+  }, [event]);
 
   return (
     <SafeAreaView style={styles.container}>
