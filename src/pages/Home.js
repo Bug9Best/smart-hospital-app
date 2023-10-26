@@ -60,7 +60,7 @@
 //     padding: 10,
 //   },
 // });
-import React from "react";
+import React, { useEffect } from "react";
 import base from "../modules/base_module";
 import { useState } from "react";
 import {
@@ -76,10 +76,15 @@ import Layer from "../Layout/lgradient";
 
 const Home = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [modalQueue, setModalQueueVisible] = useState(false);
+  const [modalAppoint, setAppoint] = useState(false);
+
+
 
   return (
     
     <base.SafeAreaView style={styles.box}>
+
       <base.Modal
         animationType="slide"
         transparent={true}
@@ -90,22 +95,18 @@ const Home = ({ navigation }) => {
         }}>
         <base.View style={styles.centeredView}>
           <base.View style={styles.modalView}>
-            <base.Text style={styles.modalText}>Hello World!</base.Text>
-            <base.TouchableOpacity
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}>
-              <base.Text style={styles.textStyle}>Hide Modal</base.Text>
-            </base.TouchableOpacity>
+            <base.Text style={styles.modalText}>เลือกดำเนินการ</base.Text>
             <base.TouchableOpacity
                 style={{
-                  paddingHorizontal: 100,
+                  paddingHorizontal: 96,
                   paddingVertical: 5,
-                  marginTop: "10%",
-                  backgroundColor: "#FF8A48",
+                  marginTop: "3%",
+                  backgroundColor: "#FF8080",
                   borderRadius: 10,
                 }}
                 onPress={() => {
-                  setModalVisible(!modalVisible);
+                  setModalQueueVisible(true);
+                  setModalVisible(false)
                 }}>
                 <base.Text
                   style={{
@@ -115,12 +116,201 @@ const Home = ({ navigation }) => {
                     fontWeight: "bold",
                     textAlign: "center",
                   }}>
+                  จองคิวออนไลน์
+                </base.Text>
+              </base.TouchableOpacity>
+            <base.TouchableOpacity
+                style={{
+                  paddingHorizontal: 91,
+                  paddingVertical: 5,
+                  marginTop: "5%",
+                  backgroundColor: "#FF8A48",
+                  borderRadius: 10,
+                }}
+                onPress={() => {
+                  setAppoint(true);
+                  setModalVisible(false)
+                }}>
+                <base.Text
+                  style={{
+                    fontSize: 12,
+                    padding: 16,
+                    color: "white",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                  }}>
+                  นัดหมายออนไลน์
+                </base.Text>
+              </base.TouchableOpacity>
+            <base.TouchableOpacity
+                style={{
+                  paddingHorizontal: 100,
+                  paddingVertical: 5,
+                  marginTop: "5%",
+                  borderRadius: 10,
+                  borderWidth: 0.2,
+                  marginTop: 30,
+                }}
+                onPress={() => {
+                  setModalVisible(!modalVisible);
+
+                }}>
+                <base.Text
+                  style={{
+                    fontSize: 12,
+                    padding: 16,
+                    color: "#FF8A48",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                  }}>
                   ปิดหน้าต่างนี้
                 </base.Text>
               </base.TouchableOpacity>
           </base.View>
         </base.View>
       </base.Modal>
+      
+      <base.Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalQueue}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+          setModalVisible(!modalQueue);
+        }}>
+        <base.View style={styles.centeredView}>
+          <base.View style={styles.modalView}>
+            <base.Text style={styles.modalText}>จองคิวออนไลน์</base.Text>
+            <base.TextInput
+                  style={styles.Realinput}
+                  placeholder="หมายเลขบัตรประชาชน"
+                />
+            <base.TextInput
+                  style={styles.Realinput}
+                  placeholder="หมายเลขบัตรประชาชน"
+                />
+                <base.TouchableOpacity
+                style={{
+                  paddingHorizontal: 110,
+                  paddingVertical: 2,
+                  marginTop: "5%",
+                  backgroundColor: "#FF8A48",
+                  borderRadius: 10,
+                }}
+                onPress={() => {
+                  setModalQueueVisible(!modalQueue);
+                  setModalVisible(true)
+
+                }}>
+                <base.Text
+                  style={{
+                    fontSize: 12,
+                    padding: 16,
+                    color: "white",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                  }}>
+                  ดำเนินการต่อ
+                </base.Text>
+              </base.TouchableOpacity>
+            <base.TouchableOpacity
+                style={{
+                  paddingHorizontal: 110,
+                  paddingVertical: 5,
+                  marginTop: "5%",
+                  borderRadius: 10,
+                  borderWidth: 0.2
+                }}
+                onPress={() => {
+                  setModalQueueVisible(!modalQueue);
+                  setModalVisible(true)
+
+                }}>
+                <base.Text
+                  style={{
+                    fontSize: 12,
+                    padding: 16,
+                    color: "#FF8A48",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                  }}>
+                  ปิดหน้าต่างนี้
+                </base.Text>
+              </base.TouchableOpacity>
+          </base.View>
+        </base.View>
+      </base.Modal>
+      <base.Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalAppoint}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+          setModalVisible(!modalAppoint);
+        }}>
+        <base.View style={styles.centeredView}>
+          <base.View style={styles.modalView}>
+            <base.Text style={styles.modalText}>นัดหมายออนไลน์</base.Text>
+            <base.TextInput
+                  style={styles.Realinput}
+                  placeholder="หมายเลขบัตรประชาชน"
+                />
+            <base.TextInput
+                  style={styles.Realinput}
+                  placeholder="หมายเลขบัตรประชาชน"
+                />
+                <base.TouchableOpacity
+                style={{
+                  paddingHorizontal: 110,
+                  paddingVertical: 5,
+                  marginTop: "5%",
+                  backgroundColor: "#FF8A48",
+                  borderRadius: 10,
+                }}
+                onPress={() => {
+                  setAppoint(!modalAppoint);
+                  setModalVisible(true)
+                }}>
+                <base.Text
+                  style={{
+                    fontSize: 12,
+                    padding: 16,
+                    color: "white",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                  }}>
+                  ดำเนินการต่อ
+                </base.Text>
+              </base.TouchableOpacity>
+            <base.TouchableOpacity
+                style={{
+                  paddingHorizontal: 110,
+                  paddingVertical: 5,
+                  marginTop: "5%",
+                  borderRadius: 10,
+                  borderWidth: 0.2
+                }}
+                onPress={() => {
+                  setAppoint(!modalAppoint);
+                  setModalVisible(true)
+                }}>
+                <base.Text
+                  style={{
+                    fontSize: 12,
+                    padding: 16,
+                    color: "#ED7D31",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                  }}>
+                  ปิดหน้าต่างนี้
+                </base.Text>
+              </base.TouchableOpacity>
+              
+          </base.View>
+        </base.View>
+      </base.Modal>
+      
+
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <View style={styles.DisplayProfile}>
           <Image
@@ -407,13 +597,24 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   modalText: {
+    marginTop: 20,
     marginBottom: 15,
     textAlign: "center",
+    fontSize: 18,
+    fontWeight: "bold",
   },
   centeredView: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  Realinput: {
+    borderRadius: 10,
+    height: 50,
+    borderWidth: 0.2,
+    width: "90%",
+    marginTop: "5%",
+    padding: 16,
   },
 });
 
