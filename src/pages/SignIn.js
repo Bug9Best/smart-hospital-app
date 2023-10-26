@@ -2,12 +2,37 @@ import { useState, useEffect } from "react";
 import { Dimensions, TouchableOpacity } from "react-native";
 import Layer from "../Layout/lgradient";
 import base from "../modules/base_module";
+import BaseURL from "../services/base/base_service";
+import axios from "axios";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
 export default function Signin({ navigation }) {
   const [tab, setTab] = useState(true);
+  const [citizenId, setCitizenId] = useState();
+  const [password, setPassword] = useState();
+
+  var authAPI = new BaseURL("auth/login/user");
+
+  const signin = async () => {
+    let data = {
+      citizenId: citizenId,
+      password: password,
+    };
+
+    try {
+      const response = await axios.post(authAPI.BaseURL, data)
+      if (response.data) {
+        const jsonValue = JSON.stringify(response.data);
+        await AsyncStorage.setItem('user', jsonValue);
+        navigation.navigate("Appnav", { text: "text" });
+      }
+    } catch (error) {
+      alert("รหัสผ่านไม่ถูกต้อง");
+    }
+  }
 
   return (
     <Layer>
@@ -24,19 +49,16 @@ export default function Signin({ navigation }) {
               <TouchableOpacity
                 onPress={() => {
                   setTab(true);
-                }}
-              >
+                }}>
                 <base.View
                   style={{
                     borderColor: tab ? "#FF8A48" : "black",
                     borderBottomWidth: tab ? 2 : 0,
                     paddingVertical: 10,
                     paddingHorizontal: 10,
-                  }}
-                >
+                  }}>
                   <base.Text
-                    style={{ color: tab ? "#FF8A48" : "black", fontSize: 21 }}
-                  >
+                    style={{ color: tab ? "#FF8A48" : "black", fontSize: 21 }}>
                     เข้าสู่ระบบ
                   </base.Text>
                 </base.View>
@@ -70,22 +92,18 @@ export default function Signin({ navigation }) {
                   alignItems: "center",
                   width: windowWidth,
                   marginTop: 20,
-                }}
-              >
+                }}>
                 <base.TextInput
                   style={styles.Realinput}
-                  placeholder="หมายเลขบัตรประชาชน"
-                />
+                  placeholder="หมายเลขบัตรประชาชน" onChangeText={setCitizenId} />
                 <base.TextInput
                   style={styles.Realinput}
                   secureTextEntry={true}
-                  placeholder="Password"
-                />
+                  placeholder="Password" onChangeText={setPassword} />
                 <base.TouchableOpacity
                   onPress={() => {
-                    navigation.navigate("Appnav", { text: "text" });
-                  }}
-                >
+                    signin();
+                  }}>
                   <base.View
                     style={{
                       paddingHorizontal: 165,
@@ -109,7 +127,7 @@ export default function Signin({ navigation }) {
                   marginTop: 20,
                 }}
               >
- 
+
                 <base.TouchableOpacity
                   onPress={() => {
                     navigation.navigate("Newsignup", { text: "text" });
@@ -124,7 +142,7 @@ export default function Signin({ navigation }) {
                       borderRadius: 10,
                     }}
                   >
-                    <base.Text style={{ color: "white"}}>
+                    <base.Text style={{ color: "white" }}>
                       ลงทะเบียนเข้าใช้งาน
                     </base.Text>
                   </base.View>

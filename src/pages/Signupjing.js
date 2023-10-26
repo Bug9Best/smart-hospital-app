@@ -2,18 +2,23 @@ import React, { useState, Component, useEffect } from "react";
 import base from "../modules/base_module";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import Layer from "../Layout/lgradient";
+import BaseURL from "../services/base/base_service";
+import axios from "axios";
 
 
 export default function Signupjing({ navigation }) {
-  const [open, setOpen] = useState(false)
   const [citizenId, setCitizenId] = useState();
+  const [password, setPassword] = useState();
   const [prefix, setPrefix] = useState();
   const [firstName, setFirstName] = useState();
-  const [middleName, setMiddleName] = useState();
   const [lastName, setLastName] = useState();
+  const [address, setAddress] = useState();
+
   const [date, setDate] = useState(new Date())
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
+
+  var authAPI = new BaseURL("auth/register/user");
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate;
@@ -21,21 +26,23 @@ export default function Signupjing({ navigation }) {
     setDate(currentDate);
   };
 
-  const showMode = (currentMode) => {
-    setShow(true);
-    setMode(currentMode);
-  };
-
-  const showDatepicker = () => {
-    showMode('date');
-  };
-
-  const showTimepicker = () => {
-    showMode('time');
-  };
-
-  sinin = () => {
-    console.log("sinin");
+  sinin = async () => {
+    let data = {
+      citizenId: citizenId,
+      password: password,
+      prefix: prefix,
+      firstName: firstName,
+      lastName: lastName,
+      birthDate: date,
+      address: address,
+    };
+    try {
+      const response = await axios.post(authAPI.BaseURL, data);
+      alert("สมัครสมาชิกสำเร็จ");
+      navigation.navigate("SignIn");
+    } catch (error) {
+      alert("สมัครสมาชิกไม่สำเร็จ");
+    }
   };
   return (
     <base.View style={styles.container}>
@@ -45,43 +52,36 @@ export default function Signupjing({ navigation }) {
             <base.Text>หมายเลขบัตรประชาชน</base.Text>
             <base.Text style={{ color: "red" }}>*</base.Text>
           </base.View>
-          <base.TextInput style={styles.Realinput} placeholder="13 หลัก" />
+          <base.TextInput style={styles.Realinput} placeholder="13 หลัก" onChangeText={setCitizenId} />
         </base.View>
         <base.View style={{ display: "flex", flexDirection: "column" }}>
           <base.View style={{ display: "flex", flexDirection: "row" }}>
             <base.Text style={{ marginTop: 10 }}>คำนำหน้า</base.Text>
             <base.Text style={{ marginTop: 10, color: "red" }}>*</base.Text>
           </base.View>
-          <base.TextInput style={styles.Realinput} placeholder="ex. นาย" />
+          <base.TextInput style={styles.Realinput} placeholder="ex. นาย" onChangeText={setPrefix} />
         </base.View>
         <base.View style={{ display: "flex", flexDirection: "column" }}>
           <base.View style={{ display: "flex", flexDirection: "row" }}>
             <base.Text style={{ marginTop: 10 }}>ชื่อจริง</base.Text>
             <base.Text style={{ marginTop: 10, color: "red" }}>*</base.Text>
           </base.View>
-          <base.TextInput style={styles.Realinput} placeholder="ex.แสนดี" />
-        </base.View>
-        <base.View style={{ display: "flex", flexDirection: "column" }}>
-          <base.View style={{ display: "flex", flexDirection: "row" }}>
-            <base.Text style={{ marginTop: 10 }}>ชื่อกลาง</base.Text>
-            <base.Text style={{ marginTop: 10, color: "red" }}>*</base.Text>
-          </base.View>
-          <base.TextInput style={styles.Realinput} placeholder="ex. ยอดมาก" />
+          <base.TextInput style={styles.Realinput} placeholder="ex.แสนดี" onChangeText={setFirstName} />
         </base.View>
         <base.View style={{ display: "flex", flexDirection: "column" }}>
           <base.View style={{ display: "flex", flexDirection: "row" }}>
             <base.Text style={{ marginTop: 10 }}>นามสกุล</base.Text>
             <base.Text style={{ marginTop: 10, color: "red" }}>*</base.Text>
           </base.View>
-          <base.TextInput style={styles.Realinput} placeholder="ยอดงาม" />
+          <base.TextInput style={styles.Realinput} placeholder="ยอดงาม" onChangeText={setLastName} />
         </base.View>
         <base.View style={{ display: "flex", flexDirection: "column" }}>
-
           <base.View style={{ display: "flex", flexDirection: "row" }}>
             <base.Text style={{ marginTop: 10 }}>วันเดือนปีเกิด</base.Text>
             <base.Text style={{ marginTop: 10, color: "red" }}>*</base.Text>
           </base.View>
           <DateTimePicker
+            style={{ alignSelf: "start", marginLeft: -10, marginTop: 10 }}
             testID="dateTimePicker"
             value={date}
             mode={mode}
@@ -92,10 +92,16 @@ export default function Signupjing({ navigation }) {
             <base.Text style={{ marginTop: 10 }}>ที่อยู่</base.Text>
             <base.Text style={{ marginTop: 10, color: "red" }}>*</base.Text>
           </base.View>
-          <base.TextInput style={styles.Addressinput} placeholder="รายละเอียดพอสังเขป" multiline={true} />
+          <base.TextInput style={styles.Addressinput} placeholder="รายละเอียดพอสังเขป" multiline={true} onChangeText={setAddress} />
         </base.View>
-
-
+        <base.View style={{ display: "flex", flexDirection: "column" }}>
+          <base.View style={{ display: "flex", flexDirection: "row" }}>
+            <base.Text style={{ marginTop: 10 }}>รหัสผ่าน</base.Text>
+            <base.Text style={{ marginTop: 10, color: "red" }}>*</base.Text>
+          </base.View>
+          <base.TextInput style={styles.Realinput} secureTextEntry={true}
+            placeholder="ยอดงาม" onChangeText={setPassword} />
+        </base.View>
       </base.View>
       <base.View>
         <base.TouchableOpacity onPress={() => sinin()}>
@@ -137,7 +143,7 @@ const styles = base.StyleSheet.create({
     marginTop: 10,
     padding: 16,
   },
-  Addressinput:  {
+  Addressinput: {
     borderWidth: 0.5,
     borderRadius: 10,
     width: "100%",
