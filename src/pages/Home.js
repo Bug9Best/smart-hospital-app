@@ -116,7 +116,7 @@ const Home = () => {
                   <Ionicons name="calendar" size={32} color="#FF8A48" />
                 </Text>
                 <Text style={{ alignSelf: "center", color: "#FF8A48" }}>
-                  ตารางเวรแพทย
+                  ตารางเวรแพทย์
                 </Text>
               </View>
             </TouchableOpacity>
