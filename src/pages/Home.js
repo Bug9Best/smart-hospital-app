@@ -194,7 +194,7 @@ const Home = ({ navigation }) => {
                 />
                 <base.TouchableOpacity
                 style={{
-                  paddingHorizontal: 110,
+                  paddingHorizontal: 128,
                   paddingVertical: 2,
                   marginTop: "5%",
                   backgroundColor: "#FF8A48",
@@ -216,7 +216,7 @@ const Home = ({ navigation }) => {
               </base.TouchableOpacity>
             <base.TouchableOpacity
                 style={{
-                  paddingHorizontal: 110,
+                  paddingHorizontal: 128,
                   paddingVertical: 5,
                   marginTop: "5%",
                   borderRadius: 10,
@@ -262,11 +262,14 @@ const Home = ({ navigation }) => {
                   style={styles.Realinput}
                   placeholder="กรอก"
                   placeholderTextColor={"#FF8A48"}
-
                 />
+                <base.View style={{ display: "flex", flexDirection: "row" }}>
+        </base.View>
+        <base.TextInput style={styles.Addressinput} placeholder="แก้ไขที่อยู่"                   placeholderTextColor={"#FF8A48"}
+  multiline= {true}/>
                 <base.TouchableOpacity
                 style={{
-                  paddingHorizontal: 110,
+                  paddingHorizontal: 128,
                   paddingVertical: 5,
                   marginTop: "5%",
                   backgroundColor: "#FF8A48",
@@ -288,7 +291,7 @@ const Home = ({ navigation }) => {
               </base.TouchableOpacity>
             <base.TouchableOpacity
                 style={{
-                  paddingHorizontal: 110,
+                  paddingHorizontal: 128,
                   paddingVertical: 5,
                   marginTop: "5%",
                   borderRadius: 10,
@@ -617,7 +620,15 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     height: 50,
     borderWidth: 0.5,
-    width: "90%",
+    width: "100%",
+    marginTop: "5%",
+    padding: 16,
+  },
+  Addressinput: {
+    borderWidth: 0.5,
+    borderRadius: 10,
+    width: "100%",
+    height: 100,
     marginTop: "5%",
     padding: 16,
   },

@@ -5,6 +5,7 @@ import Layer from "../Layout/lgradient";
 export default function Signupjing({ navigation }) {
   return (
     <base.View style={styles.container}>
+      <base.ScrollView>
       <base.View style={styles.box}>
         <base.View style={{ display: "flex", flexDirection: "column" }}>
           <base.View style={{ display: "flex", flexDirection: "row" }}>
@@ -57,13 +58,14 @@ export default function Signupjing({ navigation }) {
         
 
       </base.View>
+      </base.ScrollView>
       <base.View>
         <base.TouchableOpacity onPress={() => navigation.navigate("SignIn")}>
           <base.View
             style={{
               paddingHorizontal: 125,
               paddingVertical: 15,
-              marginTop: 30,
+              marginBottom: 20,
               backgroundColor: "#FF8A48",
               borderRadius: 10,
             }}
@@ -83,8 +85,8 @@ const styles = base.StyleSheet.create({
   },
   box: {
     backgroundColor: "white",
-    width: "95%",
-    marginTop: 15,
+    width: 400,
+    marginTop: 10,
     borderRadius: 10,
     padding: 16,
     marginLeft: 15,

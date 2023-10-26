@@ -1,66 +1,15 @@
 import base from "../modules/base_module";
 import Layer from "../Layout/lgradient";
 
-
 export default function AddressInfo({ navigation }) {
   return (
     <base.View style={styles.container}>
       <base.View style={styles.box}>
-        <base.View style={{ display: "flex", flexDirection: "column" }}>
-          <base.View style={{ display: "flex", flexDirection: "row" }}>
-            <base.Text>หมายเลขอาคาร, ชื่อถนน</base.Text>
-            <base.Text style={{ color: "red" }}>*</base.Text>
-          </base.View>
-          <base.TextInput style={styles.Realinput} placeholder="" />
+      <base.View style={{ display: "flex", flexDirection: "row" }}>
+          <base.Text style={{ marginTop: 10 }}>ที่อยู่</base.Text>
+          <base.Text style={{ marginTop: 10, color: "red" }}>*</base.Text>
         </base.View>
-        <base.View style={{ display: "flex", flexDirection: "column" }}>
-          <base.View style={{ display: "flex", flexDirection: "row" }}>
-            <base.Text style={{ marginTop: 10 }}>ชื่อถนน, ซอย, หมู่</base.Text>
-            <base.Text style={{ color: "red", marginTop: 10 }}>*</base.Text>
-          </base.View>
-          <base.TextInput style={styles.Realinput} placeholder="" />
-        </base.View>
-
-        <base.View style={{ display: "flex", flexDirection: "column" }}>
-          <base.View style={{ display: "flex", flexDirection: "row" }}>
-            <base.Text style={{ marginTop: 10 }}>หมายเลขบัตรประชาชน</base.Text>
-            <base.Text style={{ color: "red", marginTop: 10 }}>*</base.Text>
-          </base.View>
-          <base.TextInput style={styles.Realinput} placeholder="13 หลัก" />
-        </base.View>
-        <base.View style={{ display: "flex", flexDirection: "column" }}>
-          <base.View style={{ display: "flex", flexDirection: "row" }}>
-            <base.Text style={{ marginTop: 10 }}>
-              ข้อมูลที่อยู่เพิ่มเติม (ไม่บังคับ)
-            </base.Text>
-          </base.View>
-          <base.TextInput style={styles.Realinput} placeholder="" />
-        </base.View>
-
-        <base.View style={{ display: "flex", flexDirection: "column" }}>
-          <base.Text style={{ marginTop: 10 }}>จังหวัด</base.Text>
-          <base.TextInput style={styles.Realinput} placeholder="" />
-        </base.View>
-        <base.View style={{ display: "flex", flexDirection: "row" }}>
-          <base.View style={{ display: "flex", flexDirection: "column" }}>
-            <base.Text style={{ marginTop: 10 }}>เขต / อำเภอ</base.Text>
-            <base.TextInput style={styles.Rowinput} placeholder="" />
-          </base.View>
-          <base.View style={{ display: "flex", flexDirection: "column", marginLeft: 20}}>
-            <base.Text style={{ marginTop: 10 }}>แขวง / ตำบล</base.Text>
-            <base.TextInput style={styles.Rowinput} placeholder="" />
-          </base.View>
-        </base.View>
-        <base.View style={{ display: "flex", flexDirection: "row" }}>
-          <base.View style={{ display: "flex", flexDirection: "column" }}>
-            <base.Text style={{ marginTop: 10 }}>รหัสไปรษณีย์</base.Text>
-            <base.TextInput style={styles.Rowinput} placeholder="" />
-          </base.View>
-          <base.View style={{ display: "flex", flexDirection: "column", marginLeft: 20}}>
-            <base.Text style={{ marginTop: 10 }}>ประเทศ / ภูมิภาค</base.Text>
-            <base.TextInput style={styles.Rowinput} placeholder="" />
-          </base.View>
-        </base.View>
+        <base.TextInput style={styles.Addressinput} placeholder="แก้ไขที่อยู่"  multiline= {true}/>
       </base.View>
 
       <base.View>
@@ -73,7 +22,7 @@ export default function AddressInfo({ navigation }) {
             style={{
               paddingHorizontal: 125,
               paddingVertical: 15,
-              marginTop: 50,
+              marginTop: "165%",
               backgroundColor: "#FF8A48",
               borderRadius: 10,
             }}
@@ -94,7 +43,6 @@ const styles = base.StyleSheet.create({
   box: {
     backgroundColor: "white",
     width: "95%",
-    height: "80%",
     marginTop: 15,
     borderRadius: 10,
     padding: 16,
@@ -112,6 +60,14 @@ const styles = base.StyleSheet.create({
     borderRadius: 10,
     height: 50,
     width: 179,
+    marginTop: 10,
+    padding: 16,
+  },
+  Addressinput: {
+    borderWidth: 0.5,
+    borderRadius: 10,
+    width: "100%",
+    height: 100,
     marginTop: 10,
     padding: 16,
   },
