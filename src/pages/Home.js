@@ -502,14 +502,16 @@ const Home = ({ navigation }) => {
             marginBottom: 10,
             marginRight: 230,
             color: "#FF8A48",
-          }}
-        >
+          }}>
           รายการนัดหมาย
         </Text>
 
-        <View style={styles.smallRectangle}>
-          <Text style={styles.textCard}>{appointment ? `คุณมี ${appointment.length} การนัดหมาย` : "คุณยังการนัดหมาย"}</Text>
-        </View>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("History", { text: "text" })}>
+          <View style={styles.smallRectangle}>
+            <Text style={styles.textCard}>{appointment ? `คุณมี ${appointment.length} การนัดหมาย` : "คุณยังการนัดหมาย"}</Text>
+          </View>
+        </TouchableOpacity>
 
         <Text
           style={{
