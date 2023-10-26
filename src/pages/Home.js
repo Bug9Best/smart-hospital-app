@@ -13,6 +13,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import Layer from "../Layout/lgradient";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from "axios";
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 
 const Home = ({ navigation }) => {
@@ -23,9 +24,23 @@ const Home = ({ navigation }) => {
   const [modalQueue, setModalQueueVisible] = useState(false);
   const [modalAppoint, setAppoint] = useState(false);
 
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
+  const [date, setDate] = useState(new Date())
+  const [mode, setMode] = useState('date');
+  const [show, setShow] = useState(false);
+
   var usersAPI = new BaseURL("users");
+  var appointmentAPI = new BaseURL("appointment");
   var queueAPI = new BaseURL("queue");
   var path = "";
+
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate;
+    setShow(false);
+    setDate(currentDate);
+  };
 
   const getUser = async () => {
     try {
@@ -49,6 +64,7 @@ const Home = ({ navigation }) => {
   const getData = async () => {
     try {
       const jsonValue = await AsyncStorage.getItem('user');
+      setUser(JSON.parse(jsonValue));
       path = `${usersAPI.BaseURL}/${JSON.parse(jsonValue).userId}`;
       getUser();
     } catch (e) {
@@ -72,7 +88,22 @@ const Home = ({ navigation }) => {
   };
 
   const addAppoint = async () => {
-    console.log("addAppoint");
+    let data = {
+      title: title,
+      description: description,
+      date: date,
+      pateintId: user.userId,
+      doctorId: "d5af27af-2924-486a-a1de-9625ab24027a",
+    }
+    console.log(data);
+    console.log(appointmentAPI.BaseURL);
+    try {
+      const response = await axios.post(appointmentAPI.BaseURL, data);
+      alert("นัดหมายสำเร็จ");
+      getUser();
+    } catch (error) {
+      console.error(error.error);
+    }
   };
 
   useEffect(() => {
@@ -180,51 +211,16 @@ const Home = ({ navigation }) => {
         <base.View style={styles.centeredView}>
           <base.View style={styles.modalView}>
             <base.Text style={styles.modalText}>จองคิวออนไลน์</base.Text>
-            <base.View style={{ display: "flex", flexDirection: "column", marginTop: 10 }}>
-              <base.View style={{ display: "flex", flexDirection: "row", marginRight: 285 }}>
-                <base.Text style={{ marginTop: 5 }}>ชื่อกลาง</base.Text>
-                <base.Text style={{ marginTop: 5, color: "red" }}>*</base.Text>
-              </base.View>
-            </base.View>
-            <base.TextInput
-              style={styles.Realinput}
-              placeholder="กรอก"
-              placeholderTextColor={"#FF8A48"}
-            />
-            <base.View style={{ display: "flex", flexDirection: "column", marginTop: 10 }}>
-              <base.View style={{ display: "flex", flexDirection: "row", marginRight: 285 }}>
-                <base.Text style={{ marginTop: 5 }}>ชื่อกลาง</base.Text>
-                <base.Text style={{ marginTop: 5, color: "red" }}>*</base.Text>
-              </base.View>
-            </base.View>
-            <base.TextInput
-              style={styles.Realinput}
-              placeholder="กรอก"
-              placeholderTextColor={"#FF8A48"}
-
-            />
-            <base.TouchableOpacity
+            <base.Text
               style={{
-                paddingHorizontal: 128,
-                paddingVertical: 2,
-                marginTop: "5%",
-                backgroundColor: "#FF8A48",
-                borderRadius: 10,
-              }}
-              onPress={() => {
-                setModalQueueVisible(!modalQueue);
+                fontSize: 15,
+                padding: 16,
+                color: "black",
+                fontWeight: "bold",
+                textAlign: "center",
               }}>
-              <base.Text
-                style={{
-                  fontSize: 12,
-                  padding: 16,
-                  color: "white",
-                  fontWeight: "bold",
-                  textAlign: "center",
-                }}>
-                ดำเนินการต่อ
-              </base.Text>
-            </base.TouchableOpacity>
+              {listqueue ? `มีคิวก่อนหน้าคุณ ${listqueue.length} คิว` : "ยังไม่มีคิวก่อนหน้า คุณเป็นคิวแรก"}
+            </base.Text>
             <base.TouchableOpacity
               style={{
                 paddingHorizontal: 110,
@@ -288,37 +284,42 @@ const Home = ({ navigation }) => {
             <base.Text style={styles.modalText}>นัดหมายออนไลน์</base.Text>
             <base.View style={{ display: "flex", flexDirection: "column" }}>
               <base.View style={{ display: "flex", flexDirection: "row", marginRight: 285 }}>
-                <base.Text style={{ marginTop: 5 }}>ชื่อกลาง</base.Text>
+                <base.Text style={{ marginTop: 5 }}>หัวข้อ</base.Text>
                 <base.Text style={{ marginTop: 5, color: "red" }}>*</base.Text>
               </base.View>
             </base.View>
             <base.TextInput
               style={styles.Realinput}
               placeholder="กรอก"
-              placeholderTextColor={"#FF8A48"}
-
+              onChangeText={setTitle}
             />
             <base.View style={{ display: "flex", flexDirection: "column", marginTop: 10 }}>
               <base.View style={{ display: "flex", flexDirection: "row", marginRight: 285 }}>
-                <base.Text style={{ marginTop: 5 }}>ชื่อกลาง</base.Text>
+                <base.Text style={{ marginTop: 5 }}>หมายเหตุ</base.Text>
                 <base.Text style={{ marginTop: 5, color: "red" }}>*</base.Text>
               </base.View>
             </base.View>
             <base.TextInput
               style={styles.Realinput}
               placeholder="กรอกข้อความ"
-              placeholderTextColor={"#FF8A48"}
+              onChangeText={setDescription}
             />
             <base.View style={{ display: "flex", flexDirection: "row" }}>
             </base.View>
             <base.View style={{ display: "flex", flexDirection: "column", marginTop: 10 }}>
               <base.View style={{ display: "flex", flexDirection: "row", marginRight: 285 }}>
-                <base.Text style={{ marginTop: 5 }}>ชื่อกลาง</base.Text>
+                <base.Text style={{ marginTop: 5 }}>วันที่</base.Text>
                 <base.Text style={{ marginTop: 5, color: "red" }}>*</base.Text>
               </base.View>
             </base.View>
-            <base.TextInput style={styles.Addressinput} placeholder="แก้ไขที่อยู่" placeholderTextColor={"#FF8A48"}
-              multiline={true} />
+            <DateTimePicker
+              style={{ alignSelf: "start", marginLeft: -10, marginTop: 10 }}
+              testID="dateTimePicker"
+              value={date}
+              mode={mode}
+              is24Hour={true}
+              onChange={onChange}
+            />
             <base.TouchableOpacity
               style={{
                 paddingHorizontal: 128,
@@ -329,6 +330,7 @@ const Home = ({ navigation }) => {
               }}
               onPress={() => {
                 setAppoint(!modalAppoint);
+                addAppoint();
               }}>
               <base.Text
                 style={{
@@ -381,7 +383,7 @@ const Home = ({ navigation }) => {
             ยินดีต้อนรับ
           </Text>
           <Text style={{ marginTop: 20, marginLeft: -70, fontWeight: "light" }}>
-            {`${user?.PatientRecord.firstName} ${user?.PatientRecord.lastName}`}
+            {`${user?.PatientRecord?.firstName} ${user?.PatientRecord?.lastName}`}
           </Text>
           <Text
             style={{
@@ -515,8 +517,9 @@ const Home = ({ navigation }) => {
           คิวของคุณ
         </Text>
 
+
         <View style={styles.smallRectangle}>
-          <Text style={styles.textCard}>{queue ? `คิวของคุณคือคิวลำดับที่ ${queue[listqueue.length - 1].id}` : "คุณยังไม่มีคิว"}</Text>
+          <Text style={styles.textCard}>{queue ? `คิวของคุณคือคิวลำดับที่ ${queue[listqueue.length - 1]?.id}` : "คุณยังไม่มีคิว"}</Text>
         </View>
 
         <View

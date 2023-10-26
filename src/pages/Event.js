@@ -14,7 +14,6 @@ const Event1 = () => {
   var eventService = new BaseURL("event");
 
   const getDrug = async () => {
-    setIsLoading(true);
     try {
       const response = await axios.get(eventService.BaseURL);
       setEvent(response.data);
@@ -31,18 +30,13 @@ const Event1 = () => {
     <Layer>
       <SafeAreaView style={styles.container}>
         <base.ScrollView contentContainerStyle={styles.scrollViewContent}>
-          <base.FlatList
-            data={event}
-            renderItem={({ item }) => {
-              return (
-                renderEventCard(
-                  item.title,
-                  item.date,
-                  item.img,
-                )
-              );
-            }}
-          />
+          {event?.map((item) => {
+            return renderEventCard(
+              item.title,
+              item.date,
+              item.img,
+            )
+          })}
         </base.ScrollView>
       </SafeAreaView>
     </Layer>
