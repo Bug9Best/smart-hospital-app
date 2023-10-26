@@ -78,7 +78,7 @@ export default function Signin({ navigation }) {
                 />
                 <base.TextInput
                   style={styles.Realinput}
-                  secureTextEntry= "true"
+                  secureTextEntry={true}
                   placeholder="Password"
                 />
                 <base.TouchableOpacity

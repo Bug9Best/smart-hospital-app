@@ -29,6 +29,9 @@ import {
     ActivityIndicator,
     KeyboardAvoidingView,
     Linking,
+    DatePickerIOSComponent,
+    DatePickerIOSBase,
+    DatePickerIOSProps,
 
     Geolocation,
     Vibration,
@@ -69,6 +72,10 @@ const BaseComponent = {
     RefreshControl,
     ActivityIndicator,
     KeyboardAvoidingView,
+
+    DatePickerIOSComponent,
+    DatePickerIOSBase,
+    DatePickerIOSProps,
   
     // Advanced API
     Geolocation,

@@ -1,8 +1,42 @@
+import React, { useState, Component, useEffect } from "react";
 import base from "../modules/base_module";
+import DateTimePicker from '@react-native-community/datetimepicker';
 import Layer from "../Layout/lgradient";
 
 
 export default function Signupjing({ navigation }) {
+  const [open, setOpen] = useState(false)
+  const [citizenId, setCitizenId] = useState();
+  const [prefix, setPrefix] = useState();
+  const [firstName, setFirstName] = useState();
+  const [middleName, setMiddleName] = useState();
+  const [lastName, setLastName] = useState();
+  const [date, setDate] = useState(new Date())
+  const [mode, setMode] = useState('date');
+  const [show, setShow] = useState(false);
+
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate;
+    setShow(false);
+    setDate(currentDate);
+  };
+
+  const showMode = (currentMode) => {
+    setShow(true);
+    setMode(currentMode);
+  };
+
+  const showDatepicker = () => {
+    showMode('date');
+  };
+
+  const showTimepicker = () => {
+    showMode('time');
+  };
+
+  sinin = () => {
+    console.log("sinin");
+  };
   return (
     <base.View style={styles.container}>
       <base.View style={styles.box}>
@@ -43,22 +77,28 @@ export default function Signupjing({ navigation }) {
         </base.View>
         <base.View style={{ display: "flex", flexDirection: "column" }}>
 
-        <base.View style={{ display: "flex", flexDirection: "row" }}>
-          <base.Text style={{ marginTop: 10 }}>วันเดือนปีเกิด</base.Text>
-          <base.Text style={{ marginTop: 10, color: "red" }}>*</base.Text>
+          <base.View style={{ display: "flex", flexDirection: "row" }}>
+            <base.Text style={{ marginTop: 10 }}>วันเดือนปีเกิด</base.Text>
+            <base.Text style={{ marginTop: 10, color: "red" }}>*</base.Text>
+          </base.View>
+          <DateTimePicker
+            testID="dateTimePicker"
+            value={date}
+            mode={mode}
+            is24Hour={true}
+            onChange={onChange}
+          />
+          <base.View style={{ display: "flex", flexDirection: "row" }}>
+            <base.Text style={{ marginTop: 10 }}>ที่อยู่</base.Text>
+            <base.Text style={{ marginTop: 10, color: "red" }}>*</base.Text>
+          </base.View>
+          <base.TextInput style={styles.Addressinput} placeholder="รายละเอียดพอสังเขป" multiline={true} />
         </base.View>
-        <base.TextInput style={styles.Realinput} placeholder="16 /09 /02"/>
-        <base.View style={{ display: "flex", flexDirection: "row" }}>
-          <base.Text style={{ marginTop: 10 }}>ที่อยู่</base.Text>
-          <base.Text style={{ marginTop: 10, color: "red" }}>*</base.Text>
-        </base.View>
-        <base.TextInput style={styles.Addressinput} placeholder="รายละเอียดพอสังเขป"  multiline= {true}/>
-        </base.View>
-        
+
 
       </base.View>
       <base.View>
-        <base.TouchableOpacity onPress={() => navigation.navigate("SignIn")}>
+        <base.TouchableOpacity onPress={() => sinin()}>
           <base.View
             style={{
               paddingHorizontal: 125,
@@ -66,8 +106,7 @@ export default function Signupjing({ navigation }) {
               marginTop: 30,
               backgroundColor: "#FF8A48",
               borderRadius: 10,
-            }}
-          >
+            }}>
             <base.Text style={{ color: "white" }}>ดำเนินการต่อ</base.Text>
           </base.View>
         </base.TouchableOpacity>
@@ -98,7 +137,7 @@ const styles = base.StyleSheet.create({
     marginTop: 10,
     padding: 16,
   },
-  Addressinput:  {
+  Addressinput: {
     borderWidth: 0.2,
     borderRadius: 10,
     width: "100%",
