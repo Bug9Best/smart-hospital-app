@@ -148,7 +148,7 @@ const Home = ({ navigation }) => {
                   paddingVertical: 5,
                   marginTop: "5%",
                   borderRadius: 10,
-                  borderWidth: 0.2,
+                  borderWidth: 0.5,
                   marginTop: 30,
                 }}
                 onPress={() => {
@@ -183,11 +183,14 @@ const Home = ({ navigation }) => {
             <base.Text style={styles.modalText}>จองคิวออนไลน์</base.Text>
             <base.TextInput
                   style={styles.Realinput}
-                  placeholder="หมายเลขบัตรประชาชน"
+                  placeholder="กรอก"
+                  placeholderTextColor={"#FF8A48"}
                 />
             <base.TextInput
                   style={styles.Realinput}
-                  placeholder="หมายเลขบัตรประชาชน"
+                  placeholder="กรอก"
+                  placeholderTextColor={"#FF8A48"}
+
                 />
                 <base.TouchableOpacity
                 style={{
@@ -199,8 +202,6 @@ const Home = ({ navigation }) => {
                 }}
                 onPress={() => {
                   setModalQueueVisible(!modalQueue);
-                  setModalVisible(true)
-
                 }}>
                 <base.Text
                   style={{
@@ -219,7 +220,7 @@ const Home = ({ navigation }) => {
                   paddingVertical: 5,
                   marginTop: "5%",
                   borderRadius: 10,
-                  borderWidth: 0.2
+                  borderWidth: 0.5
                 }}
                 onPress={() => {
                   setModalQueueVisible(!modalQueue);
@@ -253,11 +254,15 @@ const Home = ({ navigation }) => {
             <base.Text style={styles.modalText}>นัดหมายออนไลน์</base.Text>
             <base.TextInput
                   style={styles.Realinput}
-                  placeholder="หมายเลขบัตรประชาชน"
+                  placeholder="กรอก"
+                  placeholderTextColor={"#FF8A48"}
+
                 />
             <base.TextInput
                   style={styles.Realinput}
-                  placeholder="หมายเลขบัตรประชาชน"
+                  placeholder="กรอก"
+                  placeholderTextColor={"#FF8A48"}
+
                 />
                 <base.TouchableOpacity
                 style={{
@@ -269,7 +274,6 @@ const Home = ({ navigation }) => {
                 }}
                 onPress={() => {
                   setAppoint(!modalAppoint);
-                  setModalVisible(true)
                 }}>
                 <base.Text
                   style={{
@@ -288,7 +292,7 @@ const Home = ({ navigation }) => {
                   paddingVertical: 5,
                   marginTop: "5%",
                   borderRadius: 10,
-                  borderWidth: 0.2
+                  borderWidth: 0.5
                 }}
                 onPress={() => {
                   setAppoint(!modalAppoint);
@@ -580,6 +584,7 @@ const styles = StyleSheet.create({
     width: 400,
   },
   modalView: {
+    color: "#ED7D31",
     margin: 20,
     marginTop: "20%",
     backgroundColor: "white",
@@ -611,7 +616,7 @@ const styles = StyleSheet.create({
   Realinput: {
     borderRadius: 10,
     height: 50,
-    borderWidth: 0.2,
+    borderWidth: 0.5,
     width: "90%",
     marginTop: "5%",
     padding: 16,

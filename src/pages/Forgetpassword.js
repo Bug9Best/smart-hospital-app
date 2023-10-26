@@ -57,7 +57,7 @@ const styles = base.StyleSheet.create({
     
   },
   Realinput: {
-    borderWidth: 0.2,
+    borderWidth: 0.5,
     borderRadius: 10,
     height: 50,
     width: "90%",
