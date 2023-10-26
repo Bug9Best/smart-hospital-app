@@ -20,6 +20,7 @@ const Home = ({ navigation }) => {
   const [user, setUser] = useState(null);
   const [listqueue, setListQueue] = useState(null);
   const [queue, setQueue] = useState(null);
+  const [appointment, setAppointment] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
   const [modalQueue, setModalQueueVisible] = useState(false);
   const [modalAppoint, setAppoint] = useState(false);
@@ -43,10 +44,12 @@ const Home = ({ navigation }) => {
   };
 
   const getUser = async () => {
+    path = `${usersAPI.BaseURL}/${user.userId}`;
     try {
       const response = await axios.get(path);
       setUser(response.data);
       setQueue(response.data.PatientRecord.Qeue);
+      setAppointment(response.data.PatientRecord.Appointment);
     } catch (error) {
       console.error(error);
     }
@@ -407,9 +410,9 @@ const Home = ({ navigation }) => {
             }}
           >
             <TouchableOpacity
-                onPress={() =>
-                  navigation.navigate("DoctorScheduler", { text: "text" })
-                }>
+              onPress={() =>
+                navigation.navigate("DoctorSchedule", { text: "text" })
+              }>
               <View style={{}}>
                 <Text style={{ alignSelf: "center", color: "#FF8A48" }}>
                   <Ionicons name="calendar" size={32} color="#FF8A48" />
@@ -505,7 +508,7 @@ const Home = ({ navigation }) => {
         </Text>
 
         <View style={styles.smallRectangle}>
-          <Text></Text>
+          <Text style={styles.textCard}>{appointment ? `คุณมี ${appointment.length} การนัดหมาย` : "คุณยังการนัดหมาย"}</Text>
         </View>
 
         <Text
@@ -522,7 +525,7 @@ const Home = ({ navigation }) => {
 
 
         <View style={styles.smallRectangle}>
-          <Text style={styles.textCard}>{queue ? `คิวของคุณคือคิวลำดับที่ ${queue[listqueue.length - 1]?.id}` : "คุณยังไม่มีคิว"}</Text>
+          <Text style={styles.textCard}>{queue ? `คิวของคุณคือคิวลำดับที่ ${queue[0]?.id}` : "คุณยังไม่มีคิว"}</Text>
         </View>
 
         <View
