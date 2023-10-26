@@ -180,16 +180,51 @@ const Home = ({ navigation }) => {
         <base.View style={styles.centeredView}>
           <base.View style={styles.modalView}>
             <base.Text style={styles.modalText}>จองคิวออนไลน์</base.Text>
-            <base.Text
-              style={{
-                fontSize: 15,
-                padding: 16,
-                color: "black",
-                fontWeight: "bold",
-                textAlign: "center",
-              }}>
-              {listqueue ? `มีคิวก่อนหน้าคุณ ${listqueue.length} คิว` : "ยังไม่มีคิวก่อนหน้า คุณเป็นคิวแรก"}
-            </base.Text>
+            <base.View style={{ display: "flex", flexDirection: "column", marginTop: 10}}>
+          <base.View style={{ display: "flex", flexDirection: "row", marginRight: 285 }}>
+            <base.Text style={{ marginTop: 5 }}>ชื่อกลาง</base.Text>
+            <base.Text style={{ marginTop: 5, color: "red" }}>*</base.Text>
+          </base.View>
+          </base.View>
+            <base.TextInput
+                  style={styles.Realinput}
+                  placeholder="กรอก"
+                  placeholderTextColor={"#FF8A48"}
+                />
+                <base.View style={{ display: "flex", flexDirection: "column", marginTop: 10}}>
+          <base.View style={{ display: "flex", flexDirection: "row", marginRight: 285 }}>
+            <base.Text style={{ marginTop: 5 }}>ชื่อกลาง</base.Text>
+            <base.Text style={{ marginTop: 5, color: "red" }}>*</base.Text>
+          </base.View>
+          </base.View>
+            <base.TextInput
+                  style={styles.Realinput}
+                  placeholder="กรอก"
+                  placeholderTextColor={"#FF8A48"}
+
+                />
+                <base.TouchableOpacity
+                style={{
+                  paddingHorizontal: 128,
+                  paddingVertical: 2,
+                  marginTop: "5%",
+                  backgroundColor: "#FF8A48",
+                  borderRadius: 10,
+                }}
+                onPress={() => {
+                  setModalQueueVisible(!modalQueue);
+                }}>
+                <base.Text
+                  style={{
+                    fontSize: 12,
+                    padding: 16,
+                    color: "white",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                  }}>
+                  ดำเนินการต่อ
+                </base.Text>
+              </base.TouchableOpacity>
             <base.TouchableOpacity
               style={{
                 paddingHorizontal: 110,
@@ -251,21 +286,61 @@ const Home = ({ navigation }) => {
         <base.View style={styles.centeredView}>
           <base.View style={styles.modalView}>
             <base.Text style={styles.modalText}>นัดหมายออนไลน์</base.Text>
+            <base.View style={{ display: "flex", flexDirection: "column" }}>
+          <base.View style={{ display: "flex", flexDirection: "row", marginRight: 285 }}>
+            <base.Text style={{ marginTop: 5 }}>ชื่อกลาง</base.Text>
+            <base.Text style={{ marginTop: 5, color: "red" }}>*</base.Text>
+          </base.View>
+          </base.View>
             <base.TextInput
               style={styles.Realinput}
               placeholder="กรอก"
               placeholderTextColor={"#FF8A48"}
 
-            />
+                />
+                <base.View style={{ display: "flex", flexDirection: "column", marginTop: 10}}>
+          <base.View style={{ display: "flex", flexDirection: "row", marginRight: 285 }}>
+            <base.Text style={{ marginTop: 5 }}>ชื่อกลาง</base.Text>
+            <base.Text style={{ marginTop: 5, color: "red" }}>*</base.Text>
+          </base.View>
+          </base.View>
             <base.TextInput
-              style={styles.Realinput}
-              placeholder="กรอกข้อความ"
-              placeholderTextColor={"#FF8A48"}
-            />
-            <base.View style={{ display: "flex", flexDirection: "row" }}>
-            </base.View>
-            <base.TextInput style={styles.Addressinput} placeholder="แก้ไขที่อยู่" placeholderTextColor={"#FF8A48"}
-              multiline={true} />
+                  style={styles.Realinput}
+                  placeholder="กรอกข้อความ"
+                  placeholderTextColor={"#FF8A48"}
+                />
+                <base.View style={{ display: "flex", flexDirection: "row" }}>
+        </base.View>
+        <base.View style={{ display: "flex", flexDirection: "column", marginTop: 10}}>
+          <base.View style={{ display: "flex", flexDirection: "row", marginRight: 285 }}>
+            <base.Text style={{ marginTop: 5 }}>ชื่อกลาง</base.Text>
+            <base.Text style={{ marginTop: 5, color: "red" }}>*</base.Text>
+          </base.View>
+          </base.View>
+        <base.TextInput style={styles.Addressinput} placeholder="แก้ไขที่อยู่"                   placeholderTextColor={"#FF8A48"}
+  multiline= {true}/>
+                <base.TouchableOpacity
+                style={{
+                  paddingHorizontal: 128,
+                  paddingVertical: 5,
+                  marginTop: "5%",
+                  backgroundColor: "#FF8A48",
+                  borderRadius: 10,
+                }}
+                onPress={() => {
+                  setAppoint(!modalAppoint);
+                }}>
+                <base.Text
+                  style={{
+                    fontSize: 12,
+                    padding: 16,
+                    color: "white",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                  }}>
+                  ดำเนินการต่อ
+                </base.Text>
+              </base.TouchableOpacity>
             <base.TouchableOpacity
               style={{
                 paddingHorizontal: 128,
