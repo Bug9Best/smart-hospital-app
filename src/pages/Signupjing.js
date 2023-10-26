@@ -130,15 +130,15 @@ const styles = base.StyleSheet.create({
     marginRight: 15,
   },
   Realinput: {
-    borderWidth: 0.2,
+    borderWidth: 0.5,
     borderRadius: 10,
     height: 50,
     width: "100%",
     marginTop: 10,
     padding: 16,
   },
-  Addressinput: {
-    borderWidth: 0.2,
+  Addressinput:  {
+    borderWidth: 0.5,
     borderRadius: 10,
     width: "100%",
     height: 100,
