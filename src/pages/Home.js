@@ -260,7 +260,7 @@ const Home = ({ navigation }) => {
                 />
             <base.TextInput
                   style={styles.Realinput}
-                  placeholder="กรอก"
+                  placeholder="กรอกข้อความ"
                   placeholderTextColor={"#FF8A48"}
                 />
                 <base.View style={{ display: "flex", flexDirection: "row" }}>
