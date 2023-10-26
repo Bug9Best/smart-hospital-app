@@ -1,11 +1,52 @@
-import React from "react";
+import React, { useState, Component, useEffect } from "react";
 import base from "../modules/base_module";
-import { View, StyleSheet, Text, Image, Pressable, ScrollView, } from "react-native";
+import { View, StyleSheet, Text, Image } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import Layer from "../Layout/lgradient";
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from "axios";
+import BaseURL from "../services/base/base_service";
 
 const Profile = ({ navigation }) => {
+  const [user, setUser] = useState(null);
+  const [firstRender, setFirstRender] = useState(false);
+
+  var usersAPI = new BaseURL("users");
+  var path = "";
+
+  const getUser = async () => {
+    try {
+      const response = await axios.get(path);
+      console.log(response.data);
+      setUser(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  const getData = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem('user');
+      path = `${usersAPI.BaseURL}/${JSON.parse(jsonValue).userId}`;
+      getUser();
+    } catch (e) {
+    }
+  };
+
+  const signout = async () => {
+    navigation.navigate('SignIn');
+    try {
+      await AsyncStorage.removeItem('user');
+    } catch (e) {
+    }
+  }
+
+  useEffect(() => {
+    if (!firstRender) {
+      getData();
+      setFirstRender(true);
+    }
+  }, [firstRender]);
+
   return (
     <base.SafeAreaView style={styles.box}>
       <base.ScrollView>
@@ -13,9 +54,8 @@ const Profile = ({ navigation }) => {
           <Image
             source={require('../assets/image/Cat.jpeg')}
             style={styles.profileImage} />
-          <Text style={{ marginTop: 10, fontWeight: 'bold', color: '#FF8A48', fontSize: 22 }}>นายนันทนนท์ จินขุนทอง</Text>
-          <Text style={{ marginTop: 10, fontWeight: 'bold', color: 'black', fontSize: 17 }}>HN : 5915159</Text>
-          <Text style={{ marginTop: 10, fontWeight: 'bold', color: 'black', fontSize: 17 }}>อายุ 21 ปี</Text>
+          <Text style={{ marginTop: 10, fontWeight: 'bold', color: '#FF8A48', fontSize: 22 }}>{`${user?.PatientRecord.firstName} ${user?.PatientRecord.lastName}`}</Text>
+          <Text style={{ marginTop: 10, fontWeight: 'bold', color: 'black', fontSize: 17 }}>HN : {user?.PatientRecord.hnNumber}</Text>
         </View>
 
         <View>
@@ -59,18 +99,9 @@ const Profile = ({ navigation }) => {
               <Ionicons style={styles.icons} name="chevron-forward-outline" size={24} />
             </View>
           </base.TouchableOpacity>
-
-          <base.TouchableOpacity style={styles.addressButton}>
-            <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
-              <Ionicons style={styles.icons} name="trash-outline" size={24} />
-              <Text style={styles.addressButtonText}>ลบบัญชีผู้ใช้</Text>
-            </View>
-            <View>
-              <Ionicons style={styles.icons} name="chevron-forward-outline" size={24} />
-            </View>
-          </base.TouchableOpacity>
+          
           <View>
-            <base.TouchableOpacity style={styles.logoutButton} onPress={() => { navigation.navigate('SignIn') }}>
+            <base.TouchableOpacity style={styles.logoutButton} onPress={() => { signout() }}>
               <Text style={styles.logoutButtonText}>ออกจากระบบ</Text>
             </base.TouchableOpacity>
           </View>
