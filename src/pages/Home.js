@@ -258,39 +258,17 @@ const Home = ({ navigation }) => {
 
             />
             <base.TextInput
-                  style={styles.Realinput}
-                  placeholder="กรอกข้อความ"
-                  placeholderTextColor={"#FF8A48"}
-                />
-                <base.View style={{ display: "flex", flexDirection: "row" }}>
-        </base.View>
-        <base.TextInput style={styles.Addressinput} placeholder="แก้ไขที่อยู่"                   placeholderTextColor={"#FF8A48"}
-  multiline= {true}/>
-                <base.TouchableOpacity
-                style={{
-                  paddingHorizontal: 128,
-                  paddingVertical: 5,
-                  marginTop: "5%",
-                  backgroundColor: "#FF8A48",
-                  borderRadius: 10,
-                }}
-                onPress={() => {
-                  setAppoint(!modalAppoint);
-                }}>
-                <base.Text
-                  style={{
-                    fontSize: 12,
-                    padding: 16,
-                    color: "white",
-                    fontWeight: "bold",
-                    textAlign: "center",
-                  }}>
-                  ดำเนินการต่อ
-                </base.Text>
-              </base.TouchableOpacity>
+              style={styles.Realinput}
+              placeholder="กรอกข้อความ"
+              placeholderTextColor={"#FF8A48"}
+            />
+            <base.View style={{ display: "flex", flexDirection: "row" }}>
+            </base.View>
+            <base.TextInput style={styles.Addressinput} placeholder="แก้ไขที่อยู่" placeholderTextColor={"#FF8A48"}
+              multiline={true} />
             <base.TouchableOpacity
               style={{
-                paddingHorizontal: 110,
+                paddingHorizontal: 128,
                 paddingVertical: 5,
                 marginTop: "5%",
                 backgroundColor: "#FF8A48",
@@ -298,7 +276,6 @@ const Home = ({ navigation }) => {
               }}
               onPress={() => {
                 setAppoint(!modalAppoint);
-                addAppoint();
               }}>
               <base.Text
                 style={{
@@ -313,7 +290,7 @@ const Home = ({ navigation }) => {
             </base.TouchableOpacity>
             <base.TouchableOpacity
               style={{
-                paddingHorizontal: 110,
+                paddingHorizontal: 128,
                 paddingVertical: 5,
                 marginTop: "5%",
                 borderRadius: 10,
@@ -487,7 +464,7 @@ const Home = ({ navigation }) => {
         </Text>
 
         <View style={styles.smallRectangle}>
-          <Text style={styles.textCard}>{queue ? `คิวของคุณคือคิวลำดับที่ ${queue[listqueue.length -1].id}` : "คุณยังไม่มีคิว"}</Text>
+          <Text style={styles.textCard}>{queue ? `คิวของคุณคือคิวลำดับที่ ${queue[listqueue.length - 1].id}` : "คุณยังไม่มีคิว"}</Text>
         </View>
 
         <View
