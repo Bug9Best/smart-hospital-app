@@ -5,7 +5,7 @@ import Signup from "../pages/SignUp";
 import Home from "../pages/Home";
 import AuthNav from "./Authnav";
 import Appnav from "./Appnav";
-import Doctorscheduled from "../pages/Doctor-schelude";
+import DoctorSchedule from "../pages/Doctor-Meeting";
 import Formdownload from "../pages/Form-dowload";
 import Staff from "../pages/Staff";
 import Druginfo from "../pages/Druginfo";
@@ -39,8 +39,8 @@ const RootNav = () => {
           }}
         />
         <Stack.Screen
-          name="Doctorscheduled"
-          component={Doctorscheduled}
+          name="DoctorSchedule"
+          component={DoctorSchedule}
           options={{
             title: "ตารางแพทย์ตรวจ",
           }}

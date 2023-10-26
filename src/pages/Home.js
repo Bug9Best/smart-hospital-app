@@ -406,7 +406,10 @@ const Home = ({ navigation }) => {
               justifyContent: "space-around",
             }}
           >
-            <TouchableOpacity>
+            <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate("DoctorScheduler", { text: "text" })
+                }>
               <View style={{}}>
                 <Text style={{ alignSelf: "center", color: "#FF8A48" }}>
                   <Ionicons name="calendar" size={32} color="#FF8A48" />
