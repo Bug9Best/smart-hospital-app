@@ -5,9 +5,10 @@ import Layer from "../Layout/lgradient";
 export default function SignUp({ navigation }) {
   return (
     <base.View style={styles.container}>
-      <base.View style={styles.box}>
-        <base.Text style={{ color: "#FF8A48", fontSize: 15, fontWeight: 800 }}>
-          ข้อตกลงและเงื่อนไข
+    <base.ScrollView>
+<base.View style={styles.box}>
+        <base.Text style={{color: "#FF8A48" ,fontSize: 15, fontWeight: 800}}>
+            ข้อตกลงและเงื่อนไข
         </base.Text>
         <base.Text style={{ marginTop: 20, fontWeight: 600 }} >
           1. ลงทะเบียนได้เฉพาะผู้ที่มีบัตรประจำตัวประชาชน
@@ -29,15 +30,16 @@ export default function SignUp({ navigation }) {
           ต่างด้าว ขอให้มาติดต่อลงทะเบียนที่เวชระเบียน คลินิกเวชกรรม สจล.
         </base.Text>
       </base.View>
+      </base.ScrollView>
       <base.View>
         <base.TouchableOpacity onPress={() => { navigation.navigate('Signupjing', { text: "text" }) }}>
           <base.View
             style={{
-              paddingHorizontal: 125,
-              paddingVertical: 15,
-              marginTop: 200,
-              backgroundColor: "#FF8A48",
-              borderRadius: 10,
+                paddingHorizontal: 125,
+                paddingVertical: 20,
+                marginBottom: 50,
+                backgroundColor: "#FF8A48",
+                borderRadius: 10,
             }}
           >
             <base.Text style={{ color: "white" }} >
@@ -58,7 +60,6 @@ const styles = base.StyleSheet.create({
   box: {
     backgroundColor: "white",
     width: "95%",
-    height: "62%",
     marginTop: 15,
     borderRadius: 10,
     padding: 16,
