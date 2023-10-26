@@ -13,7 +13,6 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import Layer from "../Layout/lgradient";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from "axios";
-import { get } from "react-native/Libraries/TurboModule/TurboModuleRegistry";
 
 
 const Home = ({ navigation }) => {

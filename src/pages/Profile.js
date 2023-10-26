@@ -59,27 +59,6 @@ const Profile = ({ navigation }) => {
         </View>
 
         <View>
-          <base.TouchableOpacity style={styles.addressButton} onPress={() => { navigation.navigate('AddressInfo', { text: "text" }) }}>
-            <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
-              <Ionicons style={styles.icons} name="map-outline" size={24} />
-              <Text style={styles.addressButtonText}>ที่อยู่</Text>
-            </View>
-
-            <View>
-              <Ionicons style={styles.icons} name="chevron-forward-outline" size={24} />
-            </View>
-          </base.TouchableOpacity>
-
-          <base.TouchableOpacity style={styles.addressButton} onPress={() => { navigation.navigate('PhoneInfo', { text: "text" }) }}>
-            <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
-              <Ionicons style={styles.icons} name="phone-portrait-outline" size={24} />
-              <Text style={styles.addressButtonText}>เบอร์โทรศัพท์</Text>
-            </View>
-            <View>
-              <Ionicons style={styles.icons} name="chevron-forward-outline" size={24} />
-            </View>
-          </base.TouchableOpacity>
-
           <base.TouchableOpacity style={styles.addressButton} onPress={() => { navigation.navigate('Policy', { text: "text" }) }}>
             <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
               <Ionicons style={styles.icons} name="document-text-outline" size={24} />
