@@ -86,7 +86,7 @@ const Home = ({ navigation }) => {
     <base.SafeAreaView style={styles.box}>
 
       <base.Modal
-        animationType="slide"
+        animationType="fade"
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
@@ -171,7 +171,7 @@ const Home = ({ navigation }) => {
       </base.Modal>
       
       <base.Modal
-        animationType="slide"
+        animationType="fade"
         transparent={true}
         visible={modalQueue}
         onRequestClose={() => {
@@ -241,7 +241,7 @@ const Home = ({ navigation }) => {
         </base.View>
       </base.Modal>
       <base.Modal
-        animationType="slide"
+        animationType="fade"
         transparent={true}
         visible={modalAppoint}
         onRequestClose={() => {
