@@ -1,37 +1,68 @@
 import * as React from "react";
 import { StyleSheet, View, Text, Pressable, SafeAreaView } from "react-native";
 import Layer from "../Layout/lgradient";
-
+import BaseURL from "../services/base/base_service";
 
 const History1 = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [appoint, setAppoint] = useState();
+
+  var appointService = new BaseURL("appoint");
+
+  const getAppoint = async () => {
+    try {
+      const response = await axios.get(appointService.BaseURL);
+      setAppoint(response.data);
+      setIsLoading(false);
+    } catch (error) {
+      alert("An error has occurred");
+    }
+  };
+
+  useEffect(() => {
+    getAppoint();
+  }, [appoint]);
+
   return (
-    <SafeAreaView style={styles.container}>
-
-      <View style={styles.historyContainer}>  
-        <View style={styles.historyTabContainer}>
-          <View style={styles.historyTabLeft}>
-            <Text style={{ textAlign: "center", color: "white", fontWeight: "bold" }}>ประวัติการรักษา</Text>
-          </View>
-          <View style={styles.historyTabRight}>
-            <Text style={{ textAlign: "center", color: "white", fontWeight: "bold" }}>ประวัติการนัดหมาย</Text>
-          </View>
-        </View>
-      </View>
-
-    </SafeAreaView>
+    <Layer>
+      <SafeAreaView style={styles.container}>
+        <base.ScrollView contentContainerStyle={styles.scrollViewContent}>
+          <base.FlatList
+            data={appoint}
+            renderItem={({ item }) => {
+              return (
+                renderEventCard(
+                  item.title,
+                  item.date,
+                  item.img,
+                )
+              );
+            }}
+          />
+        </base.ScrollView>
+      </SafeAreaView>
+    </Layer>
   );
 };
+
+const renderEventCard = (title, date, imageSource) => (
+  <base.View style={styles.eventCard}>
+    <base.View style={styles.centerImage}>
+      <base.Image source={{ uri: imageSource }} style={styles.eventImage} />
+    </base.View>
+    <base.Text style={styles.eventTitle}>{title}</base.Text>
+    <base.Text style={styles.eventDate}>{date}</base.Text>
+  </base.View>
+);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1, // Make sure the component takes up the entire screen
     height: "100%", // Make sure the component takes up the entire screen
-    backgroundColor: "#F4F4F4",
     marginTop: 1,
     alignItems: "center",
   },
   box: {
-    backgroundColor: "#FFFFFF",
     width: "100%",
     height: "5%",
     justifyContent: "center",
@@ -49,7 +80,7 @@ const styles = StyleSheet.create({
     height: "5%",
     justifyContent: "center",
     alignItems: "center",
-    
+
   },
   historyTabLeft: {
     backgroundColor: "#FFA370",
@@ -70,7 +101,6 @@ const styles = StyleSheet.create({
   historyContainer: {
     width: "95%",
     height: "90%",
-    backgroundColor: "white",
     marginTop: 15,
     borderRadius: 10,
   },

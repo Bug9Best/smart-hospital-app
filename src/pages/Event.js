@@ -3,6 +3,8 @@ import base from "../modules/base_module";
 import { StyleSheet, SafeAreaView } from "react-native";
 import BaseURL from "../services/base/base_service";
 import axios from "axios";
+import Layer from "../Layout/lgradient";
+
 
 const Event1 = () => {
   const [firstRender, setFirstRender] = useState(false);
@@ -15,15 +17,9 @@ const Event1 = () => {
     setIsLoading(true);
     try {
       const response = await axios.get(eventService.BaseURL);
-      if (response.status === 200) {
-        setEvent(response.data);
-        setIsLoading(false);
-      } else {
-        throw new Error("An error has occurred");
-      }
+      setEvent(response.data);
     } catch (error) {
       alert("An error has occurred");
-      setIsLoading(false);
     }
   };
 
@@ -32,22 +28,24 @@ const Event1 = () => {
   }, [event]);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <base.ScrollView contentContainerStyle={styles.scrollViewContent}>
-        <base.FlatList
-          data={event}
-          renderItem={({ item }) => {
-            return (
-              renderEventCard(
-                item.title,
-                item.date,
-                item.img,
-              )
-            );
-          }}
-        />
-      </base.ScrollView>
-    </SafeAreaView>
+    <Layer>
+      <SafeAreaView style={styles.container}>
+        <base.ScrollView contentContainerStyle={styles.scrollViewContent}>
+          <base.FlatList
+            data={event}
+            renderItem={({ item }) => {
+              return (
+                renderEventCard(
+                  item.title,
+                  item.date,
+                  item.img,
+                )
+              );
+            }}
+          />
+        </base.ScrollView>
+      </SafeAreaView>
+    </Layer>
   );
 }
 
@@ -64,7 +62,6 @@ const renderEventCard = (title, date, imageSource) => (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#E0E0E0",
   },
   scrollViewContent: {
     paddingBottom: 20,
