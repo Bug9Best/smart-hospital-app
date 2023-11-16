@@ -1,6 +1,7 @@
 import React, { useState, Component, useEffect } from "react";
 import base from "../modules/base_module";
 import BaseURL from "../services/base/base_service";
+import Input from "../components/input";
 import {
   View,
   StyleSheet,
@@ -291,86 +292,86 @@ const Home = ({ navigation }) => {
                 <base.Text style={{ marginTop: 5, color: "red" }}>*</base.Text>
               </base.View>
             </base.View>
-            <base.TextInput
-              style={styles.Realinput}
-              placeholder="กรอก"
-              onChangeText={setTitle}
-            />
-            <base.View style={{ display: "flex", flexDirection: "column", marginTop: 10 }}>
-              <base.View style={{ display: "flex", flexDirection: "row", marginRight: 285 }}>
-                <base.Text style={{ marginTop: 5 }}>หมายเหตุ</base.Text>
-                <base.Text style={{ marginTop: 5, color: "red" }}>*</base.Text>
+            <base.View style={{ marginTop: 10, width: 350 }}>
+              <Input placeholder="ex: ยอดงาม" onChangeText={setTitle} />
+            </base.View>
+              <base.View style={{ display: "flex", flexDirection: "column", marginTop: 10 }}>
+                <base.View style={{ display: "flex", flexDirection: "row", marginRight: 285 }}>
+                  <base.Text style={{ marginTop: 5 }}>หมายเหตุ</base.Text>
+                  <base.Text style={{ marginTop: 5, color: "red" }}>*</base.Text>
+                </base.View>
               </base.View>
-            </base.View>
-            <base.TextInput
-              style={styles.Realinput}
-              placeholder="กรอกข้อความ"
-              onChangeText={setDescription}
-            />
-            <base.View style={{ display: "flex", flexDirection: "row" }}>
-            </base.View>
-            <base.View style={{ display: "flex", flexDirection: "column", marginTop: 10 }}>
-              <base.View style={{ display: "flex", flexDirection: "row", marginRight: 285 }}>
-                <base.Text style={{ marginTop: 5 }}>วันที่</base.Text>
-                <base.Text style={{ marginTop: 5, color: "red" }}>*</base.Text>
-              </base.View>
-            </base.View>
-            <DateTimePicker
-              style={{ alignSelf: "start", marginLeft: -10, marginTop: 10 }}
-              testID="dateTimePicker"
-              value={date}
-              mode={mode}
-              is24Hour={true}
-              onChange={onChange}
-            />
-            <base.TouchableOpacity
-              style={{
-                paddingHorizontal: 128,
-                paddingVertical: 5,
-                marginTop: "5%",
-                backgroundColor: "#FF8A48",
-                borderRadius: 10,
-              }}
-              onPress={() => {
-                setAppoint(!modalAppoint);
-                addAppoint();
-              }}>
-              <base.Text
-                style={{
-                  fontSize: 12,
-                  padding: 16,
-                  color: "white",
-                  fontWeight: "bold",
-                  textAlign: "center",
-                }}>
-                ดำเนินการต่อ
-              </base.Text>
-            </base.TouchableOpacity>
-            <base.TouchableOpacity
-              style={{
-                paddingHorizontal: 128,
-                marginTop: "5%",
-                borderRadius: 10,
-                borderWidth: 0.5
-              }}
-              onPress={() => {
-                setAppoint(!modalAppoint);
-                setModalVisible(true)
-              }}>
-              <base.Text
-                style={{
-                  fontSize: 12,
-                  padding: 16,
-                  color: "#ED7D31",
-                  fontWeight: "bold",
-                  textAlign: "center",
-                }}>
-                ปิดหน้าต่างนี้
-              </base.Text>
-            </base.TouchableOpacity>
+              <base.View style={{ marginTop: 10, width: 350 }}>
+              <Input
+Í                placeholder="กรอกข้อความ"
+                onChangeText={setDescription}
+              />
+                            </base.View>
 
+              <base.View style={{ display: "flex", flexDirection: "row" }}>
+              </base.View>
+              <base.View style={{ display: "flex", flexDirection: "column", marginTop: 10 }}>
+                <base.View style={{ display: "flex", flexDirection: "row", marginRight: 285 }}>
+                  <base.Text style={{ marginTop: 5 }}>วันที่</base.Text>
+                  <base.Text style={{ marginTop: 5, color: "red" }}>*</base.Text>
+                </base.View>
+              </base.View>
+              <DateTimePicker
+                style={{ alignSelf: "start", marginLeft: -10, marginTop: 10 }}
+                testID="dateTimePicker"
+                value={date}
+                mode={mode}
+                is24Hour={true}
+                onChange={onChange}
+              />
+              <base.TouchableOpacity
+                style={{
+                  paddingHorizontal: 128,
+                  paddingVertical: 5,
+                  marginTop: "5%",
+                  backgroundColor: "#FF8A48",
+                  borderRadius: 10,
+                }}
+                onPress={() => {
+                  setAppoint(!modalAppoint);
+                  addAppoint();
+                }}>
+                <base.Text
+                  style={{
+                    fontSize: 12,
+                    padding: 16,
+                    color: "white",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                  }}>
+                  ดำเนินการต่อ
+                </base.Text>
+              </base.TouchableOpacity>
+              <base.TouchableOpacity
+                style={{
+                  paddingHorizontal: 128,
+                  marginTop: "5%",
+                  borderRadius: 10,
+                  borderWidth: 0.5
+                }}
+                onPress={() => {
+                  setAppoint(!modalAppoint);
+                  setModalVisible(true)
+                }}>
+                <base.Text
+                  style={{
+                    fontSize: 12,
+                    padding: 16,
+                    color: "#ED7D31",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                  }}>
+                  ปิดหน้าต่างนี้
+                </base.Text>
+              </base.TouchableOpacity>
+
+            </base.View>
           </base.View>
-        </base.View>
       </base.Modal>
 
 

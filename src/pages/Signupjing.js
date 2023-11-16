@@ -4,7 +4,8 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import Layer from "../Layout/lgradient";
 import BaseURL from "../services/base/base_service";
 import axios from "axios";
-
+import Input from "../components/input";
+import Textareainput from "../components/textareainput";
 
 export default function Signupjing({ navigation }) {
   const [citizenId, setCitizenId] = useState();
@@ -53,28 +54,36 @@ export default function Signupjing({ navigation }) {
             <base.Text>หมายเลขบัตรประชาชน</base.Text>
             <base.Text style={{ color: "red" }}>*</base.Text>
           </base.View>
-          <base.TextInput style={styles.Realinput} placeholder="13 หลัก" onChangeText={setCitizenId} />
+          <base.View style={{marginTop: 10}}>
+          <Input placeholder="13 หลัก" onChangeText={setCitizenId}/>
+          </base.View>
         </base.View>
         <base.View style={{ display: "flex", flexDirection: "column" }}>
           <base.View style={{ display: "flex", flexDirection: "row" }}>
             <base.Text style={{ marginTop: 10 }}>คำนำหน้า</base.Text>
             <base.Text style={{ marginTop: 10, color: "red" }}>*</base.Text>
           </base.View>
-          <base.TextInput style={styles.Realinput} placeholder="ex. นาย" onChangeText={setPrefix} />
+          <base.View style={{marginTop: 10}}>
+          <Input placeholder="นาย" onChangeText={setPrefix}/>
+          </base.View>
         </base.View>
         <base.View style={{ display: "flex", flexDirection: "column" }}>
           <base.View style={{ display: "flex", flexDirection: "row" }}>
             <base.Text style={{ marginTop: 10 }}>ชื่อจริง</base.Text>
             <base.Text style={{ marginTop: 10, color: "red" }}>*</base.Text>
           </base.View>
-          <base.TextInput style={styles.Realinput} placeholder="ex.แสนดี" onChangeText={setFirstName} />
+          <base.View style={{marginTop: 10, color: "#ede8e8"}}>
+          <Input  placeholder="ex: แสนดี" onChangeText={setFirstName}/>
+          </base.View>
         </base.View>
         <base.View style={{ display: "flex", flexDirection: "column" }}>
           <base.View style={{ display: "flex", flexDirection: "row" }}>
             <base.Text style={{ marginTop: 10 }}>นามสกุล</base.Text>
             <base.Text style={{ marginTop: 10, color: "red" }}>*</base.Text>
           </base.View>
-          <base.TextInput style={styles.Realinput} placeholder="ยอดงาม" onChangeText={setLastName} />
+          <base.View style={{marginTop: 10}}>
+          <Input placeholder="ex: ยอดงาม" onChangeText={setLastName}/>
+          </base.View>
         </base.View>
         <base.View style={{ display: "flex", flexDirection: "column" }}>
           <base.View style={{ display: "flex", flexDirection: "row" }}>
@@ -93,15 +102,18 @@ export default function Signupjing({ navigation }) {
             <base.Text style={{ marginTop: 10 }}>ที่อยู่</base.Text>
             <base.Text style={{ marginTop: 10, color: "red" }}>*</base.Text>
           </base.View>
-          <base.TextInput style={styles.Addressinput} placeholder="รายละเอียดพอสังเขป" multiline={true} onChangeText={setAddress} />
+          <base.View style={{marginTop: 10}}>
+          <Textareainput  placeholder="ที่อยู่โดยสังเขป" onChangeText={setAddress}/>
+          </base.View>
         </base.View>
         <base.View style={{ display: "flex", flexDirection: "column" }}>
           <base.View style={{ display: "flex", flexDirection: "row" }}>
             <base.Text style={{ marginTop: 10 }}>รหัสผ่าน</base.Text>
             <base.Text style={{ marginTop: 10, color: "red" }}>*</base.Text>
           </base.View>
-          <base.TextInput style={styles.Realinput} secureTextEntry={true}
-            placeholder="ยอดงาม" onChangeText={setPassword} />
+          <base.View style={{marginTop: 10}}>
+          <Input placeholder="ex : 1234" onChangeText={setPassword}/>
+          </base.View>
         </base.View>
       </base.View>
       </base.ScrollView>

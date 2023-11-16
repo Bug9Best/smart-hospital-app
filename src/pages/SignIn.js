@@ -7,26 +7,25 @@ import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Input from "../components/input";
 import * as Yup from "yup";
-import { Formik } from "formik";
+import { Formik, useFormik } from "formik";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
 export default function Signin({ navigation }) {
   const [tab, setTab] = useState(true);
-  const [citizenId, setCitizenId] = useState();
-  const [password, setPassword] = useState();
 
   var authAPI = new BaseURL("auth/login/user");
 
   const signin = async () => {
     let data = {
-      citizenId: citizenId,
-      password: password,
+      citizenId: formik.values.citizenId,
+      password: formik.values.password,
     };
 
     try {
       const response = await axios.post(authAPI.BaseURL, data);
+      console.log(response.data);
       if (response.data) {
         const jsonValue = JSON.stringify(response.data);
         await AsyncStorage.setItem("user", jsonValue);
@@ -48,178 +47,175 @@ export default function Signin({ navigation }) {
       .required("Required"),
   });
 
-  return (
-    <Formik
-      validationSchema={LoginSchema}
-      initialValues={{ citizenId: "", password: "" }}
-      onSubmit={async (values) => {
-        await login(values);
-      }}
-    >
-      {({
-        handleChange,
-        handleSubmit,
-        values,
-        handleBlur,
-        errors,
-        touched,
-      }) => (
-        <Layer>
-          <base.View style={styles.container}>
-            <base.SafeAreaView>
-              <base.View style={styles.Image}>
-                <base.Image
-                  source={require("../assets/Kmitl-logo.png")}
-                  style={{ width: "40%", height: "60%" }}
-                ></base.Image>
-              </base.View>
-              <base.View style={styles.Input}>
-                <base.View style={{ flexDirection: "row", gap: 50 }}>
-                  <TouchableOpacity
-                    onPress={() => {
-                      setTab(true);
-                    }}
-                  >
-                    <base.View
-                      style={{
-                        borderColor: tab ? "#FF8A48" : "black",
-                        borderBottomWidth: tab ? 2 : 0,
-                        paddingVertical: 10,
-                        paddingHorizontal: 10,
-                      }}
-                    >
-                      <base.Text
-                        style={{
-                          color: tab ? "#FF8A48" : "black",
-                          fontSize: 21,
-                        }}
-                      >
-                        เข้าสู่ระบบ
-                      </base.Text>
-                    </base.View>
-                  </TouchableOpacity>
+  const formik = useFormik({
+    initialValues: {
+      citizenId: "",
+      password: ""
+    },
+    onSubmit: values => {
+      console.log(values);
+    },
+    validationSchema: LoginSchema,
 
-                  <TouchableOpacity
-                    onPress={() => {
-                      setTab(false);
+
+  });
+
+  return (
+
+    <Layer>
+      <base.View style={styles.container}>
+        <base.SafeAreaView>
+          <base.View style={styles.Image}>
+            <base.Image
+              source={require("../assets/Kmitl-logo.png")}
+              style={{ width: "40%", height: "60%" }}
+            ></base.Image>
+          </base.View>
+          <base.View style={styles.Input}>
+            <base.View style={{ flexDirection: "row", gap: 50 }}>
+              <TouchableOpacity
+                onPress={() => {
+                  setTab(true);
+                }}
+              >
+                <base.View
+                  style={{
+                    borderColor: tab ? "#FF8A48" : "black",
+                    borderBottomWidth: tab ? 2 : 0,
+                    paddingVertical: 10,
+                    paddingHorizontal: 10,
+                  }}
+                >
+                  <base.Text
+                    style={{
+                      color: tab ? "#FF8A48" : "black",
+                      fontSize: 21,
                     }}
                   >
-                    <base.View
-                      style={{
-                        borderColor: tab ? "black" : "#FF8A48",
-                        borderBottomWidth: tab ? 0 : 2,
-                        paddingVertical: 10,
-                        paddingHorizontal: 10,
-                      }}
-                    >
-                      <base.Text
-                        style={{
-                          color: tab ? "black" : "#FF8A48",
-                          fontSize: 21,
-                        }}
-                      >
-                        ลงทะเบียน
-                      </base.Text>
-                    </base.View>
-                  </TouchableOpacity>
+                    เข้าสู่ระบบ
+                  </base.Text>
+                </base.View>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={() => {
+                  setTab(false);
+                }}
+              >
+                <base.View
+                  style={{
+                    borderColor: tab ? "black" : "#FF8A48",
+                    borderBottomWidth: tab ? 0 : 2,
+                    paddingVertical: 10,
+                    paddingHorizontal: 10,
+                  }}
+                >
+                  <base.Text
+                    style={{
+                      color: tab ? "black" : "#FF8A48",
+                      fontSize: 21,
+                    }}
+                  >
+                    ลงทะเบียน
+                  </base.Text>
+                </base.View>
+              </TouchableOpacity>
+            </base.View>
+
+            {tab ? (
+              <base.View
+                style={{
+                  alignItems: "center",
+                  width: windowWidth,
+                  marginTop: 20,
+                }}
+              >
+                <base.View
+                  style={{
+                    width: 380,
+                  }}
+                >
+                  <Input
+                    icon="user"
+                    placeholder="หมายเลขบัตรประชาชน"
+                    onChangeText={formik.handleChange('citizenId')}
+                    error={formik.errors.citizenId}
+                    touched={formik.touched.citizenId}
+                    onBlur={formik.handleBlur('citizenId')}
+                    value={formik.values.citizenId}
+                  />
+                </base.View>
+                <base.View
+                  style={{
+                    width: 380,
+                    marginTop: 20,
+                  }}
+                >
+                  <Input
+                    icon="lock"
+                    error={formik.errors.password}
+                    touched={formik.touched.password}
+                    onChangeText={formik.handleChange('password')}
+                    onBlur={formik.handleBlur('password')}
+                    value={formik.values.password}
+                    secureTextEntry={true}
+                    placeholder="Password"
+                  />
                 </base.View>
 
-                {tab ? (
+                <base.TouchableOpacity
+                  onPress={async () => {
+                    await signin();
+                  }}
+                >
                   <base.View
                     style={{
-                      alignItems: "center",
-                      width: windowWidth,
-                      marginTop: 20,
+                      paddingHorizontal: 165,
+                      paddingVertical: 20,
+                      marginTop: 25,
+                      backgroundColor: "#FF8A48",
+                      borderRadius: 10,
                     }}
                   >
-                    <base.View
-                      style={{
-                        width: 380,
-                      }}
-                    >
-                      <Input
-                        icon="user"
-                        placeholder="หมายเลขบัตรประชาชน"
-                        onChangeText={handleChange("citizenId")}
-                        error={errors.citizenId}
-                        touched={touched.citizenId}
-                        onBlur={handleBlur("citizenId")}
-                        value={values.citizenId}
-                      />
-                    </base.View>
-                    <base.View
-                      style={{
-                        width: 380,
-                        marginTop: 20,
-                      }}
-                    >
-                      <Input
-                        icon="lock"
-                        error={errors.password}
-                        touched={touched.password}
-                        onChangeText={handleChange("password")}
-                        onBlur={handleBlur("password")}
-                        value={values.password}
-                        secureTextEntry={true}
-                        placeholder="Password"
-                      />
-                    </base.View>
-
-                    <base.TouchableOpacity
-                      onPress={() => {
-                        signin();
-                      }}
-                    >
-                      <base.View
-                        style={{
-                          paddingHorizontal: 165,
-                          paddingVertical: 20,
-                          marginTop: 25,
-                          backgroundColor: "#FF8A48",
-                          borderRadius: 10,
-                        }}
-                      >
-                        <base.Text style={{ color: "white" }}>
-                          เข้าสู่ระบบ
-                        </base.Text>
-                      </base.View>
-                    </base.TouchableOpacity>
+                    <base.Text style={{ color: "white" }}>
+                      เข้าสู่ระบบ
+                    </base.Text>
                   </base.View>
-                ) : (
-                  <base.View
-                    style={{
-                      alignItems: "center",
-                      width: windowWidth,
-                      marginTop: 20,
-                    }}
-                  >
-                    <base.TouchableOpacity
-                      onPress={() => {
-                        navigation.navigate("Newsignup", { text: "text" });
-                      }}
-                    >
-                      <base.View
-                        style={{
-                          paddingHorizontal: 112,
-                          paddingVertical: 20,
-                          margin: 20,
-                          backgroundColor: "#FF8A48",
-                          borderRadius: 10,
-                        }}
-                      >
-                        <base.Text style={{ color: "white" }}>
-                          ลงทะเบียนเข้าใช้งาน
-                        </base.Text>
-                      </base.View>
-                    </base.TouchableOpacity>
-                  </base.View>
-                )}
+                </base.TouchableOpacity>
               </base.View>
-            </base.SafeAreaView>
+            ) : (
+              <base.View
+                style={{
+                  alignItems: "center",
+                  width: windowWidth,
+                  marginTop: 20,
+                }}
+              >
+                <base.TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate("Newsignup", { text: "text" });
+                  }}
+                >
+                  <base.View
+                    style={{
+                      paddingHorizontal: 112,
+                      paddingVertical: 20,
+                      margin: 20,
+                      backgroundColor: "#FF8A48",
+                      borderRadius: 10,
+                    }}
+                  >
+                    <base.Text style={{ color: "white" }}>
+                      ลงทะเบียนเข้าใช้งาน
+                    </base.Text>
+                  </base.View>
+                </base.TouchableOpacity>
+              </base.View>
+            )}
           </base.View>
-        </Layer>
-      )}
-    </Formik>
+        </base.SafeAreaView>
+      </base.View >
+    </Layer >
   );
 }
 const styles = base.StyleSheet.create({

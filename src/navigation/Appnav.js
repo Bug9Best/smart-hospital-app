@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import History from "../pages/History";
 import Event from "../pages/Event";
 import Profile from "../pages/Profile";
+import Chat from "../pages/Chat";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Doctorscheduled from "../pages/Doctor-schelude";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -42,6 +43,17 @@ const Appnav = () => {
           }
         }}
       />
+      <Stack.Screen
+        name="Chat"
+        component={Chat}
+        options={{
+          title: "แชท",
+          tabBarLabel: "Chat",
+          tabBarIcon: ({color, size}) => {
+            return <Ionicons name="chatbubble" size={32} color="#FF8A48" />
+          }
+        }}>
+      </Stack.Screen>
       <Stack.Screen
         name="Event"
         component={Event}
