@@ -4,56 +4,60 @@ import BaseURL from "../services/base/base_service";
 import axios from "axios";
 import Layer from "../Layout/lgradient";
 import Input from "../components/input";
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Chat({ }) {
   const [user, setUser] = useState(null);
   const [message, setMessage] = useState("");
 
   var chatAPI = new BaseURL("chat");
-  var path = "";
+  var pathSend = "";
+  var pathGet = "";
 
-  const getUser = async () => {
+  const getData = async () => {
     try {
-      const response = await axios.get(path);
-      setUser(response.data);
+      const jsonValue = await AsyncStorage.getItem('user');
+      setUser(JSON.parse(jsonValue));
       getMessage();
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
+  const send = async () => {
+    let data = {
+      senderId: user.userId,
+      receiverId: "ff923b50-3537-443b-a7ec-01988dc7ccc9",
+      content: message,
+    }
+    pathSend = `${chatAPI.BaseURL}/send`;
+    console.log(pathSend);
+    console.log(data);
+    try {
+      const response = await axios.post(pathSend, data);
+      console.log(response.data);
+      setMessage("");
+      getMessage();
     } catch (error) {
       console.error(error);
     }
   }
 
-  const getData = async () => {
-    try {
-      const jsonValue = await AsyncStorage.getItem('user');
-      path = `${usersAPI.BaseURL}/${JSON.parse(jsonValue).userId}`;
-      getUser();
-    } catch (e) {
-    }
-  };
-
-  const send = async () => {
-    await getData();
-
-    // try {
-    // } catch (e) {
-    // }
-  }
-
   const getMessage = async () => {
-    console.log(chatAPI.BaseURL)
+    pathGet = `${chatAPI.BaseURL}/${user.userId}`;
+    console.log(pathGet);
     try {
-      const response = await axios.get(`${chatAPI.BaseURL}/${user.userId}/`);
-      setEvent(response.data);
+      const response = await axios.get(pathGet);
+      console.log(response.data);
+      setMessage(response.data);
     } catch (error) {
-      alert("An error has occurred");
+      console.error(error);
     }
   }
 
   useEffect(() => {
     getData();
-  }, [message]);
+  }, []);
 
   return (
     <Layer>
