@@ -97,7 +97,7 @@ const Home = ({ navigation }) => {
       description: description,
       date: date,
       pateintId: user.userId,
-      doctorId: "d5af27af-2924-486a-a1de-9625ab24027a",
+      doctorId: "d5397981-cce8-43bd-878f-c7bf2b99dd9e",
     }
     console.log(data);
     console.log(appointmentAPI.BaseURL);

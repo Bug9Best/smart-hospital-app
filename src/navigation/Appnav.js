@@ -1,3 +1,4 @@
+import React, { useState, Component, useEffect } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Signin from "../pages/SignIn";
 import Home from "../pages/Home";
@@ -29,8 +30,6 @@ const Appnav = () => {
           }
         }}
       />
-
-
 
       <Stack.Screen
         name="History"
