@@ -31,7 +31,6 @@ const History1 = () => {
   };
 
   useEffect(() => {
-    console.log(path);
     getData();
   }, []);
 
@@ -40,7 +39,6 @@ const History1 = () => {
       <base.SafeAreaView style={styles.container}>
         <base.ScrollView contentContainerStyle={styles.scrollViewContent}>
           {appoint?.map((item) => {
-            console.log(item);
             return (
               <base.View style={styles.eventCard}>
                 <base.Text style={styles.eventTitle}>{item.title}</base.Text>

@@ -4,21 +4,21 @@ import BaseURL from "../services/base/base_service";
 import axios from "axios";
 import Layer from "../Layout/lgradient";
 import Input from "../components/input";
-import { Entypo as Icon } from '@expo/vector-icons';
 
 
 export default function Chat({ }) {
   const [user, setUser] = useState(null);
   const [message, setMessage] = useState("");
 
-  var usersAPI = new BaseURL("users");
+  var chatAPI = new BaseURL("chat");
   var path = "";
 
   const getUser = async () => {
     try {
       const response = await axios.get(path);
-      console.log(response.data);
       setUser(response.data);
+      getMessage();
+
     } catch (error) {
       console.error(error);
     }
@@ -27,9 +27,7 @@ export default function Chat({ }) {
   const getData = async () => {
     try {
       const jsonValue = await AsyncStorage.getItem('user');
-      console.log(jsonValue)
       path = `${usersAPI.BaseURL}/${JSON.parse(jsonValue).userId}`;
-      console.log(path)
       getUser();
     } catch (e) {
     }
@@ -43,7 +41,18 @@ export default function Chat({ }) {
     // }
   }
 
+  const getMessage = async () => {
+    console.log(chatAPI.BaseURL)
+    try {
+      const response = await axios.get(`${chatAPI.BaseURL}/${user.userId}/`);
+      setEvent(response.data);
+    } catch (error) {
+      alert("An error has occurred");
+    }
+  }
+
   useEffect(() => {
+    getData();
   }, []);
 
   return (

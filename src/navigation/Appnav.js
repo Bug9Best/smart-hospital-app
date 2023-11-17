@@ -17,15 +17,14 @@ const Tab = createNativeStackNavigator();
 const Appnav = () => {
   return (
     <Stack.Navigator screenOptions={{ tabBarActiveTintColor: "orange" }}>
-        
+
       <Stack.Screen
         name="Home"
-
         component={Home}
         options={{
           title: "หน้าแรก",
           tabBarLabel: "Home",
-          tabBarIcon: ({color, size}) => {
+          tabBarIcon: ({ color, size }) => {
             return <Ionicons name="home" size={32} color="#FF8A48" />
           }
         }}
@@ -37,7 +36,7 @@ const Appnav = () => {
         options={{
           title: "ประวัติการรักษา/นัดหมาย",
           tabBarLabel: "History",
-          tabBarIcon: ({color, size}) => {
+          tabBarIcon: ({ color, size }) => {
             return <Ionicons name="documents" size={32} color="#FF8A48" />
           }
         }}
@@ -48,7 +47,7 @@ const Appnav = () => {
         options={{
           title: "แชท",
           tabBarLabel: "Chat",
-          tabBarIcon: ({color, size}) => {
+          tabBarIcon: ({ color, size }) => {
             return <Ionicons name="chatbubble" size={32} color="#FF8A48" />
           }
         }}>
@@ -59,7 +58,7 @@ const Appnav = () => {
         options={{
           title: "ข่าวสาร/กิจกรรม",
           tabBarLabel: "Event",
-          tabBarIcon: ({color, size}) => {
+          tabBarIcon: ({ color, size }) => {
             return <Ionicons name="calendar" size={32} color="#FF8A48" />
           }
         }}
@@ -70,7 +69,7 @@ const Appnav = () => {
         options={{
           title: "ข้อมูลบัญชี",
           tabBarLabel: "Profile",
-          tabBarIcon: ({color, size}) => {
+          tabBarIcon: ({ color, size }) => {
             return <Ionicons name="person" size={32} color="#FF8A48" />
           }
         }}

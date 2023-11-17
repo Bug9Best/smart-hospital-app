@@ -16,7 +16,6 @@ const Profile = ({ navigation }) => {
   const getUser = async () => {
     try {
       const response = await axios.get(path);
-      console.log(response.data);
       setUser(response.data);
     } catch (error) {
       console.error(error);

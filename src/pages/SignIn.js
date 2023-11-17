@@ -25,7 +25,6 @@ export default function Signin({ navigation }) {
 
     try {
       const response = await axios.post(authAPI.BaseURL, data);
-      console.log(response.data);
       if (response.data) {
         const jsonValue = JSON.stringify(response.data);
         await AsyncStorage.setItem("user", jsonValue);
@@ -53,7 +52,6 @@ export default function Signin({ navigation }) {
       password: ""
     },
     onSubmit: values => {
-      console.log(values);
     },
     validationSchema: LoginSchema,
 

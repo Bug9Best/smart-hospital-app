@@ -99,8 +99,6 @@ const Home = ({ navigation }) => {
       pateintId: user.userId,
       doctorId: "d5397981-cce8-43bd-878f-c7bf2b99dd9e",
     }
-    console.log(data);
-    console.log(appointmentAPI.BaseURL);
     try {
       const response = await axios.post(appointmentAPI.BaseURL, data);
       alert("นัดหมายสำเร็จ");
