@@ -17,6 +17,7 @@ import PhoneInfo from "../pages/PhoneInfo";
 import Changepassword from "../pages/Changepassword";
 import Policy from "../pages/Policy";
 import Privacy from "../pages/Privacy";
+import HistoryDetail from "../pages/HistoryDetail";
 
 const Stack = createNativeStackNavigator();
 
@@ -115,11 +116,18 @@ const RootNav = () => {
             title: "แก้ไขที่อยู่",
           }}
         />
-                <Stack.Screen
+        <Stack.Screen
           name="Privacy"
           component={Privacy}
           options={{
             title: "แก้ไขที่อยู่",
+          }}
+        />
+        <Stack.Screen
+          name="HistoryDetail"
+          component={HistoryDetail}
+          options={{
+            title: "รายละเอียดการนัดหมาย",
           }}
         />
       </Stack.Navigator>

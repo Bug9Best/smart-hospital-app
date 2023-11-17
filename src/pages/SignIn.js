@@ -28,7 +28,7 @@ export default function Signin({ navigation }) {
       if (response.data) {
         const jsonValue = JSON.stringify(response.data);
         await AsyncStorage.setItem("user", jsonValue);
-        navigation.navigate("Appnav", { text: "text" });
+        await navigation.navigate("Appnav", { text: "text" });
       }
     } catch (error) {
       alert("รหัสผ่านไม่ถูกต้อง");

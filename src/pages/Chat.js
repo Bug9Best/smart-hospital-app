@@ -53,7 +53,7 @@ export default function Chat({ }) {
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [message]);
 
   return (
     <Layer>

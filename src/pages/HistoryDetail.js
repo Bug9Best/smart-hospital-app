@@ -5,34 +5,10 @@ import axios from "axios";
 import Layer from "../Layout/lgradient";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const History1 = ({ navigation }) => {
-  const [appoint, setAppoint] = useState([]);
-
+const HistoryDetail = ({ route }) => {
+  const { appoint } = route.params;
   var appointService = new BaseURL('users');
   var path = "";
-
-  const getAppoint = async () => {
-    try {
-      const response = await axios.get(path);
-      setAppoint(response.data);
-    } catch (error) {
-      alert("An error has occurred");
-    }
-  };
-
-  const getData = async () => {
-    try {
-      const jsonValue = await AsyncStorage.getItem('user');
-      path = `${appointService.BaseURL}/${JSON.parse(jsonValue).userId}/appointments`;
-      getAppoint();
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
 
   return (
     <Layer>
@@ -40,8 +16,8 @@ const History1 = ({ navigation }) => {
         <base.ScrollView contentContainerStyle={styles.scrollViewContent}>
           {appoint?.map((item) => {
             return (
-              <base.TouchableOpacity onPress={() => navigation.navigate("HistoryDetail", { appoint: appoint.id })}>
-                <base.View style={styles.eventCard} onPress>
+              <base.TouchableOpacity onPress={() => console.log(appoint)}>
+                <base.View style={styles.eventCard}>
                   <base.Text style={styles.eventTitle}>{item.title}</base.Text>
                   <base.Text style={styles.eventDate}>แพทย์ : {item.Doctor.prefix + item.Doctor.firstName + " " + item.Doctor?.lastName}</base.Text>
                   <base.Text style={styles.eventDate}>{item.date}</base.Text>
@@ -50,9 +26,10 @@ const History1 = ({ navigation }) => {
           })}
         </base.ScrollView>
       </base.SafeAreaView>
-    </Layer >
+    </Layer>
   );
 };
+
 
 const styles = base.StyleSheet.create({
   container: {
@@ -99,4 +76,4 @@ const styles = base.StyleSheet.create({
   },
 });
 
-export default History1;
+export default HistoryDetail;
