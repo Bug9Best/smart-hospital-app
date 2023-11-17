@@ -4,6 +4,8 @@ import BaseURL from "../services/base/base_service";
 import axios from "axios";
 import Layer from "../Layout/lgradient";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import DateTimePicker from '@react-native-community/datetimepicker';
+
 
 const HistoryDetail = ({ route }) => {
   const { appoint } = route.params;
@@ -11,6 +13,14 @@ const HistoryDetail = ({ route }) => {
   var path = "";
 
   const [modalVisible, setModalVisible] = useState(false);
+  const [date, setDate] = useState(new Date())
+  const [mode, setMode] = useState('date');
+
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate;
+    setShow(false);
+    setDate(currentDate);
+  };
 
   console.log(appoint);
 
@@ -28,6 +38,38 @@ const HistoryDetail = ({ route }) => {
         <base.View style={styles.centeredView}>
           <base.View style={styles.modalView}>
             <base.Text style={styles.modalText}>เลือกดำเนินการ</base.Text>
+            <base.View>
+            <DateTimePicker
+                style={{ alignSelf: "start", marginLeft: -10, marginTop: 10 }}
+                testID="dateTimePicker"
+                value={date}
+                mode={mode}
+                is24Hour={true}
+                onChange={onChange}
+              />
+              </base.View>
+              <base.TouchableOpacity
+                style={{
+                  paddingHorizontal: 128,
+                  paddingVertical: 5,
+                  marginTop: "5%",
+                  backgroundColor: "#FF8A48",
+                  borderRadius: 10,
+                }}
+                onPress={() => {
+
+                }}>
+                <base.Text
+                  style={{
+                    fontSize: 12,
+                    padding: 16,
+                    color: "white",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                  }}>
+                  ดำเนินการต่อ
+                </base.Text>
+              </base.TouchableOpacity>
             <base.TouchableOpacity
               style={{
                 paddingHorizontal: 100,
@@ -35,12 +77,14 @@ const HistoryDetail = ({ route }) => {
                 marginTop: "5%",
                 borderRadius: 10,
                 borderWidth: 0.5,
-                marginTop: 30,
+                marginTop: 20,
+                width: "100%",
               }}
               onPress={() => {
                 setModalVisible(!modalVisible);
               }}
             >
+              
               <base.Text
                 style={{
                   fontSize: 12,
@@ -60,6 +104,27 @@ const HistoryDetail = ({ route }) => {
         <base.ScrollView contentContainerStyle={styles.scrollViewContent}>
           <base.TouchableOpacity onPress={() => console.log(appoint)}>
             <base.View style={styles.eventCard}>
+              <base.Text style={{marginLeft: 15, fontSize: 18, marginTop: 10}}>
+
+              รายละเอียดผู้ทำการนัดหมาย</base.Text>
+            <base.View style={{marginTop: 10}}>
+              <base.Text style={styles.eventDate}>
+                แพทย์ :{" "}
+                {appoint.Doctor.prefix +
+                  appoint.Doctor.firstName +
+                  " " +
+                  appoint.Doctor?.lastName}
+              </base.Text>
+              </base.View>
+              <base.Text style={styles.eventDate}>{appoint.date}</base.Text>
+              <base.Text style={styles.eventDate}>
+                {appoint.description}
+              </base.Text>
+            </base.View>
+            <base.View style={styles.eventCard}>
+              <base.Text style={{marginLeft: 15, fontSize: 18, marginTop: 10}}>
+
+              รายการละเอียดการนัด</base.Text>
               <base.Text style={styles.eventTitle}>{appoint.title}</base.Text>
               <base.Text style={styles.eventDate}>
                 แพทย์ :{" "}
@@ -70,7 +135,7 @@ const HistoryDetail = ({ route }) => {
               </base.Text>
               <base.Text style={styles.eventDate}>{appoint.date}</base.Text>
               <base.Text style={styles.eventDate}>
-                {appoint.description}
+                {appoint.status}
               </base.Text>
             </base.View>
           </base.TouchableOpacity>

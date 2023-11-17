@@ -1,12 +1,12 @@
 import React, { useState, Component, useEffect } from "react";
-import base from '../modules/base_module'
+import base from "../modules/base_module";
 import BaseURL from "../services/base/base_service";
 import axios from "axios";
 import Layer from "../Layout/lgradient";
 import Input from "../components/input";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function Chat({ }) {
+export default function Chat({}) {
   const [user, setUser] = useState(null);
   const [message, setMessage] = useState("");
 
@@ -16,7 +16,7 @@ export default function Chat({ }) {
 
   const getData = async () => {
     try {
-      const jsonValue = await AsyncStorage.getItem('user');
+      const jsonValue = await AsyncStorage.getItem("user");
       setUser(JSON.parse(jsonValue));
       getMessage();
     } catch (e) {
@@ -29,7 +29,7 @@ export default function Chat({ }) {
       senderId: user.userId,
       receiverId: "ff923b50-3537-443b-a7ec-01988dc7ccc9",
       content: message,
-    }
+    };
     pathSend = `${chatAPI.BaseURL}/send`;
     console.log(pathSend);
     console.log(data);
@@ -41,7 +41,7 @@ export default function Chat({ }) {
     } catch (error) {
       console.error(error);
     }
-  }
+  };
 
   const getMessage = async () => {
     pathGet = `${chatAPI.BaseURL}/${user.userId}`;
@@ -53,7 +53,7 @@ export default function Chat({ }) {
     } catch (error) {
       console.error(error);
     }
-  }
+  };
 
   useEffect(() => {
     getData();
@@ -64,26 +64,26 @@ export default function Chat({ }) {
       <base.SafeAreaView style={styles.container}>
         <base.ScrollView>
           <base.View>
-          <base.View style={styles.myChatbox}>
-          <base.Text >
-          dsafasfasfasfasfasasdasdafedgdsv
-          </base.Text>
-          
-          </base.View>
-          <base.View style={styles.anotherChat}>
-          <base.Text >
-          dsafasfasfasfasfasasdasdafedgdsv
-          </base.Text>
-          
-          </base.View>
+          <base.View style={{}}>
+            <base.View style={styles.myChatbox}>
+              <base.Text>dsafasfasfasfasfasasdasdafedgdsv</base.Text>
+            </base.View>
+            </base.View>
+            <base.View style={styles.anotherChat}>
+              <base.Text>dsafasfasfasfasfasasdasdafedgdsv</base.Text>
+            </base.View>
           </base.View>
         </base.ScrollView>
         <base.View style={styles.messageContainer}>
           <base.View style={styles.customInput}>
-            <Input onChangeText={setMessage}>
-            </Input>
+            <Input onChangeText={setMessage}></Input>
           </base.View>
-          <base.TouchableOpacity style={styles.sendButton} onPress={() => { send() }}>
+          <base.TouchableOpacity
+            style={styles.sendButton}
+            onPress={() => {
+              send();
+            }}
+          >
             <base.Text style={styles.sendButtonText}>ส่ง</base.Text>
           </base.TouchableOpacity>
         </base.View>
@@ -95,7 +95,6 @@ export default function Chat({ }) {
 const styles = base.StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
   },
 
   box: {
@@ -108,13 +107,13 @@ const styles = base.StyleSheet.create({
   title: {
     marginTop: 10,
     fontWeight: "bold",
-    fontSize: 15
+    fontSize: 15,
   },
 
   subTitle: {
     marginTop: 10,
     fontSize: 12,
-    textAlign: "center"
+    textAlign: "center",
   },
 
   messageContainer: {
@@ -145,22 +144,19 @@ const styles = base.StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
   },
-  myChatbox:{
+  myChatbox: {
     backgroundColor: "#FF8A48",
-    display: "flex",
     justifyContent: "flex-end",
     marginTop: "5%",
     padding: 16,
     borderRadius: 10,
-    alignItems: "center",
+    width: "50%",
   },
-  anotherChat:{
+  anotherChat: {
     backgroundColor: "#82c1ff",
     alignItems: "flex-start",
-    display: "flex",
     marginTop: "5%",
     padding: 16,
     borderRadius: 10,
-    alignItems: "center",
   },
 });
