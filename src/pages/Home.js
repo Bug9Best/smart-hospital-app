@@ -97,7 +97,7 @@ const Home = ({ navigation }) => {
       description: description,
       date: date,
       pateintId: user.userId,
-      doctorId: "d5397981-cce8-43bd-878f-c7bf2b99dd9e",
+      doctorId: "e2ec81b8-0ed6-4300-ad8e-29050e7a9e28",
     }
     try {
       const response = await axios.post(appointmentAPI.BaseURL, data);

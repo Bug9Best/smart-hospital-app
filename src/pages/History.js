@@ -9,7 +9,7 @@ const History1 = ({ navigation }) => {
   const [appoint, setAppoint] = useState([]);
 
   var appointService = new BaseURL('users');
-  var path = "";
+  var path = "http://localhost:3200/appointment";
 
   const getAppoint = async () => {
     try {
@@ -40,7 +40,7 @@ const History1 = ({ navigation }) => {
         <base.ScrollView contentContainerStyle={styles.scrollViewContent}>
           {appoint?.map((item) => {
             return (
-              <base.TouchableOpacity onPress={() => navigation.navigate("HistoryDetail", { appoint: appoint.id })}>
+              <base.TouchableOpacity onPress={() => navigation.navigate("HistoryDetail", { appoint: item })}>
                 <base.View style={styles.eventCard} onPress>
                   <base.Text style={styles.eventTitle}>{item.title}</base.Text>
                   <base.Text style={styles.eventDate}>แพทย์ : {item.Doctor.prefix + item.Doctor.firstName + " " + item.Doctor?.lastName}</base.Text>

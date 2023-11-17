@@ -3,33 +3,100 @@ import base from "../modules/base_module";
 import BaseURL from "../services/base/base_service";
 import axios from "axios";
 import Layer from "../Layout/lgradient";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const HistoryDetail = ({ route }) => {
   const { appoint } = route.params;
-  var appointService = new BaseURL('users');
+  var appointService = new BaseURL("users");
   var path = "";
+
+  const [modalVisible, setModalVisible] = useState(false);
+
+  console.log(appoint);
 
   return (
     <Layer>
+      <base.Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+        }}
+      >
+        <base.View style={styles.centeredView}>
+          <base.View style={styles.modalView}>
+            <base.Text style={styles.modalText}>เลือกดำเนินการ</base.Text>
+            <base.TouchableOpacity
+              style={{
+                paddingHorizontal: 100,
+                paddingVertical: 5,
+                marginTop: "5%",
+                borderRadius: 10,
+                borderWidth: 0.5,
+                marginTop: 30,
+              }}
+              onPress={() => {
+                setModalVisible(!modalVisible);
+              }}
+            >
+              <base.Text
+                style={{
+                  fontSize: 12,
+                  padding: 16,
+                  color: "#FF8A48",
+                  fontWeight: "bold",
+                  textAlign: "center",
+                }}
+              >
+                ปิดหน้าต่างนี้
+              </base.Text>
+            </base.TouchableOpacity>
+          </base.View>
+        </base.View>
+      </base.Modal>
       <base.SafeAreaView style={styles.container}>
         <base.ScrollView contentContainerStyle={styles.scrollViewContent}>
-          {appoint?.map((item) => {
-            return (
-              <base.TouchableOpacity onPress={() => console.log(appoint)}>
-                <base.View style={styles.eventCard}>
-                  <base.Text style={styles.eventTitle}>{item.title}</base.Text>
-                  <base.Text style={styles.eventDate}>แพทย์ : {item.Doctor.prefix + item.Doctor.firstName + " " + item.Doctor?.lastName}</base.Text>
-                  <base.Text style={styles.eventDate}>{item.date}</base.Text>
-                </base.View>
-              </base.TouchableOpacity>)
-          })}
+          <base.TouchableOpacity onPress={() => console.log(appoint)}>
+            <base.View style={styles.eventCard}>
+              <base.Text style={styles.eventTitle}>{appoint.title}</base.Text>
+              <base.Text style={styles.eventDate}>
+                แพทย์ :{" "}
+                {appoint.Doctor.prefix +
+                  appoint.Doctor.firstName +
+                  " " +
+                  appoint.Doctor?.lastName}
+              </base.Text>
+              <base.Text style={styles.eventDate}>{appoint.date}</base.Text>
+              <base.Text style={styles.eventDate}>
+                {appoint.description}
+              </base.Text>
+            </base.View>
+          </base.TouchableOpacity>
+          <base.View style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+            <base.TouchableOpacity
+              style={styles.sendButton}
+              onPress={() => {
+                setModalVisible(true);
+              }}
+            >
+              <base.Text style={styles.sendButtonText}>เลื่อนนัดหมาย</base.Text>
+            </base.TouchableOpacity>
+            <base.TouchableOpacity
+              style={styles.sendButton}
+              onPress={() => {
+                send();
+              }}
+            >
+              <base.Text style={styles.sendButtonText}>ยกเลิกนัดหมาย</base.Text>
+            </base.TouchableOpacity>
+          </base.View>
         </base.ScrollView>
       </base.SafeAreaView>
     </Layer>
   );
 };
-
 
 const styles = base.StyleSheet.create({
   container: {
@@ -53,8 +120,8 @@ const styles = base.StyleSheet.create({
   },
 
   centerImage: {
-    justifyContent: 'end',
-    alignItems: 'center',
+    justifyContent: "end",
+    alignItems: "center",
   },
 
   eventImage: {
@@ -73,6 +140,45 @@ const styles = base.StyleSheet.create({
     paddingBottom: 16,
     fontSize: 14,
     color: "#3F3D3C",
+  },
+  sendButton: {
+    backgroundColor: "#FF8A48",
+    width: "90%",
+    marginTop: 10,
+    padding: 16,
+    borderRadius: 10,
+    alignItems: "center",
+  },
+
+  sendButtonText: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  modalView: {
+    color: "#ED7D31",
+    margin: 20,
+    marginTop: "50%",
+    backgroundColor: "white",
+    borderRadius: 20,
+    width: "90%",
+    padding: 16,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 1.25,
+    shadowRadius: 100,
+    elevation: 5,
+  },
+  modalText: {
+    marginTop: 20,
+    marginBottom: 15,
+    textAlign: "center",
+    fontSize: 18,
+    fontWeight: "bold",
   },
 });
 

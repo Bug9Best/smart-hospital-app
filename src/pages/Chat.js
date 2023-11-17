@@ -64,6 +64,18 @@ export default function Chat({ }) {
       <base.SafeAreaView style={styles.container}>
         <base.ScrollView>
           <base.View>
+          <base.View style={styles.myChatbox}>
+          <base.Text >
+          dsafasfasfasfasfasasdasdafedgdsv
+          </base.Text>
+          
+          </base.View>
+          <base.View style={styles.anotherChat}>
+          <base.Text >
+          dsafasfasfasfasfasasdasdafedgdsv
+          </base.Text>
+          
+          </base.View>
           </base.View>
         </base.ScrollView>
         <base.View style={styles.messageContainer}>
@@ -132,5 +144,23 @@ const styles = base.StyleSheet.create({
     color: "white",
     fontSize: 16,
     fontWeight: "bold",
+  },
+  myChatbox:{
+    backgroundColor: "#FF8A48",
+    display: "flex",
+    justifyContent: "flex-end",
+    marginTop: "5%",
+    padding: 16,
+    borderRadius: 10,
+    alignItems: "center",
+  },
+  anotherChat:{
+    backgroundColor: "#82c1ff",
+    alignItems: "flex-start",
+    display: "flex",
+    marginTop: "5%",
+    padding: 16,
+    borderRadius: 10,
+    alignItems: "center",
   },
 });
